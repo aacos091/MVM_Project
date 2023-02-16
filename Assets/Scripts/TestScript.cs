@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
+    public Rigidbody2D theRB;
+
+    public float moveSpeed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,6 @@ public class TestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, theRB.velocity.y);
     }
 }
