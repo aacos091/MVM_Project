@@ -26,20 +26,30 @@ public class PlayerController : MonoBehaviour
     {
         onGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
         
-        if (Input.GetKey(KeyCode.LeftShift) && onGround)
+        if (onGround)
         {
-            theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, theRB.velocity.y);
-        }
-        else if (onGround)
-        {
-            theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y);
-        }
+            if (Input.GetAxis("Horizontal") < 0f )
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+        
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, theRB.velocity.y);
+            }
+            else
+            {
+                theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y);
+            }
 
-        if (Input.GetButtonDown("Jump") && onGround)
-        {
-            theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+            if (Input.GetButtonDown("Jump"))
+            {
+                theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+            }
         }
-        
-        
     }
 }
