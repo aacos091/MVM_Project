@@ -28,11 +28,11 @@ public class PlayerController : MonoBehaviour
         
         if (onGround)
         {
-            if (Input.GetAxis("Horizontal") < 0f )
+            if (Input.GetAxis("Horizontal") < -0.2f)
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
-            else
+            else if (Input.GetAxis("Horizontal") > 0.2f)
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
             }

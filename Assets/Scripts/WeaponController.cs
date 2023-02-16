@@ -15,7 +15,7 @@ public class WeaponController : MonoBehaviour
     public Transform gunBarrel;
     public LayerMask targetLayer;
 
-    private RaycastHit hit;
+    private RaycastHit2D hit;
 
     private void Start()
     {
@@ -47,10 +47,12 @@ public class WeaponController : MonoBehaviour
         {
             Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
             Debug.Log("shot the gun");
+
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
             
-            if (Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer))
+            if (hit)
             {
-                Debug.Log("you hit something");
+                Debug.Log("you hit " + hit.transform.name);
             }
 
             --currentPistolMagCount;
