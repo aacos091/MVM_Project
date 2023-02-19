@@ -25,18 +25,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         onGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
+
+        Vector3 gunPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        if (gunPos.x < transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
+        }
         
         if (onGround)
         {
-            if (Input.GetAxis("Horizontal") < -0.2f)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-            else if (Input.GetAxis("Horizontal") > 0.2f)
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-        
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, theRB.velocity.y);

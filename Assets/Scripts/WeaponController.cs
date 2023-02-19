@@ -39,6 +39,10 @@ public class WeaponController : MonoBehaviour
     [FormerlySerializedAs("pistolCheck")] public AudioClip pistolRemove;
     public AudioClip pistolReload;
 
+    // This is only used for drawing the lines in debugging
+    public Material lineMaterial;
+    public Ray r2d;
+
     private void Start()
     {
         Debug.Log("Amount of bullets: " + pistolBullets);
@@ -50,6 +54,8 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
+        weaponRotate();
+        
         if (Input.GetMouseButtonDown(0) && !_isReloading && !_isChecking && !_isFiring)
         {
             StartCoroutine(Shoot());
@@ -122,6 +128,7 @@ public class WeaponController : MonoBehaviour
             }
             else
             {
+                UIController.instance.checkMag(currentPistolMagCount);
                 Debug.Log("no more ammo");
             }
         }
@@ -150,7 +157,11 @@ public class WeaponController : MonoBehaviour
             Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
             Debug.Log("shot the gun");
 
+            r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
+
             hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
+
+            DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             
             if (hit)
             {
@@ -188,6 +199,46 @@ public class WeaponController : MonoBehaviour
             weaponAudio.PlayOneShot(pistolReload);
             soundPlayed = true;
         }
+    }
+
+    // See https://youtu.be/FgI8cgYAewM for reference
+    void weaponRotate()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 gunPosition = Camera.main.WorldToScreenPoint(transform.position);
+        
+        mousePos.x = mousePos.x - gunPosition.x;
+        mousePos.y = mousePos.y - gunPosition.y;
+
+        float gunAngle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+
+        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(180f, 0f, -gunAngle));
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, gunAngle));
+        }
+    }
+    
+    // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference
+    // Only used for debugging
+    void DrawLine(Vector2 start, Vector2 end, Color color, float duration = 3f)
+    {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        //lr.useWorldSpace = false;
+        lr.material = lineMaterial;
+        lr.startColor = color;
+        lr.endColor = color;
+        lr.startWidth = 0.1f;
+        lr.endWidth = 0.1f;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
     }
     
 }
