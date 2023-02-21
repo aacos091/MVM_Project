@@ -25,6 +25,10 @@ public class WeaponController : MonoBehaviour
     public float checkTime;
     private bool _isChecking;
 
+    public float upAimingAngle;
+    public float downAimingAngle;
+    private bool _isAiming;
+
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
     private bool _reloadHeld = false;
@@ -54,20 +58,36 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
-        weaponRotate();
-        
-        if (Input.GetMouseButtonDown(0) && !_isReloading && !_isChecking && !_isFiring)
-        {
-            StartCoroutine(Shoot());
-        }
+        //weaponRotationAiming();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
+        {
+            Debug.Log("aiming button held down");
+            _isAiming = true;
+            
+            weaponDirectionalAiming();
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(Shoot());
+            }
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+            _isAiming = false;
+        }
+        
+        
+        
+
+        if (Input.GetKeyDown(KeyCode.R) && !_isAiming)
         {
             pistolRemoveSound();
             _reloadPressedTime = Time.timeSinceLevelLoad;
             _reloadHeld = false;
         }
-        else if (Input.GetKeyUp(KeyCode.R))
+        else if (Input.GetKeyUp(KeyCode.R) && !_isAiming)
         {
             if (!_reloadHeld && !_isChecking)
             {
@@ -82,7 +102,7 @@ public class WeaponController : MonoBehaviour
             _reloadHeld = false;
         }
         
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && !_isAiming)
         {
             if (Time.timeSinceLevelLoad - _reloadPressedTime > MinimumHeldDuration)
             {
@@ -97,6 +117,7 @@ public class WeaponController : MonoBehaviour
         }
 
         if (_isFiring) UIController.instance.UpdateStatus("Firing");
+        else if (_isAiming) UIController.instance.UpdateStatus("Aiming");
         else if (_isChecking) UIController.instance.UpdateStatus("Checking");
         else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
         else UIController.instance.UpdateStatus("Idle");;
@@ -202,7 +223,8 @@ public class WeaponController : MonoBehaviour
     }
 
     // See https://youtu.be/FgI8cgYAewM for reference
-    void weaponRotate()
+    // This is for aiming with the mouse and/or thumbstick
+    void weaponRotationAiming()
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 gunPosition = Camera.main.WorldToScreenPoint(transform.position);
@@ -220,6 +242,24 @@ public class WeaponController : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, gunAngle));
         }
+    }
+
+    // Use this to aim in pre-defined directions
+    void weaponDirectionalAiming()
+    {
+        if (Input.GetAxisRaw("Vertical") > 0.2f)
+        {
+            transform.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
+        }
+        else if (Input.GetAxisRaw("Vertical") < -0.2f)
+        {
+            transform.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        
     }
     
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference

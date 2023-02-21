@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed;
     public float jumpForce;
 
+    private bool _isAiming;
+
     public Transform groundPoint;
     private bool onGround;
     public LayerMask whatIsGround;
@@ -26,18 +28,20 @@ public class PlayerController : MonoBehaviour
     {
         onGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
 
-        Vector3 gunPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //TurnWithMouse();
         
-        if (gunPos.x < transform.position.x)
+        TurnWithButtons();
+
+        if (Input.GetMouseButton(1))
         {
-            transform.eulerAngles = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
+            _isAiming = true;
         }
         else
         {
-            transform.eulerAngles = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
+            _isAiming = false;
         }
         
-        if (onGround)
+        if (onGround && !_isAiming)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -52,6 +56,34 @@ public class PlayerController : MonoBehaviour
             {
                 theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
             }
+        }
+    }
+
+    // Use this if you're planning to aim with the mouse and/or thumbstick
+    void TurnWithMouse()
+    {
+        Vector3 gunPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        if (gunPos.x < transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
+        }
+    }
+
+    // Use this if you want to aim in pre-defined directions
+    void TurnWithButtons()
+    {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 }
