@@ -187,6 +187,7 @@ public class WeaponController : MonoBehaviour
             if (hit)
             {
                 Debug.Log("you hit " + hit.transform.name);
+                Destroy(hit.transform.gameObject);
             }
 
             --currentPistolMagCount;
