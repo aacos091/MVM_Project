@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed;
     public float jumpForce;
 
-    private bool _isAiming;
+    private bool _weaponReady;
 
     public Transform groundPoint;
     private bool onGround;
@@ -34,14 +34,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            _isAiming = true;
+            _weaponReady = true;
         }
         else
         {
-            _isAiming = false;
+            _weaponReady = false;
         }
         
-        if (onGround && !_isAiming)
+        if (onGround && !_weaponReady)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
