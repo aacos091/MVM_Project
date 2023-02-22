@@ -12,7 +12,9 @@ public class WeaponController : MonoBehaviour
     public int pistolBullets;
     public int currentPistolMagCount;
     public int maxPistolMagCount;
-    public int numOfMags;
+    public List<int> mags = new List<int>();
+    private int magID = 0;
+    
     
     public float fireRate;
     private float _nextFire;
@@ -51,9 +53,14 @@ public class WeaponController : MonoBehaviour
     {
         Debug.Log("Amount of bullets: " + pistolBullets);
         Debug.Log("Amount in mag: " + currentPistolMagCount);
+
+        mags.Add(currentPistolMagCount);
+        
         
         UIController.instance.UpdateTotals(pistolBullets, currentPistolMagCount);
         UIController.instance.UpdateStatus("Idle");
+        
+        Debug.Log("There are " + mags[0] + " bullets in the current mag");
     }
 
     private void Update()
@@ -77,9 +84,9 @@ public class WeaponController : MonoBehaviour
             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             _isAiming = false;
         }
-        
-        
-        
+
+
+
 
         if (Input.GetKeyDown(KeyCode.R) && !_isAiming)
         {

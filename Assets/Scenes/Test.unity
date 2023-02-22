@@ -231,8 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1668d0a6ef79bf479cff5085c755f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  sprintSpeed: 15
+  moveSpeed: 5
+  sprintSpeed: 9
   jumpForce: 15
   groundPoint: {fileID: 440620896}
   whatIsGround:
@@ -2842,7 +2842,7 @@ MonoBehaviour:
   pistolBullets: 24
   currentPistolMagCount: 7
   maxPistolMagCount: 12
-  numOfMags: 0
+  mags: 
   fireRate: 0.2
   reloadRate: 1
   checkTime: 1.4
