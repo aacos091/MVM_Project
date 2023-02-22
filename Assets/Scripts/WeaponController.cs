@@ -123,11 +123,16 @@ public class WeaponController : MonoBehaviour
             _isReloading = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.Q) && !_isReloading && !_isChecking && !_isAiming && !_isFiring)
+        {
+            changeMagazines();
+        }
+
         if (_isFiring) UIController.instance.UpdateStatus("Firing");
         else if (_isAiming) UIController.instance.UpdateStatus("Aiming");
         else if (_isChecking) UIController.instance.UpdateStatus("Checking");
         else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
-        else UIController.instance.UpdateStatus("Idle");;
+        else UIController.instance.UpdateStatus("Idle");
     }
 
     void Reload()
@@ -151,6 +156,7 @@ public class WeaponController : MonoBehaviour
                         pistolBullets--;
                         currentPistolMagCount++;
                         UIController.instance.checkMag(currentPistolMagCount);
+                        mags[magID]++;
                     }
                 }
             }
@@ -198,6 +204,8 @@ public class WeaponController : MonoBehaviour
             }
 
             --currentPistolMagCount;
+            
+            --mags[magID];
         }
         else if (currentPistolMagCount == 0)
         {
@@ -268,6 +276,31 @@ public class WeaponController : MonoBehaviour
             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
         
+    }
+
+    void changeMagazines()
+    {
+        if (mags.Count == 1)
+        {
+            Debug.Log("You only have one mag");
+        }
+        else if (magID < mags.Count - 1)
+        {
+            magID++;
+            currentPistolMagCount = mags[magID];
+            UIController.instance.UpdateTotals(pistolBullets, currentPistolMagCount);
+        }
+        else
+        {
+            magID = 0;
+            currentPistolMagCount = mags[magID];
+            UIController.instance.UpdateTotals(pistolBullets, currentPistolMagCount);
+        }
+    }
+
+    public void findNewMag(int amountOfBullets)
+    {
+        mags.Add(amountOfBullets);
     }
     
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference
