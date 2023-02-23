@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D theRB;
+    private Rigidbody2D _theRb;
 
     public float moveSpeed;
     public float sprintSpeed;
@@ -15,12 +16,16 @@ public class PlayerController : MonoBehaviour
     public Transform groundPoint;
     private bool onGround;
     public LayerMask whatIsGround;
+
+    // Just to make sure that melee weapons can at least change properly
+    [NotNull] private WeaponManager _weaponMan;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        theRB = GetComponent<Rigidbody2D>();
+        _theRb = GetComponent<Rigidbody2D>();
+        _weaponMan = GetComponentInChildren<WeaponManager>();
     }
 
     // Update is called once per frame
@@ -45,17 +50,35 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, theRB.velocity.y);
+                _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, _theRb.velocity.y);
             }
             else
             {
-                theRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y);
+                _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, _theRb.velocity.y);
             }
 
             if (Input.GetButtonDown("Jump"))
             {
-                theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                _theRb.velocity = new Vector2(_theRb.velocity.x, jumpForce);
             }
+        }
+
+        // Change weapons
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Melee);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Pistol);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Uzi);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Shotgun);
         }
     }
 

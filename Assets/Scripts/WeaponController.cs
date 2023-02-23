@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class WeaponController : MonoBehaviour
 {   
-    // Weapon Type & Ammo
+    // Ammo in current weapon
     public int pistolBullets;
     public int currentPistolMagCount;
     public int maxPistolMagCount;
