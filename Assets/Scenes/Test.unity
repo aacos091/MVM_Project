@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &22324742
 Transform:
   m_ObjectHideFlags: 0
@@ -2401,20 +2401,7 @@ MonoBehaviour:
   uzi: {fileID: 22324741}
   shotgun: {fileID: 1237677845}
   uziFound: 1
-  shotgunFound: 1
-  pistolBullets: 24
-  currentPistolMagCount: 7
-  maxPistolMagCount: 12
-  pistolMagID: 0
-  pistolMags: 
-  uziBullets: 0
-  currentUziMagCount: 0
-  maxUziMagCount: 0
-  uziMagID: 0
-  uziMags: 
-  shotgunShells: 0
-  currentShellCount: 0
-  maxShellCount: 0
+  shotgunFound: 0
 --- !u!114 &403633479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4729,7 +4716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1398249584
 Transform:
   m_ObjectHideFlags: 0

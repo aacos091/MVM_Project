@@ -5,6 +5,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PistolController : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class PistolController : MonoBehaviour
     [Header("Other")]
     public Transform gunBarrel;
     public LayerMask targetLayer;
+    public Image weaponImage;
 
     private RaycastHit2D hit;
 
@@ -136,6 +138,17 @@ public class PistolController : MonoBehaviour
         else if (_isChecking) UIController.instance.UpdateStatus("Checking");
         else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
         else UIController.instance.UpdateStatus("Idle");
+    }
+    
+    private void OnEnable()
+    {
+        weaponImage.gameObject.SetActive(true);
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+    }
+
+    private void OnDisable()
+    {
+        weaponImage.gameObject.SetActive(false);
     }
 
     void Reload()

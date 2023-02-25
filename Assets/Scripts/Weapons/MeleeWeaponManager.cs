@@ -71,6 +71,7 @@ public class MeleeWeaponManager : MonoBehaviour
                 _knifeEquipped = true;
                 _baseballBatEquipped = false;
                 _crowbarEquipped = false;
+                UIController.instance.meleeWeaponEquipped("Knife");
                 break;
             case MeleeWeapons.BaseballBat:
                 meleeComponent.attackPos = baseballBatAttackPos;
@@ -80,6 +81,7 @@ public class MeleeWeaponManager : MonoBehaviour
                 _knifeEquipped = false;
                 _baseballBatEquipped = true;
                 _crowbarEquipped = false;
+                UIController.instance.meleeWeaponEquipped("Baseball Bat");
                 break;
             case MeleeWeapons.Crowbar:
                 meleeComponent.attackPos = crowbarAttackPos;
@@ -89,6 +91,7 @@ public class MeleeWeaponManager : MonoBehaviour
                 _knifeEquipped = false;
                 _baseballBatEquipped = false;
                 _crowbarEquipped = true;
+                UIController.instance.meleeWeaponEquipped("Crowbar");
                 break;
             default:
                 Debug.Log("Invalid Selection");

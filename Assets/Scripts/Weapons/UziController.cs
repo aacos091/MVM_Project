@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 
 public class UziController : MonoBehaviour
@@ -34,6 +35,7 @@ public class UziController : MonoBehaviour
     [Header("Other")]
     public Transform gunBarrel;
     public LayerMask targetLayer;
+    public Image weaponImage;
 
     private RaycastHit2D hit;
     
@@ -146,6 +148,17 @@ public class UziController : MonoBehaviour
         else if (_isChecking) UIController.instance.UpdateStatus("Checking");
         else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
         else UIController.instance.UpdateStatus("Idle");
+    }
+
+    private void OnEnable()
+    {
+        weaponImage.gameObject.SetActive(true);
+        UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
+    }
+
+    private void OnDisable()
+    {
+        weaponImage.gameObject.SetActive(false);
     }
 
     void Reload()

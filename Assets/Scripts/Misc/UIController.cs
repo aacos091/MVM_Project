@@ -41,6 +41,13 @@ public class UIController : MonoBehaviour
         magAmount.text = "Shells in Barrel: " + mag;
     }
 
+    public void meleeWeaponEquipped(string weapon)
+    {
+        totalBullets.text = weapon + " equipped";
+        magAmount.text = "";
+        weaponStatus.text = "";
+    }
+
     public void UpdateStatus(string status)
     {
         weaponStatus.text = status;
