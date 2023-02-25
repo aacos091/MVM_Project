@@ -101,7 +101,7 @@ public class UziController : MonoBehaviour
             }
             else
             {
-                weaponAudio.PlayOneShot(pistolReload);
+                weaponAudio.PlayOneShot(uziReload);
                 UIController.instance.putMagAway(WeaponManager.instance.currentPistolMagCount);
             }
 
@@ -151,7 +151,7 @@ public class UziController : MonoBehaviour
                         _nextReload = Time.time + reloadRate;
                         
                         Debug.Log("Bullet added");
-                        weaponAudio.PlayOneShot(pistolInsertBullet);
+                        weaponAudio.PlayOneShot(uziInsertBullet);
                         WeaponManager.instance.pistolBullets--;
                         WeaponManager.instance.currentPistolMagCount++;
                         UIController.instance.checkMag(WeaponManager.instance.currentPistolMagCount);
@@ -176,7 +176,7 @@ public class UziController : MonoBehaviour
         UIController.instance.checkMag(WeaponManager.instance.currentPistolMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
-        weaponAudio.PlayOneShot(pistolReload);
+        weaponAudio.PlayOneShot(uziReload);
         UIController.instance.putMagAway(WeaponManager.instance.currentPistolMagCount);
         UIController.instance.UpdateTotals(WeaponManager.instance.pistolBullets, WeaponManager.instance.currentPistolMagCount);
     }
@@ -186,7 +186,7 @@ public class UziController : MonoBehaviour
         if (WeaponManager.instance.currentPistolMagCount > 0)
         {
             _isFiring = true;
-            weaponAudio.PlayOneShot(pistolFire);
+            weaponAudio.PlayOneShot(uziFire);
             Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
             Debug.Log("shot the gun");
 
@@ -208,7 +208,7 @@ public class UziController : MonoBehaviour
         }
         else if (WeaponManager.instance.currentPistolMagCount == 0)
         {
-            weaponAudio.PlayOneShot(pistolEmpty);
+            weaponAudio.PlayOneShot(uziEmpty);
             Debug.Log("No Ammo");
         }
         
@@ -222,7 +222,7 @@ public class UziController : MonoBehaviour
         bool soundPlayed = false;
         while (!soundPlayed)
         {
-            weaponAudio.PlayOneShot(pistolRemove);
+            weaponAudio.PlayOneShot(uziRemove);
             soundPlayed = true;
         }
     }
@@ -232,7 +232,7 @@ public class UziController : MonoBehaviour
         bool soundPlayed = false;
         while (!soundPlayed)
         {
-            weaponAudio.PlayOneShot(pistolReload);
+            weaponAudio.PlayOneShot(uziReload);
             soundPlayed = true;
         }
     }
