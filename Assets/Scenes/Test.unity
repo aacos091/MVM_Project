@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 22324742}
   - component: {fileID: 22324745}
   - component: {fileID: 22324744}
+  - component: {fileID: 22324746}
   - component: {fileID: 22324743}
   m_Layer: 0
   m_Name: Uzi
@@ -338,6 +339,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &22324746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22324741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6bd715102ff324b9fdc7d85546bbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolBullets: 0
+  currentPistolMagCount: 0
+  maxPistolMagCount: 0
+  mags: 
+  fireRate: 0
+  reloadRate: 0
+  checkTime: 0
+  upAimingAngle: 0
+  downAimingAngle: 0
+  gunBarrel: {fileID: 0}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  weaponAudio: {fileID: 0}
+  pistolEmpty: {fileID: 0}
+  pistolFire: {fileID: 0}
+  pistolInsertBullet: {fileID: 0}
+  pistolRemove: {fileID: 0}
+  pistolReload: {fileID: 0}
+  lineMaterial: {fileID: 0}
 --- !u!1 &34188999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,8 +1852,8 @@ MonoBehaviour:
   pistol: {fileID: 1398249583}
   uzi: {fileID: 22324741}
   shotgun: {fileID: 1237677845}
-  uziFound: 0
-  shotgunFound: 0
+  uziFound: 1
+  shotgunFound: 1
 --- !u!1 &440620895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 463112273}
   m_Layer: 0
-  m_Name: GunBarrel
+  m_Name: UziGunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2000,7 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520145020}
   m_Layer: 0
-  m_Name: GunBarrel
+  m_Name: ShotgunGunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2888,6 +2921,7 @@ GameObject:
   - component: {fileID: 1237677846}
   - component: {fileID: 1237677849}
   - component: {fileID: 1237677848}
+  - component: {fileID: 1237677850}
   - component: {fileID: 1237677847}
   m_Layer: 0
   m_Name: Shotgun
@@ -3092,6 +3126,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1237677850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237677845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4532828cc8dc24e96d6a4cf10e60c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1280472510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,7 +3615,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1398249583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb6e16470e4e5a843b835b54f1f06873, type: 3}
+  m_Script: {fileID: 11500000, guid: 07c55e23bb1acb54fa1a899b6e562f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pistolBullets: 24
@@ -3602,7 +3648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403761544}
   m_Layer: 0
-  m_Name: GunBarrel
+  m_Name: PistolGunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3952,7 +3998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1642281983
 Transform:
   m_ObjectHideFlags: 0
