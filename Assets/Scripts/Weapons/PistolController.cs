@@ -6,23 +6,23 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
 
-public class UziController : MonoBehaviour
+public class PistolController : MonoBehaviour
 {
-    [Header("Uzi Fire Rate")]
+    [Header("Pistol Fire Rate")]
     public float fireRate;
     private float _nextFire;
     private bool _isFiring;
     
-    [Header("Uzi Reload Rate")]
+    [Header("Pistol Reload Rate")]
     public float reloadRate;
     private float _nextReload;
     private bool _isReloading;
 
-    [Header("Uzi Check Time")]
+    [Header("Pistol Check Time")]
     public float checkTime;
     private bool _isChecking;
 
-    [Header("Uzi Aiming Angles")]
+    [Header("Pistol Aiming Angles")]
     public float upAimingAngle;
     public float downAimingAngle;
     private bool _isAiming;
@@ -37,11 +37,13 @@ public class UziController : MonoBehaviour
 
     private RaycastHit2D hit;
 
-    [Header("Uzi Sounds")]
+    private AmmoManager ammo;
+
+    [Header("Pistol Sounds")]
     public AudioSource weaponAudio;
-    public AudioClip uziEmpty, uziFire, uziInsertBullet;
-    [FormerlySerializedAs("pistolCheck")] public AudioClip uziRemove;
-    public AudioClip uziReload;
+    public AudioClip pistolEmpty, pistolFire, pistolInsertBullet;
+    [FormerlySerializedAs("pistolCheck")] public AudioClip pistolRemove;
+    public AudioClip pistolReload;
 
     // This is only used for drawing the lines in debugging
     [Header("Debug")]
@@ -50,16 +52,18 @@ public class UziController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Amount of bullets: " + WeaponManager.instance.uziBullets);
-        Debug.Log("Amount in mag: " + WeaponManager.instance.currentUziMagCount);
+        ammo = GetComponentInParent<AmmoManager>();
+        
+        Debug.Log("Amount of bullets: " + ammo.pistolBullets);
+        Debug.Log("Amount in mag: " + ammo.currentPistolMagCount);
 
-        WeaponManager.instance.uziMags.Add(WeaponManager.instance.currentUziMagCount);
+        ammo.pistolMags.Add(ammo.currentPistolMagCount);
         
         
-        UIController.instance.UpdateTotals(WeaponManager.instance.uziBullets, WeaponManager.instance.currentPistolMagCount);
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         UIController.instance.UpdateStatus("Idle");
         
-        Debug.Log("There are " + WeaponManager.instance.uziMags[0] + " bullets in the current mag");
+        Debug.Log("There are " + ammo.pistolMags[0] + " bullets in the current mag");
     }
 
     private void Update()
@@ -101,8 +105,8 @@ public class UziController : MonoBehaviour
             }
             else
             {
-                weaponAudio.PlayOneShot(uziReload);
-                UIController.instance.putMagAway(WeaponManager.instance.currentPistolMagCount);
+                weaponAudio.PlayOneShot(pistolReload);
+                UIController.instance.putMagAway(ammo.currentPistolMagCount);
             }
 
             _reloadHeld = false;
@@ -136,57 +140,57 @@ public class UziController : MonoBehaviour
 
     void Reload()
     {
-        if (WeaponManager.instance.currentPistolMagCount == WeaponManager.instance.maxPistolMagCount)
+        if (ammo.currentPistolMagCount == ammo.maxPistolMagCount)
         {
             Debug.Log("Full mag, release the reload key");
         }
         else
         {
-            if (WeaponManager.instance.pistolBullets > 0)
+            if (ammo.pistolBullets > 0)
             {
-                if (WeaponManager.instance.currentPistolMagCount < WeaponManager.instance.maxPistolMagCount && WeaponManager.instance.pistolBullets != 0)
+                if (ammo.currentPistolMagCount < ammo.maxPistolMagCount && ammo.pistolBullets != 0)
                 {
                     if (Time.time > _nextReload)
                     {
                         _nextReload = Time.time + reloadRate;
                         
                         Debug.Log("Bullet added");
-                        weaponAudio.PlayOneShot(uziInsertBullet);
-                        WeaponManager.instance.pistolBullets--;
-                        WeaponManager.instance.currentPistolMagCount++;
-                        UIController.instance.checkMag(WeaponManager.instance.currentPistolMagCount);
-                        WeaponManager.instance.pistolMags[WeaponManager.instance.pistolMagID]++;
+                        weaponAudio.PlayOneShot(pistolInsertBullet);
+                        ammo.pistolBullets--;
+                        ammo.currentPistolMagCount++;
+                        UIController.instance.checkMag(ammo.currentPistolMagCount);
+                        ammo.pistolMags[ammo.pistolMagID]++;
                     }
                 }
             }
             else
             {
-                UIController.instance.checkMag(WeaponManager.instance.currentPistolMagCount);
+                UIController.instance.checkMag(ammo.currentPistolMagCount);
                 Debug.Log("no more ammo");
             }
         }
         
-        UIController.instance.UpdateTotals(WeaponManager.instance.pistolBullets, WeaponManager.instance.currentPistolMagCount);
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
     IEnumerator Check()
     {
-        Debug.Log("You have: " + WeaponManager.instance.currentPistolMagCount + " in the mag");
+        Debug.Log("You have: " + ammo.currentPistolMagCount + " in the mag");
         _isChecking = true;
-        UIController.instance.checkMag(WeaponManager.instance.currentPistolMagCount);
+        UIController.instance.checkMag(ammo.currentPistolMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
-        weaponAudio.PlayOneShot(uziReload);
-        UIController.instance.putMagAway(WeaponManager.instance.currentPistolMagCount);
-        UIController.instance.UpdateTotals(WeaponManager.instance.pistolBullets, WeaponManager.instance.currentPistolMagCount);
+        weaponAudio.PlayOneShot(pistolReload);
+        UIController.instance.putMagAway(ammo.currentPistolMagCount);
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
     IEnumerator Shoot()
     {
-        if (WeaponManager.instance.currentPistolMagCount > 0)
+        if (ammo.currentPistolMagCount > 0)
         {
             _isFiring = true;
-            weaponAudio.PlayOneShot(uziFire);
+            weaponAudio.PlayOneShot(pistolFire);
             Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
             Debug.Log("shot the gun");
 
@@ -202,17 +206,17 @@ public class UziController : MonoBehaviour
                 Destroy(hit.transform.gameObject);
             }
 
-            --WeaponManager.instance.currentPistolMagCount;
+            --ammo.currentPistolMagCount;
             
-            --WeaponManager.instance.pistolMags[WeaponManager.instance.pistolMagID];
+            --ammo.pistolMags[ammo.pistolMagID];
         }
-        else if (WeaponManager.instance.currentPistolMagCount == 0)
+        else if (ammo.currentPistolMagCount == 0)
         {
-            weaponAudio.PlayOneShot(uziEmpty);
+            weaponAudio.PlayOneShot(pistolEmpty);
             Debug.Log("No Ammo");
         }
         
-        UIController.instance.UpdateTotals(WeaponManager.instance.pistolBullets, WeaponManager.instance.currentPistolMagCount);
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         yield return new WaitForSeconds(fireRate);
         _isFiring = false;
     }
@@ -222,7 +226,7 @@ public class UziController : MonoBehaviour
         bool soundPlayed = false;
         while (!soundPlayed)
         {
-            weaponAudio.PlayOneShot(uziRemove);
+            weaponAudio.PlayOneShot(pistolRemove);
             soundPlayed = true;
         }
     }
@@ -232,7 +236,7 @@ public class UziController : MonoBehaviour
         bool soundPlayed = false;
         while (!soundPlayed)
         {
-            weaponAudio.PlayOneShot(uziReload);
+            weaponAudio.PlayOneShot(pistolReload);
             soundPlayed = true;
         }
     }
@@ -279,21 +283,21 @@ public class UziController : MonoBehaviour
 
     void changeMagazines()
     {
-        if (WeaponManager.instance.pistolMags.Count == 1)
+        if (ammo.pistolMags.Count == 1)
         {
             Debug.Log("You only have one mag");
         }
-        else if (WeaponManager.instance.pistolMagID < WeaponManager.instance.pistolMags.Count - 1)
+        else if (ammo.pistolMagID < ammo.pistolMags.Count - 1)
         {
-            WeaponManager.instance.pistolMagID++;
-            WeaponManager.instance.currentPistolMagCount = WeaponManager.instance.pistolMags[WeaponManager.instance.pistolMagID];
-            UIController.instance.UpdateTotals(WeaponManager.instance.pistolBullets, WeaponManager.instance.currentPistolMagCount);
+            ammo.pistolMagID++;
+            ammo.currentPistolMagCount = ammo.pistolMags[ammo.pistolMagID];
+            UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         }
         else
         {
-            WeaponManager.instance.pistolMagID = 0;
-            WeaponManager.instance.currentPistolMagCount = WeaponManager.instance.pistolMags[WeaponManager.instance.pistolMagID];
-            UIController.instance.UpdateTotals(WeaponManager.instance.pistolBullets, WeaponManager.instance.currentPistolMagCount);
+            ammo.pistolMagID = 0;
+            ammo.currentPistolMagCount = ammo.pistolMags[ammo.pistolMagID];
+            UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         }
     }
     

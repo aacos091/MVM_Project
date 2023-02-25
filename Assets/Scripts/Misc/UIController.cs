@@ -35,6 +35,12 @@ public class UIController : MonoBehaviour
         magAmount.text = "Bullets in Mag: " + mag;
     }
 
+    public void UpdateTotalsShotgun(int total, int mag)
+    {
+        totalBullets.text = "Total Shells: " + total;
+        magAmount.text = "Shells in Barrel: " + mag;
+    }
+
     public void UpdateStatus(string status)
     {
         weaponStatus.text = status;

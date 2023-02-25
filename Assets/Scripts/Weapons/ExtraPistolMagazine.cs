@@ -5,20 +5,13 @@ using UnityEngine;
 
 public class ExtraPistolMagazine : MonoBehaviour
 {
+    private AmmoManager ammo;
     public int bullets;
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        
-
-        if (WeaponManager.instance == null)
-        {
-            return;
-        }
-        else
-        {
-            WeaponManager.instance.findNewPistolMag(bullets);
-        }
+        ammo = col.GetComponentInChildren<AmmoManager>();
+        ammo.findNewPistolMag(bullets);
         
         Destroy(gameObject);
     }

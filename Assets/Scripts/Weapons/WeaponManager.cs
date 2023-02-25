@@ -92,9 +92,4 @@ public class WeaponManager : MonoBehaviour
                 break;
         }
     }
-    
-    public void findNewPistolMag(int amountOfBullets)
-    {
-        pistolMags.Add(amountOfBullets);
-    }
 }
