@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &22324742
 Transform:
   m_ObjectHideFlags: 0
@@ -318,22 +318,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6bd715102ff324b9fdc7d85546bbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0
-  reloadRate: 0
-  checkTime: 0
-  upAimingAngle: 0
-  downAimingAngle: 0
-  gunBarrel: {fileID: 0}
+  fireRate: 0.1
+  reloadRate: 1
+  checkTime: 1.4
+  upAimingAngle: 30
+  downAimingAngle: -30
+  gunBarrel: {fileID: 463112273}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
-  weaponAudio: {fileID: 0}
-  uziEmpty: {fileID: 0}
-  uziFire: {fileID: 0}
-  uziInsertBullet: {fileID: 0}
-  uziRemove: {fileID: 0}
-  uziReload: {fileID: 0}
-  lineMaterial: {fileID: 0}
+    m_Bits: 64
+  weaponAudio: {fileID: 22324743}
+  uziEmpty: {fileID: 8300000, guid: b1c55e37d0c4170478b6121180743dce, type: 3}
+  uziFire: {fileID: 8300000, guid: a5bb6c58830b8774faec9d7f5fadf40b, type: 3}
+  uziInsertBullet: {fileID: 8300000, guid: 0dc0130c86fe25d499443c6b75ad8739, type: 3}
+  uziRemove: {fileID: 8300000, guid: 132d6b296d353b3468312d42ccf781be, type: 3}
+  uziReload: {fileID: 8300000, guid: 6826bca73d506b44a9556e71d25bb5da, type: 3}
+  lineMaterial: {fileID: 2100000, guid: 3edb2eeee04f61845ab37fcf89eab614, type: 2}
 --- !u!1 &30179422
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,7 +4729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1398249584
 Transform:
   m_ObjectHideFlags: 0
@@ -5662,7 +5662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1642281983
 Transform:
   m_ObjectHideFlags: 0

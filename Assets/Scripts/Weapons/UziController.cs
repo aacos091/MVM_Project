@@ -52,6 +52,8 @@ public class UziController : MonoBehaviour
 
     private void Start()
     {
+        ammo = GetComponentInParent<AmmoManager>();
+        
         Debug.Log("Amount of bullets: " + ammo.uziBullets);
         Debug.Log("Amount in mag: " + ammo.currentUziMagCount);
 
@@ -75,9 +77,19 @@ public class UziController : MonoBehaviour
             
             weaponDirectionalAiming();
             
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                StartCoroutine(Shoot());
+                //StartCoroutine(Shoot());
+                _isFiring = true;
+                if (Time.time > _nextFire)
+                {
+                    uziShoot();
+                    _nextFire = Time.time + fireRate;
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                _isFiring = false;
             }
         }
         else if (Input.GetMouseButtonUp(1))
@@ -104,7 +116,7 @@ public class UziController : MonoBehaviour
             else
             {
                 weaponAudio.PlayOneShot(uziReload);
-                UIController.instance.putMagAway(ammo.currentUziMagCount);
+                //UIController.instance.putMagAway(ammo.currentUziMagCount);
             }
 
             _reloadHeld = false;
@@ -156,14 +168,14 @@ public class UziController : MonoBehaviour
                         weaponAudio.PlayOneShot(uziInsertBullet);
                         ammo.uziBullets--;
                         ammo.currentUziMagCount++;
-                        UIController.instance.checkMag(ammo.currentUziMagCount);
+                        //UIController.instance.checkMag(ammo.currentUziMagCount);
                         ammo.uziMags[ammo.uziMagID]++;
                     }
                 }
             }
             else
             {
-                UIController.instance.checkMag(ammo.currentUziMagCount);
+                //UIController.instance.checkMag(ammo.currentUziMagCount);
                 Debug.Log("no more ammo");
             }
         }
@@ -175,11 +187,11 @@ public class UziController : MonoBehaviour
     {
         Debug.Log("You have: " + ammo.currentUziMagCount + " in the mag");
         _isChecking = true;
-        UIController.instance.checkMag(ammo.currentUziMagCount);
+        //UIController.instance.checkMag(ammo.currentUziMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         weaponAudio.PlayOneShot(uziReload);
-        UIController.instance.putMagAway(ammo.currentUziMagCount);
+        //UIController.instance.putMagAway(ammo.currentUziMagCount);
         UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
@@ -217,6 +229,39 @@ public class UziController : MonoBehaviour
         UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
         yield return new WaitForSeconds(fireRate);
         _isFiring = false;
+    }
+
+    void uziShoot()
+    {
+        if (ammo.currentUziMagCount > 0)
+        {
+            weaponAudio.PlayOneShot(uziFire);
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
+            Debug.Log("shot the gun");
+
+            r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
+
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
+
+            DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
+            
+            if (hit)
+            {
+                Debug.Log("you hit " + hit.transform.name);
+                Destroy(hit.transform.gameObject);
+            }
+
+            --ammo.currentUziMagCount;
+            
+            --ammo.uziMags[ammo.uziMagID];
+        }
+        else if (ammo.currentUziMagCount == 0)
+        {
+            weaponAudio.PlayOneShot(uziEmpty);
+            Debug.Log("No Ammo");
+        }
+        
+        UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
     void uziRemoveSound()
