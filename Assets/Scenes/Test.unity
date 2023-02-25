@@ -327,6 +327,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  weaponImage: {fileID: 1914124454}
   weaponAudio: {fileID: 22324743}
   uziEmpty: {fileID: 8300000, guid: b1c55e37d0c4170478b6121180743dce, type: 3}
   uziFire: {fileID: 8300000, guid: a5bb6c58830b8774faec9d7f5fadf40b, type: 3}
@@ -4325,6 +4326,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4532828cc8dc24e96d6a4cf10e60c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 0
+  reloadRate: 0
+  checkTime: 0
+  upAimingAngle: 0
+  downAimingAngle: 0
+  gunBarrel: {fileID: 520145020}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  weaponImage: {fileID: 585725987}
+  weaponAudio: {fileID: 1237677847}
+  shotgunEmpty: {fileID: 0}
+  shotgunFire: {fileID: 0}
+  shotgunInsertBullet: {fileID: 0}
+  shotgunRemove: {fileID: 0}
+  shotgunReload: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: 3edb2eeee04f61845ab37fcf89eab614, type: 2}
 --- !u!1 &1280472510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,6 +4920,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  weaponImage: {fileID: 1280472512}
   weaponAudio: {fileID: 1398249586}
   pistolEmpty: {fileID: 8300000, guid: b1c55e37d0c4170478b6121180743dce, type: 3}
   pistolFire: {fileID: 8300000, guid: a5bb6c58830b8774faec9d7f5fadf40b, type: 3}
