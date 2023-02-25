@@ -1854,6 +1854,19 @@ MonoBehaviour:
   shotgun: {fileID: 1237677845}
   uziFound: 1
   shotgunFound: 1
+  pistolBullets: 24
+  currentPistolMagCount: 7
+  maxPistolMagCount: 12
+  pistolMagID: 0
+  pistolMags: 
+  uziBullets: 0
+  currentUziMagCount: 0
+  maxUziMagCount: 0
+  uziMagID: 0
+  uziMags: 
+  shotgunShells: 0
+  currentShellCount: 0
+  maxShellCount: 0
 --- !u!1 &440620895
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,7 +3454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1398249584
 Transform:
   m_ObjectHideFlags: 0
@@ -3618,10 +3631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c55e23bb1acb54fa1a899b6e562f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistolBullets: 24
-  currentPistolMagCount: 7
-  maxPistolMagCount: 12
-  mags: 
   fireRate: 0.2
   reloadRate: 1
   checkTime: 1.4
@@ -3998,7 +4007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1642281983
 Transform:
   m_ObjectHideFlags: 0
