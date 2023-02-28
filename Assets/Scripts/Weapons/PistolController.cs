@@ -28,6 +28,9 @@ public class PistolController : MonoBehaviour
     public float downAimingAngle;
     private bool _isAiming;
 
+    [Header("Pistol Damage")] 
+    public int damage;
+
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
     private bool _reloadHeld = false;
@@ -142,13 +145,13 @@ public class PistolController : MonoBehaviour
     
     private void OnEnable()
     {
-        weaponImage.gameObject.SetActive(true);
-        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+        //weaponImage.gameObject.SetActive(true);
+        //UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
     private void OnDisable()
     {
-        weaponImage.gameObject.SetActive(false);
+        //weaponImage.gameObject.SetActive(false);
     }
 
     void Reload()
@@ -213,10 +216,18 @@ public class PistolController : MonoBehaviour
 
             DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             
-            if (hit)
+            if (hit.transform.CompareTag("Enemy"))
             {
-                Debug.Log("you hit " + hit.transform.name);
-                Destroy(hit.transform.gameObject);
+                Debug.Log("you hit an enemy");
+
+                EnemyController enemy = hit.transform.GetComponent<EnemyController>();
+
+                if (enemy == null)
+                {
+                    Debug.Log("Can't access enemy controller");
+                }
+                
+                enemy.DamageEnemy(damage);
             }
 
             --ammo.currentPistolMagCount;
