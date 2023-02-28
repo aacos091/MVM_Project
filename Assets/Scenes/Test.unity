@@ -552,6 +552,8 @@ GameObject:
   - component: {fileID: 104654982}
   - component: {fileID: 104654985}
   - component: {fileID: 104654981}
+  - component: {fileID: 104654987}
+  - component: {fileID: 104654986}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -684,6 +686,36 @@ CapsuleCollider2D:
   m_Offset: {x: -0.09395409, y: 0.05015254}
   m_Size: {x: 1.3098984, y: 2.710113}
   m_Direction: 0
+--- !u!114 &104654986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104654980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6712af112fc07409117f06f94d3756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorFound: 0
+  flashlightFound: 0
+  uvLightFound: 0
+  grapplingHookFound: 0
+  runningShoesFound: 0
+--- !u!114 &104654987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104654980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50698ff404ffb6d47a8c817435a22be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
 --- !u!1 &145293436
 GameObject:
   m_ObjectHideFlags: 0
