@@ -229,6 +229,10 @@ public class PistolController : MonoBehaviour
                 
                 enemy.DamageEnemy(damage);
             }
+            else
+            {
+                Debug.Log("you hit nothing");
+            }
 
             --ammo.currentPistolMagCount;
             
