@@ -24,6 +24,9 @@ public class ShotgunController : MonoBehaviour
     public float upAimingAngle;
     public float downAimingAngle;
     private bool _isAiming;
+    
+    [Header("Shotgun Damage")] 
+    public int damage;
 
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
@@ -71,9 +74,19 @@ public class ShotgunController : MonoBehaviour
             
             weaponDirectionalAiming();
             
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                StartCoroutine(Shoot());
+                //StartCoroutine(Shoot());
+                _isFiring = true;
+                if (Time.time > _nextFire)
+                {
+                    shotgunShoot();
+                    _nextFire = Time.time + fireRate;
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                _isFiring = false;
             }
         }
         else if (Input.GetMouseButtonUp(1))
@@ -99,8 +112,8 @@ public class ShotgunController : MonoBehaviour
             }
             else
             {
-                //weaponAudio.PlayOneShot(shotgunReload);
-                //UIController.instance.putMagAway(ammo.currentPistolMagCount);
+                weaponAudio.PlayOneShot(shotgunReload);
+                UIController.instance.StopShotgunCheck(ammo.currentShellCount);
             }
 
             _reloadHeld = false;
@@ -142,13 +155,13 @@ public class ShotgunController : MonoBehaviour
 
             DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             
+            --ammo.currentShellCount;
+            
             if (hit)
             {
-                Debug.Log("you hit " + hit.transform.name);
-                Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
             }
 
-            --ammo.currentShellCount;
         }
         else if (ammo.currentShellCount == 0)
         {
@@ -161,15 +174,47 @@ public class ShotgunController : MonoBehaviour
         _isFiring = false;
     }
     
+    void shotgunShoot()
+    {
+        if (ammo.currentShellCount > 0)
+        {
+            weaponAudio.PlayOneShot(shotgunFire);
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
+            Debug.Log("shot the shotgun");
+
+            //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
+
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
+
+            //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
+
+            --ammo.currentShellCount;
+
+            if (hit)
+            {
+                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+            }
+
+        }
+        else if (ammo.currentShellCount == 0)
+        {
+            weaponAudio.PlayOneShot(shotgunEmpty);
+            Debug.Log("No Ammo");
+        }
+        
+        UIController.instance.UpdateTotals(ammo.shotgunShells, ammo.currentShellCount);
+    }
+    
     IEnumerator Check()
     {
+        weaponAudio.PlayOneShot(shotgunRemove);
         Debug.Log("You have: " + ammo.currentShellCount + " in the barrel");
         _isChecking = true;
-        //UIController.instance.checkMag(ammo.currentPistolMagCount);
+        UIController.instance.UpdateShotgunCount(ammo.currentShellCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         weaponAudio.PlayOneShot(shotgunReload);
-        //UIController.instance.putMagAway(ammo.currentPistolMagCount);
+        UIController.instance.StopShotgunCheck(ammo.currentShellCount);
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
     }
     
@@ -193,13 +238,13 @@ public class ShotgunController : MonoBehaviour
                         weaponAudio.PlayOneShot(shotgunInsertBullet);
                         ammo.shotgunShells--;
                         ammo.currentShellCount++;
-                        //UIController.instance.checkMag(ammo.currentPistolMagCount);
+                        UIController.instance.UpdateShotgunCount(ammo.currentShellCount);
                     }
                 }
             }
             else
             {
-                //UIController.instance.checkMag(ammo.currentPistolMagCount);
+                UIController.instance.StopShotgunCheck(ammo.currentShellCount);
                 Debug.Log("no more ammo");
             }
         }
@@ -210,12 +255,14 @@ public class ShotgunController : MonoBehaviour
     private void OnEnable()
     {
         weaponImage.gameObject.SetActive(true);
+        UIController.instance.EnableShotgunBarrel(true);
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
     }
 
     private void OnDisable()
     {
         weaponImage.gameObject.SetActive(false);
+        UIController.instance.EnableShotgunBarrel(false);
     }
     
     void shotgunRemoveSound()

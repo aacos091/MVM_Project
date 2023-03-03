@@ -39,6 +39,8 @@ public class PistolController : MonoBehaviour
     public Transform gunBarrel;
     public LayerMask targetLayer;
     public Image weaponImage;
+    public Image weaponMag;
+    public float pistolRange;
 
     private RaycastHit2D hit;
 
@@ -84,7 +86,16 @@ public class PistolController : MonoBehaviour
             
             if (Input.GetMouseButtonDown(0))
             {
-                StartCoroutine(Shoot());
+                _isFiring = true;
+                if (Time.time > _nextFire)
+                {
+                    pistolShoot();
+                    _nextFire = Time.time + fireRate;
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                _isFiring = false;
             }
         }
         else if (Input.GetMouseButtonUp(1))
@@ -111,7 +122,7 @@ public class PistolController : MonoBehaviour
             else
             {
                 weaponAudio.PlayOneShot(pistolReload);
-                UIController.instance.putMagAway(ammo.currentPistolMagCount);
+                UIController.instance.PutPistolMagAway(ammo.currentPistolMagCount);
             }
 
             _reloadHeld = false;
@@ -145,13 +156,15 @@ public class PistolController : MonoBehaviour
     
     private void OnEnable()
     {
-        //weaponImage.gameObject.SetActive(true);
-        //UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+        weaponImage.gameObject.SetActive(true);
+        UIController.instance.EnablePistolMag(true);
+        UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
     private void OnDisable()
     {
-        //weaponImage.gameObject.SetActive(false);
+        weaponImage.gameObject.SetActive(false);
+        UIController.instance.EnablePistolMag(false);
     }
 
     void Reload()
@@ -174,14 +187,14 @@ public class PistolController : MonoBehaviour
                         weaponAudio.PlayOneShot(pistolInsertBullet);
                         ammo.pistolBullets--;
                         ammo.currentPistolMagCount++;
-                        UIController.instance.checkMag(ammo.currentPistolMagCount);
+                        UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
                         ammo.pistolMags[ammo.pistolMagID]++;
                     }
                 }
             }
             else
             {
-                UIController.instance.checkMag(ammo.currentPistolMagCount);
+                UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
                 Debug.Log("no more ammo");
             }
         }
@@ -193,11 +206,11 @@ public class PistolController : MonoBehaviour
     {
         Debug.Log("You have: " + ammo.currentPistolMagCount + " in the mag");
         _isChecking = true;
-        UIController.instance.checkMag(ammo.currentPistolMagCount);
+        UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         weaponAudio.PlayOneShot(pistolReload);
-        UIController.instance.putMagAway(ammo.currentPistolMagCount);
+        UIController.instance.PutPistolMagAway(ammo.currentPistolMagCount);
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
@@ -214,7 +227,11 @@ public class PistolController : MonoBehaviour
 
             hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
 
-            DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
+            //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
+            
+            --ammo.currentPistolMagCount;
+            
+            --ammo.pistolMags[ammo.pistolMagID];
             
             if (hit.transform.CompareTag("Enemy"))
             {
@@ -222,21 +239,9 @@ public class PistolController : MonoBehaviour
 
                 EnemyController enemy = hit.transform.GetComponent<EnemyController>();
 
-                if (enemy == null)
-                {
-                    Debug.Log("Can't access enemy controller");
-                }
-                
                 enemy.DamageEnemy(damage);
             }
-            else
-            {
-                Debug.Log("you hit nothing");
-            }
 
-            --ammo.currentPistolMagCount;
-            
-            --ammo.pistolMags[ammo.pistolMagID];
         }
         else if (ammo.currentPistolMagCount == 0)
         {
@@ -247,6 +252,39 @@ public class PistolController : MonoBehaviour
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         yield return new WaitForSeconds(fireRate);
         _isFiring = false;
+    }
+
+    void pistolShoot()
+    {
+        if (ammo.currentPistolMagCount > 0)
+        {
+            weaponAudio.PlayOneShot(pistolFire);
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * pistolRange, Color.yellow, 1f);
+            Debug.Log("shot the pistol");
+
+            //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
+
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), pistolRange, targetLayer);
+
+            //DrawLine(gunBarrel.position, r2d.GetPoint(pistolRange), Color.black);
+            
+            --ammo.currentPistolMagCount;
+            
+            --ammo.pistolMags[ammo.pistolMagID];
+
+            if (hit)
+            {
+                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+            }
+
+        }
+        else if (ammo.currentPistolMagCount == 0)
+        {
+            weaponAudio.PlayOneShot(pistolEmpty);
+            Debug.Log("No Ammo");
+        }
+        
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
     void pistolRemoveSound()

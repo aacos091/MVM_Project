@@ -27,6 +27,9 @@ public class UziController : MonoBehaviour
     public float upAimingAngle;
     public float downAimingAngle;
     private bool _isAiming;
+    
+    [Header("Uzi Damage")] 
+    public int damage;
 
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
@@ -36,6 +39,8 @@ public class UziController : MonoBehaviour
     public Transform gunBarrel;
     public LayerMask targetLayer;
     public Image weaponImage;
+    public Image weaponMag;
+    public float uziRange;
 
     private RaycastHit2D hit;
     
@@ -118,7 +123,7 @@ public class UziController : MonoBehaviour
             else
             {
                 weaponAudio.PlayOneShot(uziReload);
-                //UIController.instance.putMagAway(ammo.currentUziMagCount);
+                UIController.instance.PutUziMagAway(ammo.currentUziMagCount);
             }
 
             _reloadHeld = false;
@@ -153,12 +158,14 @@ public class UziController : MonoBehaviour
     private void OnEnable()
     {
         weaponImage.gameObject.SetActive(true);
+        UIController.instance.EnableUziMag(true);
         UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
     private void OnDisable()
     {
         weaponImage.gameObject.SetActive(false);
+        UIController.instance.EnableUziMag(false);
     }
 
     void Reload()
@@ -181,14 +188,14 @@ public class UziController : MonoBehaviour
                         weaponAudio.PlayOneShot(uziInsertBullet);
                         ammo.uziBullets--;
                         ammo.currentUziMagCount++;
-                        //UIController.instance.checkMag(ammo.currentUziMagCount);
+                        UIController.instance.CheckUziMag(ammo.currentUziMagCount);
                         ammo.uziMags[ammo.uziMagID]++;
                     }
                 }
             }
             else
             {
-                //UIController.instance.checkMag(ammo.currentUziMagCount);
+                UIController.instance.CheckUziMag(ammo.currentUziMagCount);
                 Debug.Log("no more ammo");
             }
         }
@@ -200,11 +207,11 @@ public class UziController : MonoBehaviour
     {
         Debug.Log("You have: " + ammo.currentUziMagCount + " in the mag");
         _isChecking = true;
-        //UIController.instance.checkMag(ammo.currentUziMagCount);
+        UIController.instance.CheckUziMag(ammo.currentUziMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         weaponAudio.PlayOneShot(uziReload);
-        //UIController.instance.putMagAway(ammo.currentUziMagCount);
+        UIController.instance.PutUziMagAway(ammo.currentUziMagCount);
         UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
@@ -223,15 +230,14 @@ public class UziController : MonoBehaviour
 
             DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             
-            if (hit)
-            {
-                Debug.Log("you hit " + hit.transform.name);
-                Destroy(hit.transform.gameObject);
-            }
-
             --ammo.currentUziMagCount;
             
             --ammo.uziMags[ammo.uziMagID];
+            
+            if (hit)
+            {
+                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+            }
         }
         else if (ammo.currentUziMagCount == 0)
         {
@@ -250,23 +256,23 @@ public class UziController : MonoBehaviour
         {
             weaponAudio.PlayOneShot(uziFire);
             Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
-            Debug.Log("shot the gun");
+            Debug.Log("shot the uzi");
 
-            r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
+            //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
             hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
 
-            DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
+            //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             
-            if (hit)
-            {
-                Debug.Log("you hit " + hit.transform.name);
-                Destroy(hit.transform.gameObject);
-            }
-
             --ammo.currentUziMagCount;
             
             --ammo.uziMags[ammo.uziMagID];
+            
+            if (hit)
+            {
+                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+            }
+
         }
         else if (ammo.currentUziMagCount == 0)
         {

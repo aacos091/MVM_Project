@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -26,8 +27,14 @@ public class UIController : MonoBehaviour
     public TMP_Text magAmount;
     public TMP_Text weaponStatus;
 
-    public Image mag;
-    public Image[] bullets;
+    public Image pistolMag;
+    public Image uziMag;
+
+    public GameObject shotgunBarrel;
+    
+    public Image[] pistolBullets;
+    public Image[] uziBullets;
+    public Image[] shotgunShells;
 
     public void UpdateTotals(int total, int mag)
     {
@@ -53,23 +60,74 @@ public class UIController : MonoBehaviour
         weaponStatus.text = status;
     }
 
-    public void checkMag(int bulletsInMag)
+    public void CheckPistolMag(int bulletsInMag)
     {
-        mag.color = new Color(255, 255, 255, 255);
+        pistolMag.color = new Color(255, 255, 255, 255);
 
         for (int i = 0; i < bulletsInMag; i++)
         {
-            bullets[i].gameObject.SetActive(true);
+            pistolBullets[i].gameObject.SetActive(true);
+        }
+    }
+    
+    public void CheckUziMag(int uziBulletsInMag)
+    {
+        uziMag.color = new Color(255, 255, 255, 255);
+
+        for (int i = 0; i < uziBulletsInMag; i++)
+        {
+            uziBullets[i].gameObject.SetActive(true);
         }
     }
 
-    public void putMagAway(int bulletsInMag)
+    public void PutPistolMagAway(int pistolBulletsInMag)
     {
-        mag.color = new Color(255, 255, 255, 0);
+        pistolMag.color = new Color(255, 255, 255, 0);
         
-        for (int i = 0; i < bulletsInMag; i++)
+        for (int i = 0; i < pistolBulletsInMag; i++)
         {
-            bullets[i].gameObject.SetActive(false);
+            pistolBullets[i].gameObject.SetActive(false);
+        }
+    }
+    
+    public void PutUziMagAway(int uziBulletsInMag)
+    {
+        uziMag.color = new Color(255, 255, 255, 0);
+        
+        for (int i = 0; i < uziBulletsInMag; i++)
+        {
+            uziBullets[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void EnablePistolMag(bool onOrOff)
+    {
+        pistolMag.gameObject.SetActive(onOrOff);
+    }
+
+    public void EnableUziMag(bool onOrOff)
+    {
+        uziMag.gameObject.SetActive(onOrOff);
+    }
+
+    public void EnableShotgunBarrel(bool onOrOff)
+    {
+        shotgunBarrel.gameObject.SetActive(onOrOff);
+    }
+
+    public void UpdateShotgunCount(int shellsInBarrel)
+    {
+        for (int i = 0; i < shellsInBarrel; i++)
+        {
+            shotgunShells[i].gameObject.SetActive(true);
+        }
+    }
+    
+    public void StopShotgunCheck(int shellsInBarrel)
+    {
+        for (int i = 0; i < shellsInBarrel; i++)
+        {
+            shotgunShells[i].gameObject.SetActive(false);
         }
     }
 }

@@ -103,7 +103,7 @@ public class WeaponController : MonoBehaviour
             else
             {
                 weaponAudio.PlayOneShot(pistolReload);
-                UIController.instance.putMagAway(currentPistolMagCount);
+                UIController.instance.PutPistolMagAway(currentPistolMagCount);
             }
 
             _reloadHeld = false;
@@ -155,14 +155,14 @@ public class WeaponController : MonoBehaviour
                         weaponAudio.PlayOneShot(pistolInsertBullet);
                         pistolBullets--;
                         currentPistolMagCount++;
-                        UIController.instance.checkMag(currentPistolMagCount);
+                        UIController.instance.CheckPistolMag(currentPistolMagCount);
                         mags[magID]++;
                     }
                 }
             }
             else
             {
-                UIController.instance.checkMag(currentPistolMagCount);
+                UIController.instance.CheckPistolMag(currentPistolMagCount);
                 Debug.Log("no more ammo");
             }
         }
@@ -174,11 +174,11 @@ public class WeaponController : MonoBehaviour
     {
         Debug.Log("You have: " + currentPistolMagCount + " in the mag");
         _isChecking = true;
-        UIController.instance.checkMag(currentPistolMagCount);
+        UIController.instance.CheckPistolMag(currentPistolMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         weaponAudio.PlayOneShot(pistolReload);
-        UIController.instance.putMagAway(currentPistolMagCount);
+        UIController.instance.PutPistolMagAway(currentPistolMagCount);
         UIController.instance.UpdateTotals(pistolBullets, currentPistolMagCount);
     }
 
