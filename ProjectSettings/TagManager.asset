@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UV objects
+    uniqueID: 3016228297
+    locked: 0
+  - name: Player
+    uniqueID: 402179747
+    locked: 0
