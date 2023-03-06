@@ -30,6 +30,10 @@ public class UziController : MonoBehaviour
     
     [Header("Uzi Damage")] 
     public int damage;
+    
+    [Header("Camera Shake")] 
+    public float CameraShakeIntensity;
+    public float CameraShakeTimer;
 
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
@@ -255,12 +259,13 @@ public class UziController : MonoBehaviour
         if (ammo.currentUziMagCount > 0)
         {
             weaponAudio.PlayOneShot(uziFire);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
+            CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * uziRange, Color.yellow, 1f);
             Debug.Log("shot the uzi");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), uziRange, targetLayer);
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             

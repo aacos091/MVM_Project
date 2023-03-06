@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3335501786563948308}
   - component: {fileID: 3335501786563948311}
   m_Layer: 0
-  m_Name: ExtraMag
+  m_Name: ExtraPistolMag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

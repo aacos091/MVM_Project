@@ -27,6 +27,10 @@ public class ShotgunController : MonoBehaviour
     
     [Header("Shotgun Damage")] 
     public int damage;
+    
+    [Header("Camera Shake")] 
+    public float CameraShakeIntensity;
+    public float CameraShakeTimer;
 
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
@@ -36,6 +40,7 @@ public class ShotgunController : MonoBehaviour
     public Transform gunBarrel;
     public LayerMask targetLayer;
     public Image weaponImage;
+    public float shotgunRange;
 
     private RaycastHit2D hit;
 
@@ -179,12 +184,13 @@ public class ShotgunController : MonoBehaviour
         if (ammo.currentShellCount > 0)
         {
             weaponAudio.PlayOneShot(shotgunFire);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
+            CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * shotgunRange, Color.yellow, 1f);
             Debug.Log("shot the shotgun");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), shotgunRange, targetLayer);
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
 
