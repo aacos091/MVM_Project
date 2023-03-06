@@ -275,7 +275,7 @@ public class PistolController : MonoBehaviour
 
             hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), pistolRange, targetLayer);
 
-            Instantiate(BulletTracerPrefab, gunBarrel.position, PlayerController.instance.transform.rotation);
+            Instantiate(BulletTracerPrefab, gunBarrel.position, gunBarrel.rotation);
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(pistolRange), Color.red);
             
@@ -381,11 +381,13 @@ public class PistolController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") < -0.2f)
         {
-            gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, -180f, 0f);
         }
         else if (Input.GetAxis("Horizontal") > 0.2f)
         {
-            gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
     

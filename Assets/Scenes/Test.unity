@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &30179423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2239,7 +2239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &585725986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5684,6 +5684,14 @@ PrefabInstance:
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 1280472512}
+    - target: {fileID: 6672806036856126363, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672806037016728801, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6672806037016728814, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: weaponImage
       value: 
@@ -5696,6 +5704,10 @@ PrefabInstance:
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 1914124454}
+    - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: BulletTracerPrefab
+      value: 
+      objectReference: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
     - target: {fileID: 6672806038243068784, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: m_Name
       value: Player

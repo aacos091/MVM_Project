@@ -45,6 +45,7 @@ public class UziController : MonoBehaviour
     public Image weaponImage;
     public Image weaponMag;
     public float uziRange;
+    public GameObject BulletTracerPrefab;
 
     private RaycastHit2D hit;
     
@@ -80,6 +81,8 @@ public class UziController : MonoBehaviour
     private void Update()
     {
         //weaponRotationAiming();
+        
+        TurnGunBarrelWithButtons();
 
         if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
         {
@@ -266,6 +269,8 @@ public class UziController : MonoBehaviour
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
             hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), uziRange, targetLayer);
+            
+            Instantiate(BulletTracerPrefab, gunBarrel.position, gunBarrel.rotation);
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
             
@@ -365,6 +370,20 @@ public class UziController : MonoBehaviour
             ammo.uziMagID = 0;
             ammo.currentUziMagCount = ammo.uziMags[ammo.uziMagID];
             UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
+        }
+    }
+    
+    void TurnGunBarrelWithButtons()
+    {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, -180f, 0f);
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
     

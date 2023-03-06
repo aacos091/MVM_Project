@@ -41,6 +41,8 @@ public class ShotgunController : MonoBehaviour
     public LayerMask targetLayer;
     public Image weaponImage;
     public float shotgunRange;
+    public GameObject BulletTracerPrefab;
+    public float pellets, pelletSpread; // this is just for the bullet tracers, the shotgun works with a ray and that's it
 
     private RaycastHit2D hit;
 
@@ -71,6 +73,8 @@ public class ShotgunController : MonoBehaviour
     private void Update()
     {
         //weaponRotationAiming();
+        
+        TurnGunBarrelWithButtons();
 
         if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
         {
@@ -191,6 +195,11 @@ public class ShotgunController : MonoBehaviour
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
             hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), shotgunRange, targetLayer);
+
+            for (int i = 0; i <= pellets; i++)
+            {
+                
+            }
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
 
@@ -329,6 +338,20 @@ public class ShotgunController : MonoBehaviour
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
         
+    }
+    
+    void TurnGunBarrelWithButtons()
+    {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, -180f, 0f);
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
     }
     
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference
