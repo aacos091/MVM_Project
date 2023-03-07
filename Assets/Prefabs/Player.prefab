@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806036842745971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.614, y: 0.229, z: 0}
+  m_LocalPosition: {x: 0.73, y: 0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806036856126363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.205, y: 0.14, z: 0}
-  m_LocalScale: {x: 1.2203484, y: 3.9757903, z: 1}
+  m_LocalPosition: {x: 0.63, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6672806036842745980}
@@ -104,9 +104,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: 1810868853
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8e79770ebaaf4fa46b1a95f560d4a11b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
   upAimingAngle: 30
   downAimingAngle: -30
   damage: 1
-  CameraShakeIntensity: 0.7
+  CameraShakeIntensity: 0.2
   CameraShakeTimer: 0.2
   gunBarrel: {fileID: 6672806036842745980}
   targetLayer:
@@ -276,8 +276,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037016728801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6473, y: -0.071, z: 0}
-  m_LocalScale: {x: 1.4676679, y: 4.486782, z: 1}
+  m_LocalPosition: {x: 0.976, y: 0.007, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6672806037859560328}
@@ -322,9 +322,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: 1810868853
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ba2295dd31e200e49af9ce487f9eecf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037016728801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af4532828cc8dc24e96d6a4cf10e60c0, type: 3}
   m_Name: 
@@ -354,14 +354,17 @@ MonoBehaviour:
   upAimingAngle: 30
   downAimingAngle: -30
   damage: 3
-  CameraShakeIntensity: 2.5
+  CameraShakeIntensity: 1
   CameraShakeTimer: 0.4
   gunBarrel: {fileID: 6672806037859560328}
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
   weaponImage: {fileID: 0}
-  shotgunRange: 0
+  shotgunRange: 2
+  BulletTracerPrefab: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
+  pellets: 1
+  pelletSpread: 360
   weaponAudio: {fileID: 6672806037016728803}
   shotgunEmpty: {fileID: 8300000, guid: 9336d9aafbe8a0d48aa470aa6dde943c, type: 3}
   shotgunFire: {fileID: 8300000, guid: 13e9740bc828bf94181d2ace669b99b4, type: 3}
@@ -604,7 +607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037779707051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.117, y: -1.311, z: 0}
+  m_LocalPosition: {x: 0, y: -0.257, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -635,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037783391140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.505, y: 0.331, z: 0}
+  m_LocalPosition: {x: 0.521, y: 0.324, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -668,8 +671,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037809878704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36100006, y: 0, z: 0}
-  m_LocalScale: {x: 0.63, y: 0.21, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6672806037685311499}
@@ -710,17 +713,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pistolBullets: 24
-  currentPistolMagCount: 7
+  currentPistolMagCount: 13
   maxPistolMagCount: 13
   pistolMagID: 0
   pistolMags: 
   uziBullets: 34
-  currentUziMagCount: 14
+  currentUziMagCount: 25
   maxUziMagCount: 25
   uziMagID: 0
   uziMags: 
   shotgunShells: 14
-  currentShellCount: 3
+  currentShellCount: 5
   maxShellCount: 6
 --- !u!1 &6672806037832226979
 GameObject:
@@ -777,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037859560335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.961, y: 0.194, z: 0}
+  m_LocalPosition: {x: 1.012, y: 0.194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -842,8 +845,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806038232040945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.251, y: -0.21, z: 0}
-  m_LocalScale: {x: 1.3272, y: 3.9524214, z: 1}
+  m_LocalPosition: {x: 0.596, y: -0.065, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6672806037783391141}
@@ -888,9 +891,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: 1810868853
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 48ee365d787d4dc4da03a6c6df5e9ce1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -929,6 +932,7 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   weaponMag: {fileID: 0}
   uziRange: 7
+  BulletTracerPrefab: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
   weaponAudio: {fileID: 6672806038232040947}
   uziEmpty: {fileID: 8300000, guid: b1c55e37d0c4170478b6121180743dce, type: 3}
   uziFire: {fileID: 8300000, guid: 33c6a537e0c7ad1468847ab81a789d97, type: 3}
@@ -1109,9 +1113,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1810868853
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4713f8c5786da06439423cdc3d3ee075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1138,7 +1142,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1157,8 +1161,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09395409, y: 0.05015254}
-  m_Size: {x: 1.3098984, y: 2.710113}
+  m_Offset: {x: -0.02130431, y: 0.009870887}
+  m_Size: {x: 0.26067626, y: 0.54307795}
   m_Direction: 0
 --- !u!114 &6672806038243068785
 MonoBehaviour:
@@ -1172,9 +1176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1668d0a6ef79bf479cff5085c755f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  sprintSpeed: 9
-  jumpForce: 15
+  moveSpeed: 2
+  sprintSpeed: 3
+  jumpForce: 3
   groundPoint: {fileID: 6672806037779707028}
   whatIsGround:
     serializedVersion: 2

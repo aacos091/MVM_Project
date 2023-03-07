@@ -179,6 +179,7 @@ public class PistolController : MonoBehaviour
     {
         if (ammo.currentPistolMagCount == ammo.maxPistolMagCount)
         {
+            UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
             Debug.Log("Full mag, release the reload key");
         }
         else
@@ -268,12 +269,12 @@ public class PistolController : MonoBehaviour
         {
             weaponAudio.PlayOneShot(pistolFire);
             CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * pistolRange, Color.yellow, 1f);
+            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * pistolRange, Color.yellow, 1f);
             //Debug.Log("shot the pistol");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), pistolRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector2.right), pistolRange, targetLayer);
 
             Instantiate(BulletTracerPrefab, gunBarrel.position, gunBarrel.rotation);
 

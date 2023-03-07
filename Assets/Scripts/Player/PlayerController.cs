@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        onGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
+        onGround = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsGround);
 
         //TurnWithMouse();
         

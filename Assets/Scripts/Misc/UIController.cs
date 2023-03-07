@@ -29,8 +29,7 @@ public class UIController : MonoBehaviour
 
     public Image pistolMag;
     public Image uziMag;
-
-    public GameObject shotgunBarrel;
+    public Image shotgunBarrel;
     
     public Image[] pistolBullets;
     public Image[] uziBullets;

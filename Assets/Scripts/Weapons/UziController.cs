@@ -179,6 +179,7 @@ public class UziController : MonoBehaviour
     {
         if (ammo.currentUziMagCount == ammo.maxUziMagCount)
         {
+            UIController.instance.CheckUziMag(ammo.currentUziMagCount);
             Debug.Log("Full mag, release the reload key");
         }
         else
@@ -263,12 +264,12 @@ public class UziController : MonoBehaviour
         {
             weaponAudio.PlayOneShot(uziFire);
             CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * uziRange, Color.yellow, 1f);
+            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * uziRange, Color.yellow, 1f);
             Debug.Log("shot the uzi");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), uziRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.right), uziRange, targetLayer);
             
             Instantiate(BulletTracerPrefab, gunBarrel.position, gunBarrel.rotation);
 

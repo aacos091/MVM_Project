@@ -42,7 +42,7 @@ public class ShotgunController : MonoBehaviour
     public Image weaponImage;
     public float shotgunRange;
     public GameObject BulletTracerPrefab;
-    public float pellets, pelletSpread; // this is just for the bullet tracers, the shotgun works with a ray and that's it
+    //public float pellets, pelletSpread; // this is just for the bullet tracers, the shotgun works with a ray and that's it
 
     private RaycastHit2D hit;
 
@@ -189,17 +189,17 @@ public class ShotgunController : MonoBehaviour
         {
             weaponAudio.PlayOneShot(shotgunFire);
             CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * shotgunRange, Color.yellow, 1f);
+            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * shotgunRange, Color.yellow, 1f);
             Debug.Log("shot the shotgun");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), shotgunRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.right), shotgunRange, targetLayer);
 
-            for (int i = 0; i <= pellets; i++)
-            {
-                
-            }
+            //for (int i = 0; i <= pellets; i++)
+            //{
+            //    
+            //}
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
 
@@ -237,6 +237,7 @@ public class ShotgunController : MonoBehaviour
     {
         if (ammo.currentShellCount == ammo.maxShellCount)
         {
+            UIController.instance.UpdateShotgunCount(ammo.currentShellCount);
             Debug.Log("Full mag, release the reload key");
         }
         else
