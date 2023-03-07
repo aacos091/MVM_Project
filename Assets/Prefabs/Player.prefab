@@ -105,7 +105,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1810868853
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8e79770ebaaf4fa46b1a95f560d4a11b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -144,7 +144,7 @@ MonoBehaviour:
     m_Bits: 256
   weaponImage: {fileID: 0}
   weaponMag: {fileID: 0}
-  pistolRange: 10
+  pistolRange: 2
   BulletTracerPrefab: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
   weaponAudio: {fileID: 6672806036856126342}
   pistolEmpty: {fileID: 8300000, guid: b1c55e37d0c4170478b6121180743dce, type: 3}
@@ -323,7 +323,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1810868853
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ba2295dd31e200e49af9ce487f9eecf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037016728801}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af4532828cc8dc24e96d6a4cf10e60c0, type: 3}
   m_Name: 
@@ -361,10 +361,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   weaponImage: {fileID: 0}
-  shotgunRange: 2
+  shotgunRange: 1.5
   BulletTracerPrefab: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
-  pellets: 1
-  pelletSpread: 360
   weaponAudio: {fileID: 6672806037016728803}
   shotgunEmpty: {fileID: 8300000, guid: 9336d9aafbe8a0d48aa470aa6dde943c, type: 3}
   shotgunFire: {fileID: 8300000, guid: 13e9740bc828bf94181d2ace669b99b4, type: 3}
@@ -892,7 +890,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1810868853
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 48ee365d787d4dc4da03a6c6df5e9ce1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -931,7 +929,7 @@ MonoBehaviour:
     m_Bits: 256
   weaponImage: {fileID: 0}
   weaponMag: {fileID: 0}
-  uziRange: 7
+  uziRange: 2
   BulletTracerPrefab: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
   weaponAudio: {fileID: 6672806038232040947}
   uziEmpty: {fileID: 8300000, guid: b1c55e37d0c4170478b6121180743dce, type: 3}
@@ -1114,7 +1112,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1810868853
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4713f8c5786da06439423cdc3d3ee075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

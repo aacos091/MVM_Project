@@ -171,8 +171,11 @@ public class PistolController : MonoBehaviour
 
     private void OnDisable()
     {
-        weaponImage.gameObject.SetActive(false);
-        UIController.instance.EnablePistolMag(false);
+        if (weaponImage != null)
+        {
+            weaponImage.gameObject.SetActive(false);
+            UIController.instance.EnablePistolMag(false);
+        }
     }
 
     void Reload()
