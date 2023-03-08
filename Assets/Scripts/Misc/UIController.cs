@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
 
     public Image pistolMag;
     public Image uziMag;
-    public Image shotgunBarrel;
+    public GameObject shotgunBarrel;
     
     public Image[] pistolBullets;
     public Image[] uziBullets;
@@ -111,7 +111,7 @@ public class UIController : MonoBehaviour
 
     public void EnableShotgunBarrel(bool onOrOff)
     {
-        shotgunBarrel.gameObject.SetActive(onOrOff);
+        shotgunBarrel.SetActive(onOrOff);
     }
 
     public void UpdateShotgunCount(int shellsInBarrel)

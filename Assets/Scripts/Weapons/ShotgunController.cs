@@ -217,7 +217,7 @@ public class ShotgunController : MonoBehaviour
             Debug.Log("No Ammo");
         }
         
-        UIController.instance.UpdateTotals(ammo.shotgunShells, ammo.currentShellCount);
+        UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
     }
     
     IEnumerator Check()
