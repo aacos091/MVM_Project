@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class AbilitiesManager : MonoBehaviour
 {
+    public static AbilitiesManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    
     // Booleans for the different upgrades
     // If true, player has that upgrade
     public bool armorFound;

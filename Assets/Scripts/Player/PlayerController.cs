@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
+    private static PlayerController instance;
 
     private void Awake()
     {
@@ -28,7 +28,10 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
     public LayerMask whatIsGround;
 
-    // public LightSwitcher lightToggle;
+    public LightSelectEvent LightSelectEvents;
+    
+    public GameObject flashlight;
+    private bool _isFlashlightOn = false;
     
 
     // Just to make sure that melee weapons can at least change properly
@@ -52,10 +55,24 @@ public class PlayerController : MonoBehaviour
         
         TurnWithButtons();
 
-        // if (Input.GetKeyDown(KeyCode.F))
-        // {
-        //     lightToggle.SelectNormalLight();
-        // }
+        if (Input.GetKeyDown(KeyCode.F) && AbilitiesManager.instance.flashlightFound)
+        {
+            if (!_isFlashlightOn)
+            {
+                flashlight.SetActive(true);
+                _isFlashlightOn = true;
+            }
+            else
+            {
+                flashlight.SetActive(false);
+                _isFlashlightOn = false;
+            }
+        }
+        else
+        {
+            Debug.Log("You don't have a flashlight on you.");
+        }
+        
         //
         // if (Input.GetKeyDown(KeyCode.V))
         // {
@@ -133,5 +150,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+    }
+
+    public void OnLightPick()
+    {
+        LightSelectEvents.InvokeSelectNormalLight();
     }
 }
