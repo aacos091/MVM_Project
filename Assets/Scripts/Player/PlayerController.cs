@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
     public LayerMask whatIsGround;
 
+    // public LightSwitcher lightToggle;
+    
+
     // Just to make sure that melee weapons can at least change properly
     [NotNull] private WeaponManager _weaponMan;
     
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         _theRb = GetComponent<Rigidbody2D>();
         _weaponMan = GetComponentInChildren<WeaponManager>();
+        // lightToggle = GetComponent<LightSwitcher>();
     }
 
     // Update is called once per frame
@@ -46,6 +51,16 @@ public class PlayerController : MonoBehaviour
         //TurnWithMouse();
         
         TurnWithButtons();
+
+        // if (Input.GetKeyDown(KeyCode.F))
+        // {
+        //     lightToggle.SelectNormalLight();
+        // }
+        //
+        // if (Input.GetKeyDown(KeyCode.V))
+        // {
+        //     lightToggle.SelectUVLight();
+        // }
 
         if (Input.GetMouseButton(1))
         {
