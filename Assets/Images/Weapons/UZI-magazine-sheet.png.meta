@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,682 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 692
+        width: 13
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 295}
+        - {x: -16, y: 361}
+        - {x: -3, y: 361}
+        - {x: -3, y: 295}
+      - - {x: -13, y: 25}
+        - {x: -13, y: 28}
+        - {x: -4, y: 28}
+        - {x: -4, y: 25}
+      - - {x: -13, y: 20}
+        - {x: -13, y: 23}
+        - {x: -4, y: 23}
+        - {x: -4, y: 20}
+      - - {x: -13, y: 15}
+        - {x: -13, y: 18}
+        - {x: -4, y: 18}
+        - {x: -4, y: 15}
+      - - {x: -13, y: 10}
+        - {x: -13, y: 13}
+        - {x: -4, y: 13}
+        - {x: -4, y: 10}
+      - - {x: -13, y: 5}
+        - {x: -13, y: 8}
+        - {x: -4, y: 8}
+        - {x: -4, y: 5}
+      - - {x: -13, y: 0}
+        - {x: -13, y: 3}
+        - {x: -4, y: 3}
+        - {x: -4, y: 0}
+      - - {x: -13, y: -5}
+        - {x: -13, y: -2}
+        - {x: -4, y: -2}
+        - {x: -4, y: -5}
+      - - {x: -13, y: -10}
+        - {x: -13, y: -7}
+        - {x: -4, y: -7}
+        - {x: -4, y: -10}
+      - - {x: -13, y: -15}
+        - {x: -13, y: -12}
+        - {x: -4, y: -12}
+        - {x: -4, y: -15}
+      - - {x: -13, y: -20}
+        - {x: -13, y: -17}
+        - {x: -4, y: -17}
+        - {x: -4, y: -20}
+      - - {x: -13, y: -25}
+        - {x: -13, y: -22}
+        - {x: -4, y: -22}
+        - {x: -4, y: -25}
+      - - {x: -13, y: -30}
+        - {x: -13, y: -27}
+        - {x: -4, y: -27}
+        - {x: -4, y: -30}
+      - - {x: 7, y: -292}
+        - {x: 7, y: -289}
+        - {x: 16, y: -289}
+        - {x: 16, y: -292}
+      - - {x: -14, y: -301}
+        - {x: -14, y: -298}
+        - {x: -5, y: -298}
+        - {x: -5, y: -301}
+      - - {x: -14, y: -306}
+        - {x: -14, y: -303}
+        - {x: -5, y: -303}
+        - {x: -5, y: -306}
+      - - {x: -14, y: -311}
+        - {x: -14, y: -308}
+        - {x: -5, y: -308}
+        - {x: -5, y: -311}
+      - - {x: -14, y: -316}
+        - {x: -14, y: -313}
+        - {x: -5, y: -313}
+        - {x: -5, y: -316}
+      - - {x: -14, y: -321}
+        - {x: -14, y: -318}
+        - {x: -5, y: -318}
+        - {x: -5, y: -321}
+      - - {x: -14, y: -326}
+        - {x: -14, y: -323}
+        - {x: -5, y: -323}
+        - {x: -5, y: -326}
+      - - {x: -14, y: -331}
+        - {x: -14, y: -328}
+        - {x: -5, y: -328}
+        - {x: -5, y: -331}
+      - - {x: -14, y: -336}
+        - {x: -14, y: -333}
+        - {x: -5, y: -333}
+        - {x: -5, y: -336}
+      - - {x: -14, y: -341}
+        - {x: -14, y: -338}
+        - {x: -5, y: -338}
+        - {x: -5, y: -341}
+      - - {x: -14, y: -346}
+        - {x: -14, y: -343}
+        - {x: -5, y: -343}
+        - {x: -5, y: -346}
+      - - {x: -14, y: -351}
+        - {x: -14, y: -348}
+        - {x: -5, y: -348}
+        - {x: -5, y: -351}
+      - - {x: -14, y: -356}
+        - {x: -14, y: -353}
+        - {x: -5, y: -353}
+        - {x: -5, y: -356}
+      - - {x: -14, y: -361}
+        - {x: -14, y: -358}
+        - {x: -5, y: -358}
+        - {x: -5, y: -361}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acbe72d53e59205478a978b5786e9253
+      internalID: -1926017115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 422
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae2e17031bea6f48ad3bf4668b10feb
+      internalID: -1979981722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 417
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1698fdf080907b4419d4773f67fb85ef
+      internalID: -609602042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 412
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531fde2bcdbe55346b0654dfd3137f35
+      internalID: 154065294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 407
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f0e28979736a64c8eeb08494e57d5a
+      internalID: -1990575916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 402
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df44ddd2dfaabe0478fa40dc70adf724
+      internalID: -362560464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 397
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0497d999e2f8e44bd5048cf5a5bed9
+      internalID: -1079657500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 392
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9589419ce796b774a90b097ec1b11631
+      internalID: -271455875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 387
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0caecaffae62bda40b5d8484c1ad721f
+      internalID: 235695990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 382
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68b95aa41bdf8c45ad673b3efe151ee
+      internalID: 1513993805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 377
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f4148fa84f5ea4ba855efdb83c40f4
+      internalID: 428841320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 372
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13683789bc68e94081b18b5be64ae89
+      internalID: -497014200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 367
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb444595af372a41b7c91d1031a58a4
+      internalID: -952797078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 105
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5e736435938eb4f9085f551fdb7c11
+      internalID: -149135621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 96
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbce6289a50bce24c89d1d3367e4e984
+      internalID: -1063335809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 91
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ec44a979fc8084195d854d31491b2a
+      internalID: -1309843156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 86
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d563b8755be4349a6b3e6a45ff0717
+      internalID: 870775777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 81
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360d9fd337a7aec45a493d3942cfce7f
+      internalID: -2132217751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 76
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cb5e8da88af5d439e22629998f3095
+      internalID: 1517831720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 71
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f11d3ff4ed98f45b4d99909b48edc0
+      internalID: 501730639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 66
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a56eea12470b74fb8fafe1ce9fe4a4
+      internalID: 131300536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 61
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee20e215b4fffd4ab0f334ef14b1461
+      internalID: 835992450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 56
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168927896ca2f3f4a84576c7e0c4bd19
+      internalID: 2074835183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 51
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e77e2b34fba49b46b658eed1bad1e64
+      internalID: 1295605563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 46
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8a58719d00080468c26a64861b73d8
+      internalID: -748051045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 41
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bec0f3adc799e4c96bb4444b56e065
+      internalID: -1925969979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UZI-magazine-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 36
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b140ba67d655e8a4eb57c0bc9eaa5d1b
+      internalID: -237328691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +789,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UZI-magazine-sheet_3: 154065294
+      UZI-magazine-sheet_12: -952797078
+      UZI-magazine-sheet_25: -1925969979
+      UZI-magazine-sheet_0: -1926017115
+      UZI-magazine-sheet_13: -149135621
+      UZI-magazine-sheet_5: -362560464
+      UZI-magazine-sheet_2: -609602042
+      UZI-magazine-sheet_19: 501730639
+      UZI-magazine-sheet_23: 1295605563
+      UZI-magazine-sheet_20: 131300536
+      UZI-magazine-sheet_24: -748051045
+      UZI-magazine-sheet_11: -497014200
+      UZI-magazine-sheet_15: -1309843156
+      UZI-magazine-sheet_6: -1079657500
+      UZI-magazine-sheet_26: -237328691
+      UZI-magazine-sheet_1: -1979981722
+      UZI-magazine-sheet_22: 2074835183
+      UZI-magazine-sheet_18: 1517831720
+      UZI-magazine-sheet_8: 235695990
+      UZI-magazine-sheet_14: -1063335809
+      UZI-magazine-sheet_10: 428841320
+      UZI-magazine-sheet_17: -2132217751
+      UZI-magazine-sheet_21: 835992450
+      UZI-magazine-sheet_7: -271455875
+      UZI-magazine-sheet_4: -1990575916
+      UZI-magazine-sheet_16: 870775777
+      UZI-magazine-sheet_9: 1513993805
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -745,7 +745,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -42.5, y: -46.5}
+        - {x: -42.5, y: 15.5}
+        - {x: -24.5, y: 21.5}
+        - {x: -11.5, y: 46.5}
+        - {x: 31.5, y: 46.5}
+        - {x: 35.5, y: 20.5}
+        - {x: 42.5, y: 3.5}
+        - {x: 42.5, y: -15.5}
+        - {x: 35.5, y: -26.5}
+        - {x: 29.5, y: -46.5}
       physicsShape: []
       tessellationDetail: 0
       bones: []
@@ -766,7 +776,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -12.5, y: -15.5}
+        - {x: -19.5, y: -1.5}
+        - {x: -19.5, y: 15.5}
+        - {x: 19.5, y: 15.5}
+        - {x: 19.5, y: -15.5}
       physicsShape: []
       tessellationDetail: 0
       bones: []
@@ -978,8 +993,8 @@ TextureImporter:
       Alleyway at Night Background2-sheet_23: -2008210630
       Alleyway at Night Background2-sheet_28: 1923560435
       Alleyway at Night Background2-sheet_36: 518348786
-      Alleyway at Night Background2-sheet_29: 1463029216
       Alleyway at Night Background2-sheet_9: -325014962
+      Alleyway at Night Background2-sheet_29: 1463029216
       Alleyway at Night Background2-sheet_38: -528088
   spritePackingTag: 
   pSDRemoveMatte: 0
