@@ -42,9 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UV objects
-    uniqueID: 3016228297
+  - name: Environments
+    uniqueID: 3390008703
+    locked: 0
+  - name: Enemies
+    uniqueID: 1746331393
     locked: 0
   - name: Player
-    uniqueID: 402179747
+    uniqueID: 1810868853
     locked: 0

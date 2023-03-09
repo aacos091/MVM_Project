@@ -5,6 +5,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    
     private Rigidbody2D _theRb;
 
     public float moveSpeed;
@@ -31,7 +41,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        onGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
+        onGround = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsGround);
 
         //TurnWithMouse();
         

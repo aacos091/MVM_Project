@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -31,6 +32,10 @@ public class PistolController : MonoBehaviour
     [Header("Pistol Damage")] 
     public int damage;
 
+    [Header("Camera Shake")] 
+    public float CameraShakeIntensity;
+    public float CameraShakeTimer;
+
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
     private bool _reloadHeld = false;
@@ -41,6 +46,7 @@ public class PistolController : MonoBehaviour
     public Image weaponImage;
     public Image weaponMag;
     public float pistolRange;
+    public GameObject BulletTracerPrefab;
 
     private RaycastHit2D hit;
 
@@ -76,6 +82,8 @@ public class PistolController : MonoBehaviour
     private void Update()
     {
         //weaponRotationAiming();
+        
+        TurnGunBarrelWithButtons();
 
         if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
         {
@@ -158,19 +166,23 @@ public class PistolController : MonoBehaviour
     {
         weaponImage.gameObject.SetActive(true);
         UIController.instance.EnablePistolMag(true);
-        UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
+        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
     private void OnDisable()
     {
-        weaponImage.gameObject.SetActive(false);
-        UIController.instance.EnablePistolMag(false);
+        if (weaponImage != null)
+        {
+            weaponImage.gameObject.SetActive(false);
+            UIController.instance.EnablePistolMag(false);
+        }
     }
 
     void Reload()
     {
         if (ammo.currentPistolMagCount == ammo.maxPistolMagCount)
         {
+            UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
             Debug.Log("Full mag, release the reload key");
         }
         else
@@ -259,14 +271,17 @@ public class PistolController : MonoBehaviour
         if (ammo.currentPistolMagCount > 0)
         {
             weaponAudio.PlayOneShot(pistolFire);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * pistolRange, Color.yellow, 1f);
-            Debug.Log("shot the pistol");
+            CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
+            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * pistolRange, Color.yellow, 1f);
+            //Debug.Log("shot the pistol");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), pistolRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector2.right), pistolRange, targetLayer);
 
-            //DrawLine(gunBarrel.position, r2d.GetPoint(pistolRange), Color.black);
+            Instantiate(BulletTracerPrefab, gunBarrel.position, gunBarrel.rotation);
+
+            //DrawLine(gunBarrel.position, r2d.GetPoint(pistolRange), Color.red);
             
             --ammo.currentPistolMagCount;
             
@@ -344,7 +359,6 @@ public class PistolController : MonoBehaviour
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
-        
     }
 
     void changeMagazines()
@@ -364,6 +378,20 @@ public class PistolController : MonoBehaviour
             ammo.pistolMagID = 0;
             ammo.currentPistolMagCount = ammo.pistolMags[ammo.pistolMagID];
             UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+        }
+    }
+    
+    void TurnGunBarrelWithButtons()
+    {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, -180f, 0f);
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
     

@@ -1,0 +1,989 @@
+fileFormatVersion: 2
+guid: f41b28200cb65df48a2536ecaa792065
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5563
+        width: 1024
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf1c8a8c14171a4aa1c2d48e4aac01c
+      internalID: -1919679126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5183
+        width: 1024
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864e8d4e192df0e4195887bc4d9de4c2
+      internalID: 1931152592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4992
+        width: 284
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ace78f6eb489949a9afe92126125b3
+      internalID: 568355144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 4989
+        width: 25
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2654d8b83a792b34eaa41ded2ced94c2
+      internalID: 123714285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 4989
+        width: 248
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a46371c4955f547899f94801cc7bec
+      internalID: 1822999283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 4694
+        width: 748
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19e0ec9d738dc9478b5bed412204376
+      internalID: 1833069112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 4432
+        width: 211
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cef11a837eb9945b6b34d01aab92cb
+      internalID: -1360580347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 4115
+        width: 50
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353c0e41e9473d34e9eb25b5662b240a
+      internalID: 35081065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 4115
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54bc8281ae007b49ad9d40f823e0c2e
+      internalID: -2017975870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 4115
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b619918e70cf1b4ba885e5373f83222
+      internalID: -325014962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 4117
+        width: 73
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb6ae27e64bde841acc31a909a55f6f
+      internalID: -1527742035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 3876
+        width: 48
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb4abda636ae3a4ea1c11e6dc0ef28f
+      internalID: 1094592912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 3541
+        width: 53
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945205e383c78c948b6f8e8258065ae6
+      internalID: 701705304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 3251
+        width: 56
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a87c73845f9334c9f8c90856b63a97
+      internalID: 988756065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 3009
+        width: 47
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac2f41ba99cfc343b00ea0b1ae9a6d1
+      internalID: -573851887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 2683
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b5b89a9030aa04d8e8e4dc2294b2e6
+      internalID: 1001213290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 2683
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc66823edae811d4e912deff80e93309
+      internalID: 1378459727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 2391
+        width: 85
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4354df17c134b438361051caf1d5f2
+      internalID: -400146305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 2393
+        width: 127
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d6a01204792f4428e6d8344d813451
+      internalID: -526820010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2396
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3d04936cb91e24ea8fd245180c9616
+      internalID: 1319161726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 2137
+        width: 79
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd2bdf4a628d53408db516fca6b6f7e
+      internalID: -292499208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 1977
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76dab3ae737f4504bb33fe2bed8f707a
+      internalID: -1638847195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1977
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9793a8cbc4be8ed4fa193ec63d81f2f4
+      internalID: 324567137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1977
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e6cd17049c4e7499d742480678683e
+      internalID: -2008210630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1977
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b4f00faac17574d9f6446c7eee0ea1
+      internalID: -1164131372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1977
+        width: 51
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb2d74e75c09624a9d5f46950d0fc2d
+      internalID: -784709938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1977
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1660b78885b1c644bbe5c25e28e007a
+      internalID: -463603660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1533
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9a853e115e159438ecbb1a45265697
+      internalID: -1487937552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 1533
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1207642fe8b8844993f6b8e8a32bc14
+      internalID: 1923560435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 1353
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8512d45d4bee7a24993ba2a0164f7d6d
+      internalID: 1463029216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1282
+        width: 85
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f2df52645809f4e9dce7d9129c3c8b
+      internalID: 1638411546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1333
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf977b24156eaa34192455c07d98c39e
+      internalID: -1264584948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 1277
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09742afe8cbe1184e891d82c1a70ade9
+      internalID: 285013791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 1285
+        width: 36
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7bd259c55320349acd67010cf12599
+      internalID: -1523072945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 956
+        width: 256
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd330d8c2db071409a76bcc820e0efc
+      internalID: 1209786625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 574
+        width: 111
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55.5, y: -63.5}
+        - {x: -55.5, y: -0.5}
+        - {x: -55.5, y: 63.5}
+        - {x: 20.5, y: 63.5}
+        - {x: 31.5, y: 25.5}
+        - {x: 39.5, y: 21.5}
+        - {x: 55.5, y: 15.5}
+        - {x: 55.5, y: -63.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acaf8c85efd75294a80c351bbc624dff
+      internalID: 1644081285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 371
+        width: 115
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e99d89658072049a6f89ac0ec6618e
+      internalID: 518348786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 0
+        width: 45
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f1020c0b6f6834fbaf8a4de3888040
+      internalID: -1683764937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alleyway at Night Background2-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 661
+        width: 52
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44221ed602d46042a606426677c450b
+      internalID: -528088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Alleyway at Night Background2-sheet_0: -1919679126
+      Alleyway at Night Background2-sheet_30: 1638411546
+      Alleyway at Night Background2-sheet_16: 1378459727
+      Alleyway at Night Background2-sheet_14: -573851887
+      Alleyway at Night Background2-sheet_13: 988756065
+      Alleyway at Night Background2-sheet_37: -1683764937
+      Alleyway at Night Background2-sheet_7: 35081065
+      Alleyway at Night Background2-sheet_20: -292499208
+      Alleyway at Night Background2-sheet_32: 285013791
+      Alleyway at Night Background2-sheet_2: 568355144
+      Alleyway at Night Background2-sheet_8: -2017975870
+      Alleyway at Night Background2-sheet_4: 1822999283
+      Alleyway at Night Background2-sheet_19: 1319161726
+      Alleyway at Night Background2-sheet_11: 1094592912
+      Alleyway at Night Background2-sheet_22: 324567137
+      Alleyway at Night Background2-sheet_24: -1164131372
+      Alleyway at Night Background2-sheet_3: 123714285
+      Alleyway at Night Background2-sheet_18: -526820010
+      Alleyway at Night Background2-sheet_1: 1931152592
+      Alleyway at Night Background2-sheet_25: -784709938
+      Alleyway at Night Background2-sheet_34: 1209786625
+      Alleyway at Night Background2-sheet_12: 701705304
+      Alleyway at Night Background2-sheet_26: -463603660
+      Alleyway at Night Background2-sheet_21: -1638847195
+      Alleyway at Night Background2-sheet_35: 1644081285
+      Alleyway at Night Background2-sheet_6: -1360580347
+      Alleyway at Night Background2-sheet_31: -1264584948
+      Alleyway at Night Background2-sheet_33: -1523072945
+      Alleyway at Night Background2-sheet_5: 1833069112
+      Alleyway at Night Background2-sheet_15: 1001213290
+      Alleyway at Night Background2-sheet_10: -1527742035
+      Alleyway at Night Background2-sheet_27: -1487937552
+      Alleyway at Night Background2-sheet_17: -400146305
+      Alleyway at Night Background2-sheet_23: -2008210630
+      Alleyway at Night Background2-sheet_28: 1923560435
+      Alleyway at Night Background2-sheet_36: 518348786
+      Alleyway at Night Background2-sheet_29: 1463029216
+      Alleyway at Night Background2-sheet_9: -325014962
+      Alleyway at Night Background2-sheet_38: -528088
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

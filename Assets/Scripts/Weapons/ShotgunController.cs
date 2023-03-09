@@ -27,6 +27,10 @@ public class ShotgunController : MonoBehaviour
     
     [Header("Shotgun Damage")] 
     public int damage;
+    
+    [Header("Camera Shake")] 
+    public float CameraShakeIntensity;
+    public float CameraShakeTimer;
 
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
@@ -36,6 +40,9 @@ public class ShotgunController : MonoBehaviour
     public Transform gunBarrel;
     public LayerMask targetLayer;
     public Image weaponImage;
+    public float shotgunRange;
+    public GameObject BulletTracerPrefab;
+    //public float pellets, pelletSpread; // this is just for the bullet tracers, the shotgun works with a ray and that's it
 
     private RaycastHit2D hit;
 
@@ -66,6 +73,8 @@ public class ShotgunController : MonoBehaviour
     private void Update()
     {
         //weaponRotationAiming();
+        
+        TurnGunBarrelWithButtons();
 
         if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
         {
@@ -179,12 +188,18 @@ public class ShotgunController : MonoBehaviour
         if (ammo.currentShellCount > 0)
         {
             weaponAudio.PlayOneShot(shotgunFire);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
+            CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
+            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * shotgunRange, Color.yellow, 1f);
             Debug.Log("shot the shotgun");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.right), shotgunRange, targetLayer);
+
+            //for (int i = 0; i <= pellets; i++)
+            //{
+            //    
+            //}
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
 
@@ -202,7 +217,7 @@ public class ShotgunController : MonoBehaviour
             Debug.Log("No Ammo");
         }
         
-        UIController.instance.UpdateTotals(ammo.shotgunShells, ammo.currentShellCount);
+        UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
     }
     
     IEnumerator Check()
@@ -222,6 +237,7 @@ public class ShotgunController : MonoBehaviour
     {
         if (ammo.currentShellCount == ammo.maxShellCount)
         {
+            UIController.instance.UpdateShotgunCount(ammo.currentShellCount);
             Debug.Log("Full mag, release the reload key");
         }
         else
@@ -323,6 +339,20 @@ public class ShotgunController : MonoBehaviour
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
         
+    }
+    
+    void TurnGunBarrelWithButtons()
+    {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, -180f, 0f);
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
     }
     
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference
