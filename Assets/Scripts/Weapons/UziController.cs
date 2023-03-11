@@ -85,7 +85,7 @@ public class UziController : MonoBehaviour
         Debug.Log("Amount of bullets: " + ammo.uziBullets);
         Debug.Log("Amount in mag: " + ammo.currentUziMagCount);
 
-        ammo.uziMags.Add(ammo.currentUziMagCount);
+        //ammo.uziMags.Add(ammo.currentUziMagCount);
         
         _playerAnimator = transform.parent.GetComponentInParent<Animator>();
         
@@ -100,7 +100,6 @@ public class UziController : MonoBehaviour
         //weaponRotationAiming();
         
         //TurnGunBarrelWithButtons();
-        
         weaponDirectionalAiming();
 
         if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
@@ -132,8 +131,8 @@ public class UziController : MonoBehaviour
             _isAiming = false;
             _isAiming = false;
             _playerAnimator.SetBool("Aiming", false);
-            _playerAnimator.SetBool("UziAimUp", false);
-            _playerAnimator.SetBool("UziAimDown", false);
+            _playerAnimator.SetBool("AimUp", false);
+            _playerAnimator.SetBool("AimDown", false);
         }
 
 
@@ -153,10 +152,10 @@ public class UziController : MonoBehaviour
             }
             else
             {
-                weaponAudio.PlayOneShot(uziReload);
                 UIController.instance.PutUziMagAway(ammo.currentUziMagCount);
+                StartCoroutine(playSoundWithDelay(uziReload, 0.5f));
             }
-
+            
             _reloadHeld = false;
         }
         
@@ -166,14 +165,14 @@ public class UziController : MonoBehaviour
             {
                 _isReloading = true;
                 Reload();
-                _playerAnimator.SetBool("UziInsertBullet", true);
+                _playerAnimator.SetBool("InsertBullet", true);
                 _reloadHeld = true;
             }
         }
         else
         {
             _isReloading = false;
-            _playerAnimator.SetBool("UziInsertBullet", false);
+            _playerAnimator.SetBool("InsertBullet", false);
         }
         
         if (_isChecking || _isReloading)
@@ -185,11 +184,11 @@ public class UziController : MonoBehaviour
             PlayerController.instance.CanMove = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !_isReloading && !_isChecking && !_isAiming && !_isFiring)
+        if (Input.GetKeyDown(KeyCode.Q) && _isAiming && !_isReloading && !_isChecking && !_isFiring)
         {
             //changeMagazines();
             StartCoroutine(changeMagazines());
-            _playerAnimator.SetTrigger("UziChangeMagazines");
+            _playerAnimator.SetTrigger("ChangeMagazines");
         }
 
         if (_isFiring) UIController.instance.UpdateStatus("Firing");
@@ -258,6 +257,7 @@ public class UziController : MonoBehaviour
         _isChecking = true;
         _playerAnimator.SetTrigger("Check");
         UIController.instance.CheckUziMag(ammo.currentUziMagCount);
+        StartCoroutine(playSoundWithDelay(uziReload, 1f));
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         //weaponAudio.PlayOneShot(uziReload);
@@ -309,15 +309,15 @@ public class UziController : MonoBehaviour
             
             if (Input.GetAxisRaw("Vertical") > 0.2f)
             {
-                _playerAnimator.SetTrigger("UziFireUp");
+                _playerAnimator.SetTrigger("FireUp");
             }
             else if (Input.GetAxisRaw("Vertical") < -0.2f)
             {
-                _playerAnimator.SetTrigger("UziFireDown");
+                _playerAnimator.SetTrigger("FireDown");
             }
             else
             {
-                _playerAnimator.SetTrigger("UziFire");
+                _playerAnimator.SetTrigger("Fire");
             }
             
             Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.left) * uziRange, Color.yellow, 1f);
@@ -415,22 +415,22 @@ public class UziController : MonoBehaviour
             //transform.parent.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
             gunBarrel = UziBarrelUp;
             _weaponAngle = AimUpAngle;
-            _playerAnimator.SetBool("PistolAimUp", true);
+            _playerAnimator.SetBool("AimUp", true);
         }
         else if (Input.GetAxisRaw("Vertical") < -0.2f)
         {
             //transform.parent.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
             gunBarrel = UziBarrelDown;
             _weaponAngle = AimDownAngle;
-            _playerAnimator.SetBool("PistolAimDown", true);
+            _playerAnimator.SetBool("AimDown", true);
         }
         else
         {
             //transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
             gunBarrel = UziBarrel;
             _weaponAngle = 0f;
-            _playerAnimator.SetBool("PistolAimUp", false);
-            _playerAnimator.SetBool("PistolAimDown", false);
+            _playerAnimator.SetBool("AimUp", false);
+            _playerAnimator.SetBool("AimDown", false);
         }
         
         if (_aimToTheLeft)
@@ -439,8 +439,13 @@ public class UziController : MonoBehaviour
             //PistolBarrelUp.rotation = Quaternion.Euler(PistolBarrelUp.rotation.x, -180f, PistolBarrelUp.rotation.z); 
             //PistolBarrelDown.rotation = Quaternion.Euler(PistolBarrelDown.rotation.x, -180f, PistolBarrelDown.rotation.z);
             UziBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            UziBarrel.GetComponentInChildren<SpriteRenderer>().flipX = false;
             UziBarrelUp.localScale = new Vector3(-1f, 1f, 1f);
+            UziBarrelUp.GetChild(0).localScale = new Vector3(-2f, 2f, 2f);
+            UziBarrelUp.GetComponentInChildren<SpriteRenderer>().flipY = true;
             UziBarrelDown.localScale = new Vector3(-1f, 1f, 1f);
+            UziBarrelDown.GetChild(0).localScale = new Vector3(-2f, 2f, 2f);
+            UziBarrelDown.GetComponentInChildren<SpriteRenderer>().flipY = true;
         }
         else if (_aimToTheRight)
         {
@@ -448,8 +453,13 @@ public class UziController : MonoBehaviour
             //PistolBarrelUp.rotation = Quaternion.Euler(PistolBarrelUp.rotation.x, 0f, PistolBarrelUp.rotation.z); 
             //PistolBarrelDown.rotation = Quaternion.Euler(PistolBarrelDown.rotation.x, 0f, PistolBarrelDown.rotation.z); 
             UziBarrel.localScale = new Vector3(1f, 1f, 1f);
+            UziBarrel.GetComponentInChildren<SpriteRenderer>().flipX = true;
             UziBarrelUp.localScale = new Vector3(1f, 1f, 1f);
+            UziBarrelUp.GetChild(0).localScale = new Vector3(2f, 2f, 2f);
+            UziBarrelUp.GetComponentInChildren<SpriteRenderer>().flipY = false;
             UziBarrelDown.localScale = new Vector3(1f, 1f, 1f);
+            UziBarrelDown.GetChild(0).localScale = new Vector3(2f, 2f, 2f);
+            UziBarrelDown.GetComponentInChildren<SpriteRenderer>().flipY = false;
         }
     }
 
@@ -508,6 +518,12 @@ public class UziController : MonoBehaviour
             img.color = new Color(1, 1, 1, i);
             yield return null;
         }
+    }
+    
+    IEnumerator playSoundWithDelay(AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        weaponAudio.PlayOneShot(clip);
     }
     
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference

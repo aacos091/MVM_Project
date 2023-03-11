@@ -136,8 +136,8 @@ public class PistolController : MonoBehaviour
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
             _isAiming = false;
             _playerAnimator.SetBool("Aiming", false);
-            _playerAnimator.SetBool("PistolAimUp", false);
-            _playerAnimator.SetBool("PistolAimDown", false);
+            _playerAnimator.SetBool("AimUp", false);
+            _playerAnimator.SetBool("AimDown", false);
         }
 
 
@@ -170,14 +170,14 @@ public class PistolController : MonoBehaviour
             {
                 _isReloading = true;
                 Reload();
-                _playerAnimator.SetBool("PistolInsertBullet", true);
+                _playerAnimator.SetBool("InsertBullet", true);
                 _reloadHeld = true;
             }
         }
         else
         {
             _isReloading = false;
-            _playerAnimator.SetBool("PistolInsertBullet", false);
+            _playerAnimator.SetBool("InsertBullet", false);
         }
 
         if (_isChecking || _isReloading)
@@ -192,7 +192,7 @@ public class PistolController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && _isAiming && !_isChecking && !_isFiring && !_isReloading)
         {
             StartCoroutine(changeMagazines());
-            _playerAnimator.SetTrigger("PistolChangeMagazines");
+            _playerAnimator.SetTrigger("ChangeMagazines");
         }
 
         if (_isFiring) UIController.instance.UpdateStatus("Firing");
@@ -278,15 +278,15 @@ public class PistolController : MonoBehaviour
 
             if (Input.GetAxisRaw("Vertical") > 0.2f)
             {
-                _playerAnimator.SetTrigger("PistolFireUp");
+                _playerAnimator.SetTrigger("FireUp");
             }
             else if (Input.GetAxisRaw("Vertical") < -0.2f)
             {
-                _playerAnimator.SetTrigger("PistolFireDown");
+                _playerAnimator.SetTrigger("FireDown");
             }
             else
             {
-                _playerAnimator.SetTrigger("PistolFire");
+                _playerAnimator.SetTrigger("Fire");
             }
             //Debug.Log("shot the pistol");
 
@@ -386,22 +386,22 @@ public class PistolController : MonoBehaviour
             //transform.parent.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
             gunBarrel = PistolBarrelUp;
             _weaponAngle = AimUpAngle;
-            _playerAnimator.SetBool("PistolAimUp", true);
+            _playerAnimator.SetBool("AimUp", true);
         }
         else if (Input.GetAxisRaw("Vertical") < -0.2f)
         {
             //transform.parent.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
             gunBarrel = PistolBarrelDown;
             _weaponAngle = AimDownAngle;
-            _playerAnimator.SetBool("PistolAimDown", true);
+            _playerAnimator.SetBool("AimDown", true);
         }
         else
         {
             //transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
             gunBarrel = PistolBarrel;
             _weaponAngle = 0f;
-            _playerAnimator.SetBool("PistolAimUp", false);
-            _playerAnimator.SetBool("PistolAimDown", false);
+            _playerAnimator.SetBool("AimUp", false);
+            _playerAnimator.SetBool("AimDown", false);
         }
         
         if (_aimToTheLeft)

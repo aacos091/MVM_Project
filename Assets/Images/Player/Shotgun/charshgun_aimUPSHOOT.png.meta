@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9b5c5ceb74e440408d7cb401fa6afbf
-      internalID: 838716660
+      spriteID: 562e36a008201a64db0d6125ede1aa1e
+      internalID: -1912011634
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb3aad5745175d24d8d3965557d0057a
-      internalID: 727644142
+      spriteID: effc8956b8c95474583fb7e1d09bcaf9
+      internalID: -1517460975
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90598741abb8e9f4b8ee6dfa398671ed
-      internalID: -685652485
+      spriteID: 33da97c9914b5f145b1b347a85956f3d
+      internalID: -1737736705
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8541861fcbbed054aa594f5c1cf5767c
-      internalID: -1943741689
+      spriteID: 0a9cf4c3654136e4ea5ac3a617fe3591
+      internalID: 2136755553
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f58294214d2e87b49913ad33fd9d2b5d
-      internalID: 293510661
+      spriteID: 2cdfff3bd3afd3a489d3b20171676fc2
+      internalID: -1736284464
       vertices: []
       indices: 
       edges: []
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c164823392952ea4b91630444e93757b
-      internalID: 1810737462
+      spriteID: 9f4e88bd79a193e42ade9dea42743345
+      internalID: 368474796
       vertices: []
       indices: 
       edges: []
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8738ae136c22ec46b73cc66b52b3c58
-      internalID: -212824769
+      spriteID: efb9c7525c0e1ce4781890741e8bdae3
+      internalID: 2078508065
       vertices: []
       indices: 
       edges: []
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 356ea6872fbb13048a0e8bfb81043b51
-      internalID: -1978093043
+      spriteID: 2c6dd31b2a1a389448c7039d3bbb2ebc
+      internalID: -1319585441
       vertices: []
       indices: 
       edges: []
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78d41f645483f73408565e55536e7229
-      internalID: -1144900485
+      spriteID: 88a0aafbe9408e94a8ce40f3fff4675b
+      internalID: -1900701157
       vertices: []
       indices: 
       edges: []
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88bd383bc8d0d724a8443203e1097d4c
-      internalID: -451859432
+      spriteID: 61fadaf6975ea14449cd742dc765281a
+      internalID: 470243743
       vertices: []
       indices: 
       edges: []
@@ -325,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charshgun_aimUPSHOOT_8: -1144900485
-      charshgun_aimUPSHOOT_0: 838716660
-      charshgun_aimUPSHOOT_5: 1810737462
-      charshgun_aimUPSHOOT_7: -1978093043
-      charshgun_aimUPSHOOT_4: 293510661
-      charshgun_aimUPSHOOT_3: -1943741689
-      charshgun_aimUPSHOOT_6: -212824769
-      charshgun_aimUPSHOOT_9: -451859432
-      charshgun_aimUPSHOOT_1: 727644142
-      charshgun_aimUPSHOOT_2: -685652485
+      charshgun_aimUPSHOOT_8: -1900701157
+      charshgun_aimUPSHOOT_0: -1912011634
+      charshgun_aimUPSHOOT_5: 368474796
+      charshgun_aimUPSHOOT_7: -1319585441
+      charshgun_aimUPSHOOT_4: -1736284464
+      charshgun_aimUPSHOOT_3: 2136755553
+      charshgun_aimUPSHOOT_6: 2078508065
+      charshgun_aimUPSHOOT_9: 470243743
+      charshgun_aimUPSHOOT_1: -1517460975
+      charshgun_aimUPSHOOT_2: -1737736705
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

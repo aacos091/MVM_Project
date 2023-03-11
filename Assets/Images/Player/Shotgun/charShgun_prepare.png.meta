@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c7a7c7492a57dd4b96c7c165a412d09
+guid: 3e83084702bf5344c8c87fe0b922d285
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,12 +105,201 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_0
+      name: charShgun_prepare_0
       rect:
         serializedVersion: 2
-        x: 22
+        x: 34
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7994e76b82327847b3d5f236bcafe7b
+      internalID: -139030577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 5
+        width: 29
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 226ad98e678e330429af32c161db6ebd
+      internalID: -546255264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_2
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6de56f9cd5901440937fa63bf52ad92
+      internalID: 781343045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_3
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8d80e558305e2408feaba109c21c67
+      internalID: -2045979359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_4
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 5
+        width: 31
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4914b1f8a305d5745a80302fa46cb94a
+      internalID: -1310438675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_5
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 5
+        width: 31
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb6dced7497fec4f9ec95536476f0a4
+      internalID: -938591321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_6
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 5
+        width: 43
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14a57d21f601914d8127eef8c79122a
+      internalID: -21604009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_7
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 5
+        width: 52
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cb11314fdba8d41bea40b6bd9b4992
+      internalID: 97001754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_8
+      rect:
+        serializedVersion: 2
+        x: 1627
         y: 6
-        width: 68
+        width: 66
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1564771a826f84ab7292c7f865138b
+      internalID: -684468236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare_9
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 6
+        width: 66
         height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,155 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cde912369132434180ba58ecd8b6110
-      internalID: 434011407
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_1
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 6
-        width: 64
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34422e39adafa284eac18463a62b9a58
-      internalID: -991784415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_2
-      rect:
-        serializedVersion: 2
-        x: 422
-        y: 6
-        width: 62
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da938e9f981a92c43abe10cf6930dceb
-      internalID: -924008431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_3
-      rect:
-        serializedVersion: 2
-        x: 622
-        y: 6
-        width: 64
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4206811dee42b41478907534fdb853b5
-      internalID: 1280037294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_4
-      rect:
-        serializedVersion: 2
-        x: 822
-        y: 6
-        width: 68
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56f6d84c53912a444a7cd4e19ed20715
-      internalID: -1873438647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_5
-      rect:
-        serializedVersion: 2
-        x: 1022
-        y: 6
-        width: 68
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd0117db7ea71f840aa05e5571252600
-      internalID: -370164935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_6
-      rect:
-        serializedVersion: 2
-        x: 1222
-        y: 6
-        width: 68
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0eac9420a33e569439f0c03a3c4ee23d
-      internalID: 797967182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_7
-      rect:
-        serializedVersion: 2
-        x: 1422
-        y: 6
-        width: 68
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 450606e662844be4980deaf4b4b261ac
-      internalID: -1823101924
+      spriteID: e272b2bc935025d49b3e2c2c399a732e
+      internalID: -406787263
       vertices: []
       indices: 
       edges: []
@@ -283,14 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charshgun_aimStraghtaheadSHOOT_3: 1280037294
-      charshgun_aimStraghtaheadSHOOT_4: -1873438647
-      charshgun_aimStraghtaheadSHOOT_1: -991784415
-      charshgun_aimStraghtaheadSHOOT_6: 797967182
-      charshgun_aimStraghtaheadSHOOT_0: 434011407
-      charshgun_aimStraghtaheadSHOOT_5: -370164935
-      charshgun_aimStraghtaheadSHOOT_2: -924008431
-      charshgun_aimStraghtaheadSHOOT_7: -1823101924
+      charShgun_prepare_6: -21604009
+      charShgun_prepare_1: -546255264
+      charShgun_prepare_0: -139030577
+      charShgun_prepare_2: 781343045
+      charShgun_prepare_4: -1310438675
+      charShgun_prepare_3: -2045979359
+      charShgun_prepare_8: -684468236
+      charShgun_prepare_9: -406787263
+      charShgun_prepare_5: -938591321
+      charShgun_prepare_7: 97001754
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

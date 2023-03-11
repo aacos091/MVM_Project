@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c7a7c7492a57dd4b96c7c165a412d09
+guid: 8d6620fd53e1af842b6b50218fe35f8e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_0
+      name: charshgun_reload_0
       rect:
         serializedVersion: 2
         x: 22
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cde912369132434180ba58ecd8b6110
-      internalID: 434011407
+      spriteID: 74283e83830b09449aa372aefda22d99
+      internalID: -942424119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_1
+      name: charshgun_reload_1
       rect:
         serializedVersion: 2
         x: 222
         y: 6
-        width: 64
-        height: 73
+        width: 68
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34422e39adafa284eac18463a62b9a58
-      internalID: -991784415
+      spriteID: e3a422497a73a484fb4b2a6b14065912
+      internalID: -2025587381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_2
+      name: charshgun_reload_2
       rect:
         serializedVersion: 2
         x: 422
         y: 6
-        width: 62
-        height: 73
+        width: 67
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da938e9f981a92c43abe10cf6930dceb
-      internalID: -924008431
+      spriteID: 3845bf3972545294aa97b08c85eb68ed
+      internalID: -1961379590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_3
+      name: charshgun_reload_3
       rect:
         serializedVersion: 2
         x: 622
         y: 6
-        width: 64
-        height: 72
+        width: 67
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4206811dee42b41478907534fdb853b5
-      internalID: 1280037294
+      spriteID: eacb5d407e423fe47b9f3dce0d0f8e29
+      internalID: -847570158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_4
+      name: charshgun_reload_4
       rect:
         serializedVersion: 2
         x: 822
         y: 6
-        width: 68
+        width: 67
         height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f6d84c53912a444a7cd4e19ed20715
-      internalID: -1873438647
+      spriteID: 8af7416e42c62d44680323a841614ac4
+      internalID: -1130346266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_5
+      name: charshgun_reload_5
       rect:
         serializedVersion: 2
         x: 1022
         y: 6
-        width: 68
+        width: 67
         height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,19 +224,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0117db7ea71f840aa05e5571252600
-      internalID: -370164935
+      spriteID: a6bc76055d4c1aa478730d4a3fc9e969
+      internalID: -1036972497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_6
+      name: charshgun_reload_6
       rect:
         serializedVersion: 2
         x: 1222
         y: 6
-        width: 68
+        width: 67
         height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -245,19 +245,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eac9420a33e569439f0c03a3c4ee23d
-      internalID: 797967182
+      spriteID: 6742e6d7a8b631046992999032bad0f7
+      internalID: 1670745833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimStraghtaheadSHOOT_7
+      name: charshgun_reload_7
       rect:
         serializedVersion: 2
         x: 1422
         y: 6
-        width: 68
+        width: 67
         height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,8 +266,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 450606e662844be4980deaf4b4b261ac
-      internalID: -1823101924
+      spriteID: c615d0dee81603d4180d71ca4f8a281f
+      internalID: 2136279611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_reload_8
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 6
+        width: 67
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3127e47b3dc01c4896af9a5e3937d0a
+      internalID: 1813707150
       vertices: []
       indices: 
       edges: []
@@ -283,14 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charshgun_aimStraghtaheadSHOOT_3: 1280037294
-      charshgun_aimStraghtaheadSHOOT_4: -1873438647
-      charshgun_aimStraghtaheadSHOOT_1: -991784415
-      charshgun_aimStraghtaheadSHOOT_6: 797967182
-      charshgun_aimStraghtaheadSHOOT_0: 434011407
-      charshgun_aimStraghtaheadSHOOT_5: -370164935
-      charshgun_aimStraghtaheadSHOOT_2: -924008431
-      charshgun_aimStraghtaheadSHOOT_7: -1823101924
+      charshgun_reload_0: -942424119
+      charshgun_reload_8: 1813707150
+      charshgun_reload_5: -1036972497
+      charshgun_reload_4: -1130346266
+      charshgun_reload_3: -847570158
+      charshgun_reload_1: -2025587381
+      charshgun_reload_2: -1961379590
+      charshgun_reload_7: 2136279611
+      charshgun_reload_6: 1670745833
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

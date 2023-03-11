@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 522ef1872019b1b4aa205b0bc79f5e93
+guid: 6f74d512b5919ff49a82cf9b1506d041
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,12 +105,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_0
+      name: charShgun_prepare(loop)_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 4
-        width: 73
+        x: 34
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8478de40cc62efa46916db5696ad1dd5
+      internalID: 731946483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 5
+        width: 29
         height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc62a6bfd0299664f97f808a0679df32
-      internalID: -829761695
+      spriteID: b964ecb2b10054b42b53e109e47eca0f
+      internalID: 1372258880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_1
+      name: charShgun_prepare(loop)_2
       rect:
         serializedVersion: 2
-        x: 221
-        y: 4
-        width: 69
-        height: 75
+        x: 434
+        y: 5
+        width: 29
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d331a3c1e4edd58479cc90e6cc65973f
-      internalID: 23625728
+      spriteID: 1c0f84641b00270489e50dbf7564c7cb
+      internalID: -678525165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_2
+      name: charShgun_prepare(loop)_3
       rect:
         serializedVersion: 2
-        x: 421
-        y: 4
-        width: 65
-        height: 75
+        x: 634
+        y: 5
+        width: 29
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5475477feb4661044b9cace14184f980
-      internalID: 400021583
+      spriteID: b960c2ef33156a745985060ce9eb46ac
+      internalID: 1127968203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_3
+      name: charShgun_prepare(loop)_4
       rect:
         serializedVersion: 2
-        x: 621
-        y: 4
-        width: 60
-        height: 75
+        x: 832
+        y: 5
+        width: 31
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 208ca97409769cc4da7dd83e100eb725
-      internalID: 149442658
+      spriteID: a870eaa0a9e907449b331c711846f8fb
+      internalID: -582205940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_4
+      name: charShgun_prepare(loop)_5
       rect:
         serializedVersion: 2
-        x: 821
-        y: 4
-        width: 60
-        height: 75
+        x: 1032
+        y: 5
+        width: 31
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03b23b80bbbd93c4998739cc8ffb4d0e
-      internalID: 1861426854
+      spriteID: 4be359a2252728a47996f2c79fb6bff1
+      internalID: 1472977196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_5
+      name: charShgun_prepare(loop)_6
       rect:
         serializedVersion: 2
-        x: 1021
-        y: 4
-        width: 58
-        height: 75
+        x: 1235
+        y: 5
+        width: 43
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dfe69ae0ff0c9244aa7435175d36f00
-      internalID: 955006882
+      spriteID: 7415b967b6d27a54cb44017baa5f1d08
+      internalID: 1659047990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_6
+      name: charShgun_prepare(loop)_7
       rect:
         serializedVersion: 2
-        x: 1220
-        y: 4
-        width: 60
-        height: 75
+        x: 1431
+        y: 5
+        width: 52
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,62 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aef3e009c7c00db40ba7f8f1ee3f1570
-      internalID: -1581002288
+      spriteID: c5f8fa638120f2048a8dc6a0b1096b80
+      internalID: 626484999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_7
+      name: charShgun_prepare(loop)_8
       rect:
         serializedVersion: 2
-        x: 1420
-        y: 4
-        width: 65
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f21d53e98c498024ab7bd9d3cd9e6758
-      internalID: 1607475533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_8
-      rect:
-        serializedVersion: 2
-        x: 1620
-        y: 4
-        width: 67
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70edb500c6ab844469044030b2c2ded3
-      internalID: -1432713966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_9
-      rect:
-        serializedVersion: 2
-        x: 1820
-        y: 4
+        x: 1627
+        y: 6
         width: 66
-        height: 75
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c548d4068b42fa459b57f6b1a58b831
-      internalID: 520094790
+      spriteID: b35d9a67dd4ce8145b99474b7e940698
+      internalID: 1363256868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_10
+      name: charShgun_prepare(loop)_9
       rect:
         serializedVersion: 2
-        x: 2020
-        y: 4
+        x: 1822
+        y: 6
         width: 66
-        height: 75
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,209 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0ff44728c7ca7443ac7a467b7dadb6c
-      internalID: 1617202938
+      spriteID: df4daaf433a1f594db196787dfd6fc4f
+      internalID: 2048605486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_11
+      name: charShgun_prepare(loop)_10
       rect:
         serializedVersion: 2
-        x: 2219
-        y: 4
-        width: 67
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bceabb37828cf54c8b80726c1a15d9f
-      internalID: -464558698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_12
-      rect:
-        serializedVersion: 2
-        x: 2421
-        y: 4
-        width: 60
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a04bb9f9b1e36c6469855a35692d956a
-      internalID: -154931295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_13
-      rect:
-        serializedVersion: 2
-        x: 2621
-        y: 4
-        width: 58
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbfe81e0b78dd9a49a1f96b29ddf6654
-      internalID: 2095702894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_14
-      rect:
-        serializedVersion: 2
-        x: 2821
-        y: 4
-        width: 60
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 066974d6751256044852660320028fe1
-      internalID: 677209473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_15
-      rect:
-        serializedVersion: 2
-        x: 3021
-        y: 4
-        width: 64
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91febe1501ef0bb4d90d0ff0f9406aff
-      internalID: -105563709
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_16
-      rect:
-        serializedVersion: 2
-        x: 3221
-        y: 4
-        width: 64
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7ca79cf475d46f47a7417b505b6cc9a
-      internalID: -118748731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_17
-      rect:
-        serializedVersion: 2
-        x: 3420
-        y: 4
-        width: 65
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b875b97eecbbe924991cdd791576c2e9
-      internalID: -653800171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_18
-      rect:
-        serializedVersion: 2
-        x: 3620
-        y: 4
-        width: 65
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97db3d5cc3d048845a0cbf69784bfbae
-      internalID: 245420519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_19
-      rect:
-        serializedVersion: 2
-        x: 3820
-        y: 4
-        width: 67
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e33bf342f4149ab4693df0afcb78bf8b
-      internalID: 1842149723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_20
-      rect:
-        serializedVersion: 2
-        x: 4020
-        y: 4
+        x: 2027
+        y: 6
         width: 66
-        height: 75
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 784fc8ef32978af418780b0ebf834169
-      internalID: -126586178
+      spriteID: 1e29da4b04bd2ae47a8f2fa11681dd27
+      internalID: 1241174647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charshgun_aimDownSHOOT_21
+      name: charShgun_prepare(loop)_11
       rect:
         serializedVersion: 2
-        x: 4220
-        y: 4
-        width: 66
-        height: 75
+        x: 2231
+        y: 5
+        width: 52
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,8 +350,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c94eb55bf55632b448ac16a05785aff1
-      internalID: 2110326786
+      spriteID: 00a84870643c2e84484f202438d0fe65
+      internalID: -1185188607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_12
+      rect:
+        serializedVersion: 2
+        x: 2435
+        y: 5
+        width: 43
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883fcdd7fbbb53a4dbe2294d921f7dc5
+      internalID: -1833977225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_13
+      rect:
+        serializedVersion: 2
+        x: 2632
+        y: 5
+        width: 31
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9baceaea7f57f6c4e8e96b46be95f05b
+      internalID: 320896255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_14
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 5
+        width: 31
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64e93bc87458c445b76d835b54116e1
+      internalID: 708874745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_15
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0726eede281ff84468abd4e38b7e97de
+      internalID: 737445924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_16
+      rect:
+        serializedVersion: 2
+        x: 3234
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b7ba49da7f16c4e9b63621ff2854af
+      internalID: -783371739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_17
+      rect:
+        serializedVersion: 2
+        x: 3434
+        y: 5
+        width: 29
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50da5d08532d5d846b989eb9081c282c
+      internalID: 990150442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charShgun_prepare(loop)_18
+      rect:
+        serializedVersion: 2
+        x: 3634
+        y: 5
+        width: 29
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d455b980ed2cb0b4da7a0c2213ad00f9
+      internalID: 1920256543
       vertices: []
       indices: 
       edges: []
@@ -577,28 +514,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charshgun_aimDownSHOOT_5: 955006882
-      charshgun_aimDownSHOOT_8: -1432713966
-      charshgun_aimDownSHOOT_6: -1581002288
-      charshgun_aimDownSHOOT_9: 520094790
-      charshgun_aimDownSHOOT_20: -126586178
-      charshgun_aimDownSHOOT_11: -464558698
-      charshgun_aimDownSHOOT_3: 149442658
-      charshgun_aimDownSHOOT_0: -829761695
-      charshgun_aimDownSHOOT_15: -105563709
-      charshgun_aimDownSHOOT_16: -118748731
-      charshgun_aimDownSHOOT_19: 1842149723
-      charshgun_aimDownSHOOT_21: 2110326786
-      charshgun_aimDownSHOOT_10: 1617202938
-      charshgun_aimDownSHOOT_13: 2095702894
-      charshgun_aimDownSHOOT_14: 677209473
-      charshgun_aimDownSHOOT_12: -154931295
-      charshgun_aimDownSHOOT_17: -653800171
-      charshgun_aimDownSHOOT_7: 1607475533
-      charshgun_aimDownSHOOT_1: 23625728
-      charshgun_aimDownSHOOT_2: 400021583
-      charshgun_aimDownSHOOT_4: 1861426854
-      charshgun_aimDownSHOOT_18: 245420519
+      charShgun_prepare(loop)_6: 1659047990
+      charShgun_prepare(loop)_16: -783371739
+      charShgun_prepare(loop)_13: 320896255
+      charShgun_prepare(loop)_14: 708874745
+      charShgun_prepare(loop)_11: -1185188607
+      charShgun_prepare(loop)_3: 1127968203
+      charShgun_prepare(loop)_17: 990150442
+      charShgun_prepare(loop)_15: 737445924
+      charShgun_prepare(loop)_4: -582205940
+      charShgun_prepare(loop)_1: 1372258880
+      charShgun_prepare(loop)_7: 626484999
+      charShgun_prepare(loop)_9: 2048605486
+      charShgun_prepare(loop)_2: -678525165
+      charShgun_prepare(loop)_12: -1833977225
+      charShgun_prepare(loop)_0: 731946483
+      charShgun_prepare(loop)_10: 1241174647
+      charShgun_prepare(loop)_5: 1472977196
+      charShgun_prepare(loop)_18: 1920256543
+      charShgun_prepare(loop)_8: 1363256868
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
