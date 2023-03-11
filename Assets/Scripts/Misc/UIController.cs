@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class UIController : MonoBehaviour
 {
@@ -114,6 +115,11 @@ public class UIController : MonoBehaviour
         shotgunBarrel.SetActive(onOrOff);
     }
 
+    public void TurnOnWeapon(Image weaponImage)
+    {
+        StartCoroutine(ActivateWeapon(weaponImage));
+    }
+
     public void UpdateShotgunCount(int shellsInBarrel)
     {
         for (int i = 0; i < shellsInBarrel; i++)
@@ -127,6 +133,24 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < shellsInBarrel; i++)
         {
             shotgunShells[i].gameObject.SetActive(false);
+        }
+    }
+
+    public IEnumerator ActivateWeapon(Image weaponToActivate)
+    {
+        weaponToActivate.gameObject.SetActive(true);
+
+        for (float i = 0; i <= 2; i += Time.deltaTime)
+        {
+            weaponToActivate.color = new Color(1, 1, 1, i);
+            
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
+        {
+            weaponToActivate.color = new Color(1, 1, 1, i);
         }
     }
 }

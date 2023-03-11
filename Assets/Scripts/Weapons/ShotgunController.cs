@@ -270,7 +270,7 @@ public class ShotgunController : MonoBehaviour
 
     private void OnEnable()
     {
-        weaponImage.gameObject.SetActive(true);
+        StartCoroutine(ActivateThisWeapon(weaponImage));
         UIController.instance.EnableShotgunBarrel(true);
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
     }
@@ -352,6 +352,25 @@ public class ShotgunController : MonoBehaviour
         {
             //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
             gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+    }
+    
+    IEnumerator ActivateThisWeapon(Image img)
+    {
+        img.gameObject.SetActive(true);
+
+        for (float i = 0; i <= 1f; i += Time.deltaTime)
+        {
+            img.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        for (float i = 1f; i >= 0; i -= Time.deltaTime)
+        {
+            img.color = new Color(1, 1, 1, i);
+            yield return null;
         }
     }
     

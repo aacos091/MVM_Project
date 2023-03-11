@@ -928,7 +928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &179390197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4128,7 +4128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &790435610
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4141,13 +4141,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72dc07b7b5b564442b2c740c268e24b7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.37
+  m_Volume: 0.443
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 174
+  Priority: 149
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -6556,6 +6556,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &1202204872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6672806037783391141, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+  m_PrefabInstance: {fileID: 6672806038211896308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204211665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,7 +6879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9471,6 +9476,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6672806036856126341, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672806036856126341, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6672806036856126343, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: checkTime
       value: 2
@@ -9491,10 +9504,18 @@ PrefabInstance:
       propertyPath: changeTimeWhileAiming
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6672806036856126363, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6672806037016728814, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 585725987}
+    - target: {fileID: 6672806037685311498, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6672806037809878707, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: currentPistolMagCount
       value: 13
@@ -9512,13 +9533,29 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: UziBarrel
+      value: 
+      objectReference: {fileID: 1202204872}
+    - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: checkTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: weaponMag
       value: 
       objectReference: {fileID: 1317608975}
     - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: UziBarrelUp
+      value: 
+      objectReference: {fileID: 1360552194}
+    - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 1914124454}
+    - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
+      propertyPath: UziBarrelDown
+      value: 
+      objectReference: {fileID: 653720959}
     - target: {fileID: 6672806038243068784, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9533,16 +9570,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6672806038243068785, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: footstepSounds.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6672806038243068785, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: footstepSounds.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 078cd21ed1622b54fa8f8041267e0f72, type: 3}
+      objectReference: {fileID: 8300000, guid: f4ce3369ee5a13d42aee7b96de88d893, type: 3}
     - target: {fileID: 6672806038243068785, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: footstepSounds.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 117bda3d4099f554381b2556776241f7, type: 3}
+      objectReference: {fileID: 8300000, guid: ae9abd00b209f9f4aabaa8759bd0c32b, type: 3}
     - target: {fileID: 6672806038243068785, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: footstepSounds.Array.data[2]
       value: 

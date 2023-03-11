@@ -204,7 +204,8 @@ public class PistolController : MonoBehaviour
     
     private void OnEnable()
     {
-        weaponImage.gameObject.SetActive(true);
+        _playerAnimator.ResetTrigger("Check");
+        StartCoroutine(ActivateThisWeapon(weaponImage));
         UIController.instance.EnablePistolMag(true);
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
@@ -462,6 +463,25 @@ public class PistolController : MonoBehaviour
         {
             //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
             gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, 0f, gunBarrel.localRotation.z);
+        }
+    }
+
+    IEnumerator ActivateThisWeapon(Image img)
+    {
+        img.gameObject.SetActive(true);
+
+        for (float i = 0; i <= 1f; i += Time.deltaTime)
+        {
+            img.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        for (float i = 1f; i >= 0; i -= Time.deltaTime)
+        {
+            img.color = new Color(1, 1, 1, i);
+            yield return null;
         }
     }
 
