@@ -1,0 +1,607 @@
+fileFormatVersion: 2
+guid: 522ef1872019b1b4aa205b0bc79f5e93
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 4
+        width: 73
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d345f3541cc7ec44c9c34267b748b4bb
+      internalID: 423899119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_1
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 4
+        width: 69
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b039f4cdc3db448be3ac8089d878da
+      internalID: 1405422434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_2
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 4
+        width: 65
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec14b4ef23993a24f873f58ab7498143
+      internalID: 1460828740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_3
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 4
+        width: 60
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3275b4d173afda14aa123059f1b2e94a
+      internalID: 1256659533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_4
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 4
+        width: 60
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059f6bbfac137ac4bbec8ba8ef638559
+      internalID: 1337439467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_5
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 4
+        width: 58
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d24b504dfa1cc4bba489726c730c7e
+      internalID: -393815447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_6
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 4
+        width: 60
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313ff5a9e2f1b9b4b97e52612350fc3b
+      internalID: 704347700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_7
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 4
+        width: 65
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ffff0f072a67e4994cc24f197c6a21
+      internalID: -1679740646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_8
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 4
+        width: 67
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a975b0436659564b9c45c7cc4461b59
+      internalID: 931260397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_9
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 4
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae3c9333b964ca46ae8e36468e0c29c
+      internalID: -978633416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_10
+      rect:
+        serializedVersion: 2
+        x: 2020
+        y: 4
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab66e0c5f464d7a45bce423c8fc1e5b5
+      internalID: 821000900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_11
+      rect:
+        serializedVersion: 2
+        x: 2219
+        y: 4
+        width: 67
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7ba2002e24c87409ccee9dfee14b82
+      internalID: -1733303105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_12
+      rect:
+        serializedVersion: 2
+        x: 2421
+        y: 4
+        width: 60
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86191d192efd544dadfc138ea31801a
+      internalID: -668949303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_13
+      rect:
+        serializedVersion: 2
+        x: 2621
+        y: 4
+        width: 58
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e633ac403d78a33448c8c3feb994dd48
+      internalID: 2003597018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_14
+      rect:
+        serializedVersion: 2
+        x: 2821
+        y: 4
+        width: 60
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41fb60d1105a0b42a66ace4dfe661fc
+      internalID: -1144979988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_15
+      rect:
+        serializedVersion: 2
+        x: 3021
+        y: 4
+        width: 64
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1514665ccc8db4fa60eade7cf5c707
+      internalID: 802416332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_16
+      rect:
+        serializedVersion: 2
+        x: 3221
+        y: 4
+        width: 64
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7ae00b6f89e9649aa8c44f351176bf
+      internalID: 1623467453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_17
+      rect:
+        serializedVersion: 2
+        x: 3420
+        y: 4
+        width: 65
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f73f6432bcbb114ba2c46c49ed2b175
+      internalID: 1983239394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_18
+      rect:
+        serializedVersion: 2
+        x: 3620
+        y: 4
+        width: 65
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f548a783f7db8e245b66e5dece7f5a85
+      internalID: -550120551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_19
+      rect:
+        serializedVersion: 2
+        x: 3820
+        y: 4
+        width: 67
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53390fc07e6938b4eaceff6afb646298
+      internalID: -717573873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_20
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 4
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c500284e4a0feb9418eb739a6d95ae0e
+      internalID: -357065597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charshgun_aimDownSHOOT_21
+      rect:
+        serializedVersion: 2
+        x: 4220
+        y: 4
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6516f0caaf429f4a920034ecc7b29cd
+      internalID: -1176697611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      charshgun_aimDownSHOOT_5: -393815447
+      charshgun_aimDownSHOOT_8: 931260397
+      charshgun_aimDownSHOOT_6: 704347700
+      charshgun_aimDownSHOOT_9: -978633416
+      charshgun_aimDownSHOOT_20: -357065597
+      charshgun_aimDownSHOOT_11: -1733303105
+      charshgun_aimDownSHOOT_3: 1256659533
+      charshgun_aimDownSHOOT_0: 423899119
+      charshgun_aimDownSHOOT_15: 802416332
+      charshgun_aimDownSHOOT_16: 1623467453
+      charshgun_aimDownSHOOT_19: -717573873
+      charshgun_aimDownSHOOT_21: -1176697611
+      charshgun_aimDownSHOOT_10: 821000900
+      charshgun_aimDownSHOOT_13: 2003597018
+      charshgun_aimDownSHOOT_14: -1144979988
+      charshgun_aimDownSHOOT_12: -668949303
+      charshgun_aimDownSHOOT_17: 1983239394
+      charshgun_aimDownSHOOT_7: -1679740646
+      charshgun_aimDownSHOOT_1: 1405422434
+      charshgun_aimDownSHOOT_2: 1460828740
+      charshgun_aimDownSHOOT_4: 1337439467
+      charshgun_aimDownSHOOT_18: -550120551
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

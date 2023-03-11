@@ -24,8 +24,19 @@ public class WeaponManager : MonoBehaviour
     };
 
     public GameObject melee, pistol, uzi, shotgun;
+
+    private Animator _playerAnimator;
     
     public bool uziFound, shotgunFound;
+
+    private void Start()
+    {
+        _playerAnimator = GetComponentInParent<Animator>();
+        
+        _playerAnimator.SetBool("PistolEquipped", true);
+        _playerAnimator.SetBool("UziEquipped", false);
+        _playerAnimator.SetBool("ShotgunEquipped", false);
+    }
 
     public void ChangeWeapon(Weapons newWeapon)
     {
@@ -42,6 +53,9 @@ public class WeaponManager : MonoBehaviour
                 pistol.SetActive(true);
                 uzi.SetActive(false);
                 shotgun.SetActive(false);
+                _playerAnimator.SetBool("PistolEquipped", true);
+                _playerAnimator.SetBool("UziEquipped", false);
+                _playerAnimator.SetBool("ShotgunEquipped", false);
                 break;
             case Weapons.Uzi:
                 if (uziFound)
@@ -50,6 +64,9 @@ public class WeaponManager : MonoBehaviour
                     pistol.SetActive(false);
                     uzi.SetActive(true);
                     shotgun.SetActive(false);
+                    _playerAnimator.SetBool("PistolEquipped", false);
+                    _playerAnimator.SetBool("UziEquipped", true);
+                    _playerAnimator.SetBool("ShotgunEquipped", false);
                 }
                 else
                 {
@@ -63,6 +80,9 @@ public class WeaponManager : MonoBehaviour
                     pistol.SetActive(false);
                     uzi.SetActive(false);
                     shotgun.SetActive(true);
+                    _playerAnimator.SetBool("PistolEquipped", false);
+                    _playerAnimator.SetBool("UziEquipped", false);
+                    _playerAnimator.SetBool("ShotgunEquipped", true);
                 }
                 else
                 {

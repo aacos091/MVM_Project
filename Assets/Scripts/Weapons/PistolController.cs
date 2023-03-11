@@ -24,6 +24,11 @@ public class PistolController : MonoBehaviour
     public float checkTime;
     private bool _isChecking;
 
+    [Header("Pistol Change Magazine Time")]
+    public float changeTime;
+    public float changeTimeWhileAiming;
+    private bool _changingMags;
+
     [Header("Pistol Aiming Angles")]
     public float upAimingAngle;
     public float downAimingAngle;
@@ -48,9 +53,22 @@ public class PistolController : MonoBehaviour
     public float pistolRange;
     public GameObject BulletTracerPrefab;
 
-    private RaycastHit2D hit;
+    private bool _aimToTheLeft;
+    private bool _aimToTheRight;
 
+    public float AimUpAngle = 40f;
+    public float AimDownAngle = 330f;
+    private float _weaponAngle;
+
+    private bool _canChangeMags;
+
+    private RaycastHit2D hit;
+    private Animator _playerAnimator;
     private AmmoManager ammo;
+
+    private bool _canMove;
+
+    public Transform PistolBarrel, PistolBarrelUp, PistolBarrelDown;
 
     [Header("Pistol Sounds")]
     public AudioSource weaponAudio;
@@ -70,39 +88,46 @@ public class PistolController : MonoBehaviour
         Debug.Log("Amount of bullets: " + ammo.pistolBullets);
         Debug.Log("Amount in mag: " + ammo.currentPistolMagCount);
 
-        ammo.pistolMags.Add(ammo.currentPistolMagCount);
+        //ammo.pistolMags.Add(ammo.currentPistolMagCount);
+
+        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
         
         
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         UIController.instance.UpdateStatus("Idle");
         
         Debug.Log("There are " + ammo.pistolMags[0] + " bullets in the current mag");
+        
+        _canMove = true;
     }
 
     private void Update()
     {
         //weaponRotationAiming();
         
-        TurnGunBarrelWithButtons();
+        //TurnGunBarrelWithButtons();
+        weaponDirectionalAiming();
 
-        if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
+        if (Input.GetMouseButton(1) && !_isReloading && !_isChecking && !_changingMags)
         {
             Debug.Log("aiming button held down");
             _isAiming = true;
-            
-            weaponDirectionalAiming();
-            
+            _playerAnimator.SetBool("Aiming", true);
+
+
             if (Input.GetMouseButtonDown(0))
             {
                 _isFiring = true;
                 if (Time.time > _nextFire)
                 {
+                    _canChangeMags = false;
                     pistolShoot();
                     _nextFire = Time.time + fireRate;
                 }
             }
             else if (Input.GetMouseButtonUp(0))
             {
+                _canChangeMags = true;
                 _isFiring = false;
             }
         }
@@ -110,6 +135,9 @@ public class PistolController : MonoBehaviour
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
             _isAiming = false;
+            _playerAnimator.SetBool("Aiming", false);
+            _playerAnimator.SetBool("PistolAimUp", false);
+            _playerAnimator.SetBool("PistolAimDown", false);
         }
 
 
@@ -142,17 +170,29 @@ public class PistolController : MonoBehaviour
             {
                 _isReloading = true;
                 Reload();
+                _playerAnimator.SetBool("PistolInsertBullet", true);
                 _reloadHeld = true;
             }
         }
         else
         {
             _isReloading = false;
+            _playerAnimator.SetBool("PistolInsertBullet", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !_isReloading && !_isChecking && !_isAiming && !_isFiring)
+        if (_isChecking || _isReloading)
         {
-            changeMagazines();
+            PlayerController.instance.CanMove = false;
+        }
+        else
+        {
+            PlayerController.instance.CanMove = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && _isAiming && !_isChecking && !_isFiring && !_isReloading)
+        {
+            StartCoroutine(changeMagazines());
+            _playerAnimator.SetTrigger("PistolChangeMagazines");
         }
 
         if (_isFiring) UIController.instance.UpdateStatus("Firing");
@@ -218,6 +258,7 @@ public class PistolController : MonoBehaviour
     {
         Debug.Log("You have: " + ammo.currentPistolMagCount + " in the mag");
         _isChecking = true;
+        _playerAnimator.SetTrigger("Check");
         UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
@@ -226,60 +267,37 @@ public class PistolController : MonoBehaviour
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
-    IEnumerator Shoot()
-    {
-        if (ammo.currentPistolMagCount > 0)
-        {
-            _isFiring = true;
-            weaponAudio.PlayOneShot(pistolFire);
-            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right) * 15f, Color.yellow, 1f);
-            Debug.Log("shot the gun");
-
-            r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
-
-            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right), 15f, targetLayer);
-
-            //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
-            
-            --ammo.currentPistolMagCount;
-            
-            --ammo.pistolMags[ammo.pistolMagID];
-            
-            if (hit.transform.CompareTag("Enemy"))
-            {
-                Debug.Log("you hit an enemy");
-
-                EnemyController enemy = hit.transform.GetComponent<EnemyController>();
-
-                enemy.DamageEnemy(damage);
-            }
-
-        }
-        else if (ammo.currentPistolMagCount == 0)
-        {
-            weaponAudio.PlayOneShot(pistolEmpty);
-            Debug.Log("No Ammo");
-        }
-        
-        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
-        yield return new WaitForSeconds(fireRate);
-        _isFiring = false;
-    }
-
     void pistolShoot()
     {
         if (ammo.currentPistolMagCount > 0)
         {
             weaponAudio.PlayOneShot(pistolFire);
             CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
-            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * pistolRange, Color.yellow, 1f);
+
+
+            if (Input.GetAxisRaw("Vertical") > 0.2f)
+            {
+                _playerAnimator.SetTrigger("PistolFireUp");
+            }
+            else if (Input.GetAxisRaw("Vertical") < -0.2f)
+            {
+                _playerAnimator.SetTrigger("PistolFireDown");
+            }
+            else
+            {
+                _playerAnimator.SetTrigger("PistolFire");
+            }
             //Debug.Log("shot the pistol");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
+            
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.left) * pistolRange, Color.yellow, 1f);
 
-            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector2.right), pistolRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector2.left), pistolRange, targetLayer);
+            
+            //Debug.Log(gunBarrel.rotation + ", " + gunBarrel.localRotation);
 
-            Instantiate(BulletTracerPrefab, gunBarrel.position, gunBarrel.rotation);
+            Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle));
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(pistolRange), Color.red);
             
@@ -347,54 +365,106 @@ public class PistolController : MonoBehaviour
     // Use this to aim in pre-defined directions
     void weaponDirectionalAiming()
     {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            //gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, -180f, gunBarrel.localRotation.z);
+            _aimToTheLeft = true;
+            _aimToTheRight = false;
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            //gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, 0f, gunBarrel.localRotation.z);
+            _aimToTheLeft = false;
+            _aimToTheRight = true;
+        }
+        
         if (Input.GetAxisRaw("Vertical") > 0.2f)
         {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
+            //transform.parent.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
+            gunBarrel = PistolBarrelUp;
+            _weaponAngle = AimUpAngle;
+            _playerAnimator.SetBool("PistolAimUp", true);
         }
         else if (Input.GetAxisRaw("Vertical") < -0.2f)
         {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
+            //transform.parent.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
+            gunBarrel = PistolBarrelDown;
+            _weaponAngle = AimDownAngle;
+            _playerAnimator.SetBool("PistolAimDown", true);
         }
         else
         {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
+            //transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
+            gunBarrel = PistolBarrel;
+            _weaponAngle = 0f;
+            _playerAnimator.SetBool("PistolAimUp", false);
+            _playerAnimator.SetBool("PistolAimDown", false);
+        }
+        
+        if (_aimToTheLeft)
+        {
+            //PistolBarrel.rotation = Quaternion.Euler(PistolBarrel.rotation.x, -180f, PistolBarrel.rotation.z);
+            //PistolBarrelUp.rotation = Quaternion.Euler(PistolBarrelUp.rotation.x, -180f, PistolBarrelUp.rotation.z); 
+            //PistolBarrelDown.rotation = Quaternion.Euler(PistolBarrelDown.rotation.x, -180f, PistolBarrelDown.rotation.z);
+            PistolBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            PistolBarrelUp.localScale = new Vector3(-1f, 1f, 1f);
+            PistolBarrelDown.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (_aimToTheRight)
+        {
+            //PistolBarrel.rotation = Quaternion.Euler(PistolBarrel.rotation.x, 0f, PistolBarrel.rotation.z); 
+            //PistolBarrelUp.rotation = Quaternion.Euler(PistolBarrelUp.rotation.x, 0f, PistolBarrelUp.rotation.z); 
+            //PistolBarrelDown.rotation = Quaternion.Euler(PistolBarrelDown.rotation.x, 0f, PistolBarrelDown.rotation.z); 
+            PistolBarrel.localScale = new Vector3(1f, 1f, 1f);
+            PistolBarrelUp.localScale = new Vector3(1f, 1f, 1f);
+            PistolBarrelDown.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
-    void changeMagazines()
+    IEnumerator changeMagazines()
     {
+        _changingMags = true;
+
         if (ammo.pistolMags.Count == 1)
         {
             Debug.Log("You only have one mag");
         }
         else if (ammo.pistolMagID < ammo.pistolMags.Count - 1)
         {
+            pistolRemoveSound();
             ammo.pistolMagID++;
             ammo.currentPistolMagCount = ammo.pistolMags[ammo.pistolMagID];
             UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         }
         else
         {
+            pistolRemoveSound();
             ammo.pistolMagID = 0;
             ammo.currentPistolMagCount = ammo.pistolMags[ammo.pistolMagID];
             UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         }
+        
+        yield return new WaitForSeconds(changeTime);
+        _changingMags = false;
+        pistolReloadSound();
     }
-    
+
     void TurnGunBarrelWithButtons()
     {
         if (Input.GetAxis("Horizontal") < -0.2f)
         {
             //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
-            gunBarrel.localRotation = Quaternion.Euler(0f, -180f, 0f);
+            gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, -180f, gunBarrel.localRotation.z);
         }
         else if (Input.GetAxis("Horizontal") > 0.2f)
         {
             //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
-            gunBarrel.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, 0f, gunBarrel.localRotation.z);
         }
     }
-    
+
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference
     // Only used for debugging
     void DrawLine(Vector2 start, Vector2 end, Color color, float duration = 3f)

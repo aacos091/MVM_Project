@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - BarredEntrance
+  - RealEntrance
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - Target
   - Player
   - Enemy
-  - 
+  - Boundary
   - 
   - 
   - 
