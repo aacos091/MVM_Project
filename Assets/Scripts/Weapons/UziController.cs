@@ -129,7 +129,6 @@ public class UziController : MonoBehaviour
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
             _isAiming = false;
-            _isAiming = false;
             _playerAnimator.SetBool("Aiming", false);
             _playerAnimator.SetBool("AimUp", false);
             _playerAnimator.SetBool("AimDown", false);

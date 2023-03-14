@@ -44,9 +44,18 @@ public class ShotgunController : MonoBehaviour
     public GameObject BulletTracerPrefab;
     //public float pellets, pelletSpread; // this is just for the bullet tracers, the shotgun works with a ray and that's it
 
-    private RaycastHit2D hit;
+    private bool _aimToTheLeft;
+    private bool _aimToTheRight;
+    
+    public float AimUpAngle = 40f;
+    public float AimDownAngle = 330f;
+    private float _weaponAngle;
 
+    private RaycastHit2D hit;
+    private Animator _playerAnimator;
     private AmmoManager ammo;
+    
+    public Transform ShotgunBarrel, ShotgunBarrelUp, ShotgunBarrelDown;
 
     [Header("shotgun Sounds")]
     public AudioSource weaponAudio;
@@ -64,6 +73,8 @@ public class ShotgunController : MonoBehaviour
         Debug.Log("Amount of shells: " + ammo.shotgunShells);
         Debug.Log("Amount in barrel: " + ammo.currentShellCount);
         
+        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+        
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
         UIController.instance.UpdateStatus("Idle");
         
@@ -74,14 +85,15 @@ public class ShotgunController : MonoBehaviour
     {
         //weaponRotationAiming();
         
-        TurnGunBarrelWithButtons();
+        //TurnGunBarrelWithButtons();
+        weaponDirectionalAiming();
 
         if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
         {
             Debug.Log("aiming button held down");
             _isAiming = true;
+            _playerAnimator.SetBool("Aiming", true);
             
-            weaponDirectionalAiming();
             
             if (Input.GetMouseButton(0))
             {
@@ -102,6 +114,9 @@ public class ShotgunController : MonoBehaviour
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
             _isAiming = false;
+            _playerAnimator.SetBool("Aiming", false);
+            _playerAnimator.SetBool("AimUp", false);
+            _playerAnimator.SetBool("AimDown", false);
         }
 
 
@@ -134,12 +149,23 @@ public class ShotgunController : MonoBehaviour
             {
                 _isReloading = true;
                 Reload();
+                _playerAnimator.SetBool("InsertBullet", true);
                 _reloadHeld = true;
             }
         }
         else
         {
             _isReloading = false;
+            _playerAnimator.SetBool("InsertBullet", false);
+        }
+        
+        if (_isChecking || _isReloading)
+        {
+            PlayerController.instance.CanMove = false;
+        }
+        else
+        {
+            PlayerController.instance.CanMove = true;
         }
 
         if (_isFiring) UIController.instance.UpdateStatus("Firing");
@@ -189,12 +215,28 @@ public class ShotgunController : MonoBehaviour
         {
             weaponAudio.PlayOneShot(shotgunFire);
             CameraShake.instance.ShakeCamera(CameraShakeIntensity, CameraShakeTimer);
-            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.right) * shotgunRange, Color.yellow, 1f);
+            
+            if (Input.GetAxisRaw("Vertical") > 0.2f)
+            {
+                _playerAnimator.SetTrigger("FireUp");
+            }
+            else if (Input.GetAxisRaw("Vertical") < -0.2f)
+            {
+                _playerAnimator.SetTrigger("FireDown");
+            }
+            else
+            {
+                _playerAnimator.SetTrigger("Fire");
+            }
+            
+            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.left) * shotgunRange, Color.yellow, 1f);
             Debug.Log("shot the shotgun");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.right), shotgunRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.left), shotgunRange, targetLayer);
+            
+            Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle));
 
             //for (int i = 0; i <= pellets; i++)
             //{
@@ -225,6 +267,7 @@ public class ShotgunController : MonoBehaviour
         weaponAudio.PlayOneShot(shotgunRemove);
         Debug.Log("You have: " + ammo.currentShellCount + " in the barrel");
         _isChecking = true;
+        _playerAnimator.SetTrigger("Check");
         UIController.instance.UpdateShotgunCount(ammo.currentShellCount);
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
@@ -238,6 +281,7 @@ public class ShotgunController : MonoBehaviour
         if (ammo.currentShellCount == ammo.maxShellCount)
         {
             UIController.instance.UpdateShotgunCount(ammo.currentShellCount);
+            _playerAnimator.SetBool("ShotgunFull", true);
             Debug.Log("Full mag, release the reload key");
         }
         else
@@ -246,6 +290,7 @@ public class ShotgunController : MonoBehaviour
             {
                 if (ammo.currentShellCount < ammo.maxShellCount && ammo.shotgunShells != 0)
                 {
+                    _playerAnimator.SetBool("ShotgunFull", false);
                     if (Time.time > _nextReload)
                     {
                         _nextReload = Time.time + reloadRate;
@@ -260,6 +305,7 @@ public class ShotgunController : MonoBehaviour
             }
             else
             {
+                _playerAnimator.SetBool("ShotgunFull", true);
                 UIController.instance.StopShotgunCheck(ammo.currentShellCount);
                 Debug.Log("no more ammo");
             }
@@ -270,6 +316,7 @@ public class ShotgunController : MonoBehaviour
 
     private void OnEnable()
     {
+        _playerAnimator.ResetTrigger("Check");
         StartCoroutine(ActivateThisWeapon(weaponImage));
         UIController.instance.EnableShotgunBarrel(true);
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
@@ -277,8 +324,11 @@ public class ShotgunController : MonoBehaviour
 
     private void OnDisable()
     {
-        weaponImage.gameObject.SetActive(false);
-        UIController.instance.EnableShotgunBarrel(false);
+        if (weaponImage != null)
+        {
+            weaponImage.gameObject.SetActive(false);
+            UIController.instance.EnableShotgunBarrel(false);
+        }
     }
     
     void shotgunRemoveSound()
@@ -326,19 +376,72 @@ public class ShotgunController : MonoBehaviour
     // Use this to aim in pre-defined directions
     void weaponDirectionalAiming()
     {
+        if (Input.GetAxis("Horizontal") < -0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            //gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, -180f, gunBarrel.localRotation.z);
+            _aimToTheLeft = true;
+            _aimToTheRight = false;
+        }
+        else if (Input.GetAxis("Horizontal") > 0.2f)
+        {
+            //gunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            //gunBarrel.localRotation = Quaternion.Euler(gunBarrel.localRotation.x, 0f, gunBarrel.localRotation.z);
+            _aimToTheLeft = false;
+            _aimToTheRight = true;
+        }
+        
         if (Input.GetAxisRaw("Vertical") > 0.2f)
         {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
+            //transform.parent.localEulerAngles = new Vector3(0f, 0f, upAimingAngle);
+            gunBarrel = ShotgunBarrelUp;
+            _weaponAngle = AimUpAngle;
+            _playerAnimator.SetBool("AimUp", true);
         }
         else if (Input.GetAxisRaw("Vertical") < -0.2f)
         {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
+            //transform.parent.localEulerAngles = new Vector3(0f, 0f, downAimingAngle);
+            gunBarrel = ShotgunBarrelDown;
+            _weaponAngle = AimDownAngle;
+            _playerAnimator.SetBool("AimDown", true);
         }
         else
         {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
+            //transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
+            gunBarrel = ShotgunBarrel;
+            _weaponAngle = 0f;
+            _playerAnimator.SetBool("AimUp", false);
+            _playerAnimator.SetBool("AimDown", false);
         }
         
+        if (_aimToTheLeft)
+        {
+            //PistolBarrel.rotation = Quaternion.Euler(PistolBarrel.rotation.x, -180f, PistolBarrel.rotation.z);
+            //PistolBarrelUp.rotation = Quaternion.Euler(PistolBarrelUp.rotation.x, -180f, PistolBarrelUp.rotation.z); 
+            //PistolBarrelDown.rotation = Quaternion.Euler(PistolBarrelDown.rotation.x, -180f, PistolBarrelDown.rotation.z);
+            ShotgunBarrel.localScale = new Vector3(-1f, 1f, 1f);
+            ShotgunBarrel.GetComponentInChildren<SpriteRenderer>().flipX = false;
+            ShotgunBarrelUp.localScale = new Vector3(-1f, 1f, 1f);
+            ShotgunBarrelUp.GetChild(0).localScale = new Vector3(-2f, 2f, 2f);
+            ShotgunBarrelUp.GetComponentInChildren<SpriteRenderer>().flipY = true;
+            ShotgunBarrelDown.localScale = new Vector3(-1f, 1f, 1f);
+            ShotgunBarrelDown.GetChild(0).localScale = new Vector3(-2f, 2f, 2f);
+            ShotgunBarrelDown.GetComponentInChildren<SpriteRenderer>().flipY = true;
+        }
+        else if (_aimToTheRight)
+        {
+            //PistolBarrel.rotation = Quaternion.Euler(PistolBarrel.rotation.x, 0f, PistolBarrel.rotation.z); 
+            //PistolBarrelUp.rotation = Quaternion.Euler(PistolBarrelUp.rotation.x, 0f, PistolBarrelUp.rotation.z); 
+            //PistolBarrelDown.rotation = Quaternion.Euler(PistolBarrelDown.rotation.x, 0f, PistolBarrelDown.rotation.z); 
+            ShotgunBarrel.localScale = new Vector3(1f, 1f, 1f);
+            ShotgunBarrel.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            ShotgunBarrelUp.localScale = new Vector3(1f, 1f, 1f);
+            ShotgunBarrelUp.GetChild(0).localScale = new Vector3(2f, 2f, 2f);
+            ShotgunBarrelUp.GetComponentInChildren<SpriteRenderer>().flipY = false;
+            ShotgunBarrelDown.localScale = new Vector3(1f, 1f, 1f);
+            ShotgunBarrelDown.GetChild(0).localScale = new Vector3(2f, 2f, 2f);
+            ShotgunBarrelDown.GetComponentInChildren<SpriteRenderer>().flipY = false;
+        }
     }
     
     void TurnGunBarrelWithButtons()
@@ -372,6 +475,12 @@ public class ShotgunController : MonoBehaviour
             img.color = new Color(1, 1, 1, i);
             yield return null;
         }
+    }
+    
+    IEnumerator playSoundWithDelay(AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        weaponAudio.PlayOneShot(clip);
     }
     
     // See https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html for reference

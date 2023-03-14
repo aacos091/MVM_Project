@@ -9236,46 +9236,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 29656880, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045060, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045060, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9848078
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045060, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.17364816
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045060, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045061, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045061, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045061, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_Size.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045061, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_Size.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282045061, guid: c5bcfe269be387a43818924d4215356b, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6672806036856126343, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: weaponMag
       value: 
@@ -9290,7 +9250,7 @@ PrefabInstance:
       objectReference: {fileID: 585725987}
     - target: {fileID: 6672806038232040945, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6672806038232040958, guid: c5bcfe269be387a43818924d4215356b, type: 3}
       propertyPath: weaponMag

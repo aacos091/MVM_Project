@@ -104,17 +104,24 @@ public class PlayerController : MonoBehaviour
         
         if (onGround && !_weaponReady && CanMove)
         {
+            if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
+            {
+                _playerAnimator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                _playerAnimator.SetBool("IsMoving", false);
+            }
+            
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, _theRb.velocity.y);
-                //_playerAnimator.SetBool("IsMoving", true);
                 _playerAnimator.SetBool("IsSprinting", true);
                 PlayFootsteps(sprintStepRate);
             }
             else
             {
                 _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, _theRb.velocity.y);
-                //_playerAnimator.SetBool("IsMoving", true);
                 _playerAnimator.SetBool("IsSprinting", false);
                 PlayFootsteps(stepRate);
             }
