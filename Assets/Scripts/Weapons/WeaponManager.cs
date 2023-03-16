@@ -26,6 +26,10 @@ public class WeaponManager : MonoBehaviour
     public GameObject melee, pistol, uzi, shotgun;
 
     private Animator _playerAnimator;
+
+    public PistolController pistolCon;
+    public UziController uziCon;
+    public ShotgunController shotgunCon;
     
     public bool uziFound, shotgunFound;
 
@@ -50,9 +54,12 @@ public class WeaponManager : MonoBehaviour
             //     break;
             case Weapons.Pistol:
                 melee.SetActive(false);
-                pistol.SetActive(true);
-                uzi.SetActive(false);
-                shotgun.SetActive(false);
+                //pistol.SetActive(true);
+                pistolCon.WhenActivated();
+                //uzi.SetActive(false);
+                uziCon.WhenDeactivated();
+                //shotgun.SetActive(false);
+                shotgunCon.WhenDeactivated();
                 _playerAnimator.SetBool("PistolEquipped", true);
                 _playerAnimator.SetBool("UziEquipped", false);
                 _playerAnimator.SetBool("ShotgunEquipped", false);
@@ -61,9 +68,12 @@ public class WeaponManager : MonoBehaviour
                 if (uziFound)
                 {
                     melee.SetActive(false);
-                    pistol.SetActive(false);
-                    uzi.SetActive(true);
-                    shotgun.SetActive(false);
+                    //pistol.SetActive(true);
+                    pistolCon.WhenDeactivated();
+                    //uzi.SetActive(false);
+                    uziCon.WhenActivated();
+                    //shotgun.SetActive(false);
+                    shotgunCon.WhenDeactivated();
                     _playerAnimator.SetBool("PistolEquipped", false);
                     _playerAnimator.SetBool("UziEquipped", true);
                     _playerAnimator.SetBool("ShotgunEquipped", false);
@@ -77,9 +87,12 @@ public class WeaponManager : MonoBehaviour
                 if (shotgunFound)
                 {
                     melee.SetActive(false);
-                    pistol.SetActive(false);
-                    uzi.SetActive(false);
-                    shotgun.SetActive(true);
+                    //pistol.SetActive(true);
+                    pistolCon.WhenDeactivated();
+                    //uzi.SetActive(false);
+                    uziCon.WhenDeactivated();
+                    //shotgun.SetActive(false);
+                    shotgunCon.WhenActivated();
                     _playerAnimator.SetBool("PistolEquipped", false);
                     _playerAnimator.SetBool("UziEquipped", false);
                     _playerAnimator.SetBool("ShotgunEquipped", true);

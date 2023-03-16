@@ -67,6 +67,8 @@ public class PistolController : MonoBehaviour
 
     private bool _canMove;
 
+    private bool _activated;
+
     public Transform PistolBarrel, PistolBarrelUp, PistolBarrelDown;
 
     [Header("Pistol Sounds")]
@@ -109,122 +111,154 @@ public class PistolController : MonoBehaviour
 
     private void Update()
     {
-        UIController.instance.BulletCount(ammo.pistolBullets);
-        //weaponRotationAiming();
-        
-        //TurnGunBarrelWithButtons();
         weaponDirectionalAiming();
-
-        if (Input.GetMouseButton(1) && !_isReloading && !_isChecking && !_changingMags)
+        
+        if (_activated)
         {
-            Debug.Log("aiming button held down");
-            _isAiming = true;
-            _playerAnimator.SetBool("Aiming", true);
+            UIController.instance.BulletCount(ammo.pistolBullets);
+            //weaponRotationAiming();
 
+            //TurnGunBarrelWithButtons();
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(1) && !_isReloading && !_isChecking && !_changingMags)
             {
-                _isFiring = true;
-                if (Time.time > _nextFire)
+                Debug.Log("aiming button held down");
+                _isAiming = true;
+                _playerAnimator.SetBool("Aiming", true);
+
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    _canChangeMags = false;
-                    pistolShoot();
-                    _nextFire = Time.time + fireRate;
+                    _isFiring = true;
+                    if (Time.time > _nextFire)
+                    {
+                        _canChangeMags = false;
+                        pistolShoot();
+                        _nextFire = Time.time + fireRate;
+                    }
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    _canChangeMags = true;
+                    _isFiring = false;
                 }
             }
-            else if (Input.GetMouseButtonUp(0))
+            else // if (Input.GetMouseButtonUp(1))
             {
-                _canChangeMags = true;
-                _isFiring = false;
+                transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
+                //_isAiming = false;
+                _playerAnimator.SetBool("Aiming", false);
+                _playerAnimator.SetBool("AimUp", false);
+                _playerAnimator.SetBool("AimDown", false);
+                StartCoroutine(DontMoveAiming(0.5f));
             }
-        }
-        else // if (Input.GetMouseButtonUp(1))
-        {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
-            //_isAiming = false;
-            _playerAnimator.SetBool("Aiming", false);
-            _playerAnimator.SetBool("AimUp", false);
-            _playerAnimator.SetBool("AimDown", false);
-            StartCoroutine(DontMoveAiming(0.5f));
-        }
 
 
 
 
-        if (Input.GetKeyDown(KeyCode.R) && !_isAiming)
-        {
-            pistolRemoveSound();
-            _reloadPressedTime = Time.timeSinceLevelLoad;
-            _reloadHeld = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.R) && !_isAiming)
-        {
-            if (!_reloadHeld && !_isChecking)
+            if (Input.GetKeyDown(KeyCode.R) && !_isAiming)
             {
-                StartCoroutine(Check());
+                pistolRemoveSound();
+                _reloadPressedTime = Time.timeSinceLevelLoad;
+                _reloadHeld = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.R) && !_isAiming)
+            {
+                if (!_reloadHeld && !_isChecking)
+                {
+                    StartCoroutine(Check());
+                }
+                else
+                {
+                    weaponAudio.PlayOneShot(pistolReload);
+                    UIController.instance.PutPistolMagAway(ammo.currentPistolMagCount);
+                }
+
+                _reloadHeld = false;
+            }
+
+            if (Input.GetKey(KeyCode.R) && !_isAiming)
+            {
+                if (Time.timeSinceLevelLoad - _reloadPressedTime > MinimumHeldDuration)
+                {
+                    _isReloading = true;
+                    Reload();
+                    _playerAnimator.SetBool("InsertBullet", true);
+                    _reloadHeld = true;
+                }
             }
             else
             {
-                weaponAudio.PlayOneShot(pistolReload);
-                UIController.instance.PutPistolMagAway(ammo.currentPistolMagCount);
+                StartCoroutine(DontMoveReload(1f));
+                //_isReloading = false;
+                _playerAnimator.SetBool("InsertBullet", false);
             }
 
-            _reloadHeld = false;
-        }
-        
-        if (Input.GetKey(KeyCode.R) && !_isAiming)
-        {
-            if (Time.timeSinceLevelLoad - _reloadPressedTime > MinimumHeldDuration)
+            if (_isChecking || _isReloading || _isAiming)
             {
-                _isReloading = true;
-                Reload();
-                _playerAnimator.SetBool("InsertBullet", true);
-                _reloadHeld = true;
+                PlayerController.instance.CanMove = false;
             }
-        }
-        else
-        {
-            StartCoroutine(DontMoveReload(1f));
-            //_isReloading = false;
-            _playerAnimator.SetBool("InsertBullet", false);
-        }
+            else
+            {
+                PlayerController.instance.CanMove = true;
+            }
 
-        if (_isChecking || _isReloading || _isAiming)
-        {
-            PlayerController.instance.CanMove = false;
-        }
-        else
-        {
-            PlayerController.instance.CanMove = true;
-        }
+            if (Input.GetKeyDown(KeyCode.Q) && _isAiming && !_isChecking && !_isFiring && !_isReloading)
+            {
+                StartCoroutine(changeMagazines());
+                _playerAnimator.SetTrigger("ChangeMagazines");
+            }
 
-        if (Input.GetKeyDown(KeyCode.Q) && _isAiming && !_isChecking && !_isFiring && !_isReloading)
-        {
-            StartCoroutine(changeMagazines());
-            _playerAnimator.SetTrigger("ChangeMagazines");
+            if (_isFiring) UIController.instance.UpdateStatus("Firing");
+            else if (_isAiming) UIController.instance.UpdateStatus("Aiming");
+            else if (_isChecking) UIController.instance.UpdateStatus("Checking");
+            else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
+            else UIController.instance.UpdateStatus("Idle");
         }
-
-        if (_isFiring) UIController.instance.UpdateStatus("Firing");
-        else if (_isAiming) UIController.instance.UpdateStatus("Aiming");
-        else if (_isChecking) UIController.instance.UpdateStatus("Checking");
-        else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
-        else UIController.instance.UpdateStatus("Idle");
     }
     
+    // Since this is the very first weapon the player gets, they start with this
     private void OnEnable()
     {
+        _activated = true;
         _playerAnimator.ResetTrigger("Check");
         StartCoroutine(ActivateThisWeapon(weaponImage));
         UIController.instance.EnablePistolMag(true);
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
+    
+    // private void OnDisable()
+    // {
+    //     if (weaponImage != null)
+    //     {
+    //         UIController.instance.DeactivateWeapon(weaponImage);
+    //         UIController.instance.EnablePistolMag(false);
+    //     }
+    // }
 
-    private void OnDisable()
+    public void WhenActivated()
     {
-        if (weaponImage != null)
+        if (!_activated)
         {
-            UIController.instance.DeactivateWeapon(weaponImage);
-            UIController.instance.EnablePistolMag(false);
+            _activated = true;
+            _playerAnimator.ResetTrigger("Check");
+            StartCoroutine(ActivateThisWeapon(weaponImage));
+            UIController.instance.EnablePistolMag(true);
+            UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+        }
+    }
+
+    public void WhenDeactivated()
+    {
+        if (_activated)
+        {
+            if (weaponImage != null)
+            {
+                UIController.instance.DeactivateWeapon(weaponImage);
+                UIController.instance.EnablePistolMag(false);
+            }
+
+            _activated = false;
         }
     }
     

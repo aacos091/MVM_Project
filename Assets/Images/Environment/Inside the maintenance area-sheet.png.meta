@@ -1,0 +1,1267 @@
+fileFormatVersion: 2
+guid: 4167f4f36c46da6498e0c474ef78bacb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4816
+        width: 1024
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc0b30e860e6a6448a5eeeb0b41444f
+      internalID: 13878773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4415
+        width: 1024
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0c2464dd0641d43ae177d55a7800a0
+      internalID: 309648783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 4125
+        width: 7
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a661164bd685447a6e8420a7bd711e
+      internalID: 2118595800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 4126
+        width: 58
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf99d002829f9ec44a3f6619c90691de
+      internalID: 1213653740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 4123
+        width: 410
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45b3ecfee2c95143be9a6742054f179
+      internalID: -1622735423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 4122
+        width: 26
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4077248ed1a66774ab747c3f307049d9
+      internalID: -1601525024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 4118
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f8e8a4faafa7646a89302af1f9d6cd
+      internalID: 1676705199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 4163
+        width: 45
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b9f560e4f5d9645a775ccc4b5d7954
+      internalID: -1795478484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 4123
+        width: 26
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a40c7199b2928459c7e2012cd38306
+      internalID: -671119074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 4124
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadd7419ed4747f4795405eac98a2dfc
+      internalID: -1864338160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 4122
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1644033bfd46344813e87fc558f3a0
+      internalID: -1989391979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 4120
+        width: 64
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb64a5b772a09642b90a38c1e3fdef9
+      internalID: 1550759868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 3834
+        width: 602
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a116a0b5b51c6f43b730821ad9bde8b
+      internalID: -1315861732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 3551
+        width: 8
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45049c01fcde3844d8b2187c07065e3f
+      internalID: -1131380630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 3550
+        width: 8
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db01177006b09374582c0ea0144d7778
+      internalID: -478843679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 3549
+        width: 8
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af27579566ed7674781815ad50dc95ef
+      internalID: -136920862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3259
+        width: 40
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9459197b23509694685727396463b5ad
+      internalID: 1614435967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 3256
+        width: 40
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1167b79d1de6f244b8c9ca134e9e33d2
+      internalID: 896979151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 3258
+        width: 40
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6c4a4b0f306404393a3bd43710c512
+      internalID: -135923827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2959
+        width: 27
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b1f4294086e7d42a8dfb020539f02f
+      internalID: 80559142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 2969
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbb079447278bb408a01aa1a4a84a67
+      internalID: -2036549272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 2970
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff30283b9c9132d41b66f47477fca59f
+      internalID: -2009953264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 2972
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcbd70df5b0b536489620d42706e9ae4
+      internalID: -942617179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 2970
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee0c0a507679234687ee992abdef52c
+      internalID: -695839103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 2969
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ee94d9f8527524f8203379c07501a6
+      internalID: 374221731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 2970
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028a55c1abb884c42b6c7246ad011d0c
+      internalID: -59560006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 2971
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096f4e280d92bdb479f809ba01fcc956
+      internalID: 1589791675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 2969
+        width: 27
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa87d3be80ff9446841c158c87558ee
+      internalID: 1404612350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 2965
+        width: 43
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b81c48dd9e90b342bcbd9889f55dd31
+      internalID: -1879400260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 2964
+        width: 67
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b7401dc987d2842a86f532a6341509
+      internalID: -1602548850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 2966
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da875ce311f2d844fb15e6123b778d32
+      internalID: -1941162712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 2486
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19cebcd122f5d144aae6828ded76b4b
+      internalID: 1291013307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 2486
+        width: 41
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0611d948c42954b8377654bedbf5ed
+      internalID: 982901930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2217
+        width: 251
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ee38b48c01e6642981bd7318bf9e4b
+      internalID: 118086709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 2232
+        width: 330
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe40787dd6539bb4892bb6f5b2f27a06
+      internalID: -1814689219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 2229
+        width: 286
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799b768a0e0113d41b12d28a158cdeb1
+      internalID: -812501193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1976
+        width: 1024
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbcf53afc5fb4e149b256b940345e780
+      internalID: -1371971480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1661
+        width: 313
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca73f11c2dfd1954e98d31365161eee0
+      internalID: -1167923587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1674
+        width: 263
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49ace02345b0a84d861fdda0e74462c
+      internalID: -1395604035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_39
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1667
+        width: 286
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f300df39236ed4ba55250a44326f59
+      internalID: -339033502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1361
+        width: 565
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16d0f50d70cc724995d8d64388b6188
+      internalID: 1008906432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_41
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1392
+        width: 304
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47a621f1606aeb46b5320283e6edb99
+      internalID: 1278240899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_42
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1078
+        width: 1022
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4a44828899eb046909292e8466709a
+      internalID: 1890172166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_43
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 576
+        width: 92
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7939976777770f42a8012fab59b451a
+      internalID: 1649219996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_44
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 576
+        width: 47
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f151f6e0b37fc2d4389c068b2e4be8ea
+      internalID: -1006650259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 14
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66388f5822cfaf7409805dc2d6c28542
+      internalID: -1372247567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_46
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 289
+        width: 68
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf456e674525f44481f9638cb735832
+      internalID: 1206160357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_47
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 289
+        width: 68
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe190b0cedfe754984a83b6e85cc2d1
+      internalID: 503829005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_48
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 288
+        width: 68
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068d77a2360d2564a9e15d9a9fb8af4f
+      internalID: -400068128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_49
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 3
+        width: 47
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e683571eff0cc574b9502ecad30913a4
+      internalID: -438628917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_50
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 2
+        width: 47
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49499e2a9e0d3844b993c256e6254dac
+      internalID: -1477443836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside the maintenance area-sheet_51
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 47
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978ec99b728454645a25a053ea6c8de0
+      internalID: -377789155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Inside the maintenance area-sheet_20: -2036549272
+      Inside the maintenance area-sheet_19: 80559142
+      Inside the maintenance area-sheet_8: -671119074
+      Inside the maintenance area-sheet_36: -1371971480
+      Inside the maintenance area-sheet_2: 2118595800
+      Inside the maintenance area-sheet_39: -339033502
+      Inside the maintenance area-sheet_51: -377789155
+      Inside the maintenance area-sheet_40: 1008906432
+      Inside the maintenance area-sheet_3: 1213653740
+      Inside the maintenance area-sheet_34: -1814689219
+      Inside the maintenance area-sheet_41: 1278240899
+      Inside the maintenance area-sheet_38: -1395604035
+      Inside the maintenance area-sheet_22: -942617179
+      Inside the maintenance area-sheet_15: -136920862
+      Inside the maintenance area-sheet_48: -400068128
+      Inside the maintenance area-sheet_11: 1550759868
+      Inside the maintenance area-sheet_49: -438628917
+      Inside the maintenance area-sheet_16: 1614435967
+      Inside the maintenance area-sheet_18: -135923827
+      Inside the maintenance area-sheet_26: 1589791675
+      Inside the maintenance area-sheet_46: 1206160357
+      Inside the maintenance area-sheet_44: -1006650259
+      Inside the maintenance area-sheet_30: -1941162712
+      Inside the maintenance area-sheet_37: -1167923587
+      Inside the maintenance area-sheet_10: -1989391979
+      Inside the maintenance area-sheet_25: -59560006
+      Inside the maintenance area-sheet_14: -478843679
+      Inside the maintenance area-sheet_32: 982901930
+      Inside the maintenance area-sheet_4: -1622735423
+      Inside the maintenance area-sheet_1: 309648783
+      Inside the maintenance area-sheet_7: -1795478484
+      Inside the maintenance area-sheet_35: -812501193
+      Inside the maintenance area-sheet_50: -1477443836
+      Inside the maintenance area-sheet_47: 503829005
+      Inside the maintenance area-sheet_5: -1601525024
+      Inside the maintenance area-sheet_45: -1372247567
+      Inside the maintenance area-sheet_0: 13878773
+      Inside the maintenance area-sheet_12: -1315861732
+      Inside the maintenance area-sheet_31: 1291013307
+      Inside the maintenance area-sheet_33: 118086709
+      Inside the maintenance area-sheet_13: -1131380630
+      Inside the maintenance area-sheet_21: -2009953264
+      Inside the maintenance area-sheet_28: -1879400260
+      Inside the maintenance area-sheet_43: 1649219996
+      Inside the maintenance area-sheet_6: 1676705199
+      Inside the maintenance area-sheet_17: 896979151
+      Inside the maintenance area-sheet_42: 1890172166
+      Inside the maintenance area-sheet_9: -1864338160
+      Inside the maintenance area-sheet_27: 1404612350
+      Inside the maintenance area-sheet_24: 374221731
+      Inside the maintenance area-sheet_23: -695839103
+      Inside the maintenance area-sheet_29: -1602548850
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

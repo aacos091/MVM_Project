@@ -65,6 +65,8 @@ public class ShotgunController : MonoBehaviour
     [Header("Debug")]
     public Material lineMaterial;
     public Ray r2d;
+
+    private bool _activated;
     
     private void Awake()
     {
@@ -90,99 +92,103 @@ public class ShotgunController : MonoBehaviour
 
     private void Update()
     {
-        UIController.instance.BulletCount(ammo.shotgunShells);
-        //weaponRotationAiming();
-        
-        //TurnGunBarrelWithButtons();
         weaponDirectionalAiming();
-
-        if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
+        
+        if (_activated)
         {
-            Debug.Log("aiming button held down");
-            _isAiming = true;
-            _playerAnimator.SetBool("Aiming", true);
-            
-            
-            if (Input.GetMouseButton(0))
+            UIController.instance.BulletCount(ammo.shotgunShells);
+            //weaponRotationAiming();
+
+            //TurnGunBarrelWithButtons();
+
+            if (Input.GetMouseButton(1) && !_isReloading && !_isChecking)
             {
-                //StartCoroutine(Shoot());
-                _isFiring = true;
-                if (Time.time > _nextFire)
+                Debug.Log("aiming button held down");
+                _isAiming = true;
+                _playerAnimator.SetBool("Aiming", true);
+
+
+                if (Input.GetMouseButton(0))
                 {
-                    shotgunShoot();
-                    _nextFire = Time.time + fireRate;
+                    //StartCoroutine(Shoot());
+                    _isFiring = true;
+                    if (Time.time > _nextFire)
+                    {
+                        shotgunShoot();
+                        _nextFire = Time.time + fireRate;
+                    }
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    _isFiring = false;
                 }
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (Input.GetMouseButtonUp(1))
             {
-                _isFiring = false;
+                transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
+                //_isAiming = false;
+                _playerAnimator.SetBool("Aiming", false);
+                _playerAnimator.SetBool("AimUp", false);
+                _playerAnimator.SetBool("AimDown", false);
+                StartCoroutine(DontMoveAiming(0.5f));
             }
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
-            //_isAiming = false;
-            _playerAnimator.SetBool("Aiming", false);
-            _playerAnimator.SetBool("AimUp", false);
-            _playerAnimator.SetBool("AimDown", false);
-            StartCoroutine(DontMoveAiming(0.5f));
-        }
 
 
 
 
-        if (Input.GetKeyDown(KeyCode.R) && !_isAiming)
-        {
-            //shotgunRemoveSound();
-            _reloadPressedTime = Time.timeSinceLevelLoad;
-            _reloadHeld = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.R) && !_isAiming)
-        {
-            if (!_reloadHeld && !_isChecking)
+            if (Input.GetKeyDown(KeyCode.R) && !_isAiming)
             {
-                StartCoroutine(Check());
+                //shotgunRemoveSound();
+                _reloadPressedTime = Time.timeSinceLevelLoad;
+                _reloadHeld = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.R) && !_isAiming)
+            {
+                if (!_reloadHeld && !_isChecking)
+                {
+                    StartCoroutine(Check());
+                }
+                else
+                {
+                    weaponAudio.PlayOneShot(shotgunReload);
+                    UIController.instance.StopShotgunCheck(ammo.currentShellCount);
+                }
+
+                _reloadHeld = false;
+            }
+
+            if (Input.GetKey(KeyCode.R) && !_isAiming)
+            {
+                if (Time.timeSinceLevelLoad - _reloadPressedTime > MinimumHeldDuration)
+                {
+                    _isReloading = true;
+                    Reload();
+                    _playerAnimator.SetBool("InsertBullet", true);
+                    _reloadHeld = true;
+                }
             }
             else
             {
-                weaponAudio.PlayOneShot(shotgunReload);
-                UIController.instance.StopShotgunCheck(ammo.currentShellCount);
+                StartCoroutine(DontMoveReload(0.5f));
+                //_isReloading = false;
+                _playerAnimator.SetBool("InsertBullet", false);
             }
 
-            _reloadHeld = false;
-        }
-        
-        if (Input.GetKey(KeyCode.R) && !_isAiming)
-        {
-            if (Time.timeSinceLevelLoad - _reloadPressedTime > MinimumHeldDuration)
+            if (_isChecking || _isReloading || _isAiming)
             {
-                _isReloading = true;
-                Reload();
-                _playerAnimator.SetBool("InsertBullet", true);
-                _reloadHeld = true;
+                PlayerController.instance.CanMove = false;
             }
-        }
-        else
-        {
-            StartCoroutine(DontMoveReload(0.5f));
-            //_isReloading = false;
-            _playerAnimator.SetBool("InsertBullet", false);
-        }
-        
-        if (_isChecking || _isReloading || _isAiming)
-        {
-            PlayerController.instance.CanMove = false;
-        }
-        else
-        {
-            PlayerController.instance.CanMove = true;
-        }
+            else
+            {
+                PlayerController.instance.CanMove = true;
+            }
 
-        if (_isFiring) UIController.instance.UpdateStatus("Firing");
-        else if (_isAiming) UIController.instance.UpdateStatus("Aiming");
-        else if (_isChecking) UIController.instance.UpdateStatus("Checking");
-        else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
-        else UIController.instance.UpdateStatus("Idle");
+            if (_isFiring) UIController.instance.UpdateStatus("Firing");
+            else if (_isAiming) UIController.instance.UpdateStatus("Aiming");
+            else if (_isChecking) UIController.instance.UpdateStatus("Checking");
+            else if (_isReloading) UIController.instance.UpdateStatus("Reloading");
+            else UIController.instance.UpdateStatus("Idle");
+        }
     }
 
     IEnumerator Shoot()
@@ -239,23 +245,18 @@ public class ShotgunController : MonoBehaviour
                 _playerAnimator.SetTrigger("Fire");
             }
             
-            Debug.DrawRay(gunBarrel.position, transform.TransformDirection(Vector3.left) * shotgunRange, Color.yellow, 1f);
+            Debug.DrawRay(gunBarrel.position, gunBarrel.TransformDirection(Vector3.left) * shotgunRange, Color.yellow, 1f);
             Debug.Log("shot the shotgun");
 
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
-            hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.left), shotgunRange, targetLayer);
+            hit = Physics2D.Raycast(gunBarrel.position, gunBarrel.TransformDirection(Vector2.left), shotgunRange, targetLayer);
 
             Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle + 4));
             Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle + 2));
             Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle));
             Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle - 2));
             Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle - 4));
-
-            //for (int i = 0; i <= pellets; i++)
-            //{
-            //    
-            //}
 
             //DrawLine(gunBarrel.position, r2d.GetPoint(15f), Color.black);
 
@@ -328,18 +329,40 @@ public class ShotgunController : MonoBehaviour
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
     }
 
-    private void OnEnable()
+    // private void OnEnable()
+    // {
+    //     _playerAnimator.ResetTrigger("Check");
+    //     StartCoroutine(ActivateThisWeapon(weaponImage));
+    //     UIController.instance.EnableShotgunBarrel(true);
+    //     UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     UIController.instance.DeactivateWeapon(weaponImage);
+    //     UIController.instance.EnableShotgunBarrel(false);
+    // }
+    
+    public void WhenActivated()
     {
-        _playerAnimator.ResetTrigger("Check");
-        StartCoroutine(ActivateThisWeapon(weaponImage));
-        UIController.instance.EnableShotgunBarrel(true);
-        UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
+        if (!_activated)
+        {
+            _activated = true;
+            _playerAnimator.ResetTrigger("Check");
+            StartCoroutine(ActivateThisWeapon(weaponImage));
+            UIController.instance.EnableShotgunBarrel(true);
+            UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
+        }
     }
 
-    private void OnDisable()
+    public void WhenDeactivated()
     {
-        UIController.instance.DeactivateWeapon(weaponImage);
-        UIController.instance.EnableShotgunBarrel(false);
+        if (_activated)
+        {
+            UIController.instance.DeactivateWeapon(weaponImage);
+            UIController.instance.EnableShotgunBarrel(false);
+            _activated = false;
+        }
     }
     
     IEnumerator DontMoveReload(float timeToNotMove)

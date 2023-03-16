@@ -39,6 +39,8 @@ public class UIController : MonoBehaviour
     public Image[] uziBullets;
     public Image[] shotgunShells;
 
+    public GameObject blackOutSquare;
+
     public void UpdateTotals(int total, int mag)
     {
         totalBullets.text = "Total Bullets: " + total;
@@ -242,5 +244,34 @@ public class UIController : MonoBehaviour
     public void DeactivateWeapon(Image weaponToDeactivate)
     {
         weaponToDeactivate.gameObject.SetActive(false);
+    }
+
+    public IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 5)
+    {
+        Color objectColor = blackOutSquare.GetComponent<Image>().color;
+        float fadeAmount;
+
+        if (fadeToBlack)
+        {
+            while (blackOutSquare.GetComponent<Image>().color.a < 1)
+            {
+                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                blackOutSquare.GetComponent<Image>().color = objectColor;
+                yield return null;
+            }
+        }
+        else
+        {
+            while (blackOutSquare.GetComponent<Image>().color.a > 0)
+            {
+                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                blackOutSquare.GetComponent<Image>().color = objectColor;
+                yield return null;
+            }
+        }
     }
 }
