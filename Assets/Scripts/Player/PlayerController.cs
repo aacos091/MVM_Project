@@ -43,7 +43,14 @@ public class PlayerController : MonoBehaviour
     public float stepCoolDown;
     public AudioClip[] footstepSounds;
 
+    public AudioClip jumpSound, damagedSound, deathSound;
+
     public bool CanMove;
+
+    public HealthManager healthMan;
+
+    private bool _nearBarredEntrance = false;
+    private bool _nearRealEntrance = false;
     
 
     // Just to make sure that melee weapons can at least change properly
@@ -57,6 +64,7 @@ public class PlayerController : MonoBehaviour
         _weaponMan = GetComponentInChildren<WeaponManager>();
         _playerAnimator = GetComponent<Animator>();
         _playerAudio = GetComponent<AudioSource>();
+        healthMan = GetComponent<HealthManager>();
         CanMove = true;
         // lightToggle = GetComponent<LightSwitcher>();
     }
@@ -64,8 +72,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UIController.instance.PlayerHealth(healthMan.playerHealth);
         
         onGround = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsGround);
+        
+        _playerAnimator.SetBool("IsOnGround", onGround);
 
         stepCoolDown -= Time.deltaTime;
 
@@ -104,7 +115,14 @@ public class PlayerController : MonoBehaviour
         
         if (onGround && !_weaponReady && CanMove)
         {
-            if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
+            if (Input.GetButtonDown("Jump"))
+            {
+                _theRb.velocity = new Vector2(_theRb.velocity.x, jumpForce);
+                _playerAudio.PlayOneShot(jumpSound);
+                _playerAnimator.SetTrigger("Jumped");
+            }
+            
+            if (Input.GetAxis("Horizontal") != 0f)
             {
                 _playerAnimator.SetBool("IsMoving", true);
             }
@@ -125,27 +143,24 @@ public class PlayerController : MonoBehaviour
                 _playerAnimator.SetBool("IsSprinting", false);
                 PlayFootsteps(stepRate);
             }
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                _theRb.velocity = new Vector2(_theRb.velocity.x, jumpForce);
-            }
         }
+        
+        Interact();
 
         // Change weapons
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     _weaponMan.ChangeWeapon(WeaponManager.Weapons.Melee);
+        // }
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Melee);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _weaponMan.ChangeWeapon(WeaponManager.Weapons.Pistol);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _weaponMan.ChangeWeapon(WeaponManager.Weapons.Uzi);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _weaponMan.ChangeWeapon(WeaponManager.Weapons.Shotgun);
         }
@@ -197,14 +212,64 @@ public class PlayerController : MonoBehaviour
     // This is the most garbage way to do it, but it'll work for now
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Enter collider");
-        
-        if (Input.GetKeyDown(KeyCode.E))
+        if (col.CompareTag("BarredEntrance"))
         {
-            if (col.tag == "BarredEntrance")
-            {
-                Debug.Log("This door is jammed.");
-            }
+            Debug.Log("near entrance");
+            _nearBarredEntrance = true;
+        }
+
+        if (col.CompareTag("RealEntrance"))
+        {
+            Debug.Log("near the real entrance");
+            _nearRealEntrance = true;
+        }
+
+        if (col.CompareTag("EnemyHitbox"))
+        {
+            Debug.Log("Player was hit");
+            PlayerDamage(col.GetComponent<HitboxAttack>()._attackPower);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("BarredEntrance"))
+        {
+            Debug.Log("left entrance");
+            _nearBarredEntrance = false;
+        }
+
+        if (other.CompareTag("RealEntrance"))
+        {
+            Debug.Log("left the real entrance");
+            _nearRealEntrance = false;
+        }
+    }
+
+    private void Interact()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_nearBarredEntrance) Debug.Log("The door's busted");
+            if (_nearRealEntrance) Debug.Log("This should work");
+        }
+    }
+
+    void PlayerDamage(float amountOfDamage)
+    {
+        healthMan.playerHealth -= amountOfDamage;
+        
+        _playerAudio.PlayOneShot(damagedSound, 10);
+
+        if (healthMan.playerHealth <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
+    void PlayerDeath()
+    {
+        _playerAudio.PlayOneShot(deathSound);
+    }
+    
 }

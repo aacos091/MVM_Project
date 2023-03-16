@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int health;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float health;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void DamageEnemy(int damageDealt)
+    public void DamageEnemy(float damageDealt)
     {
         health -= damageDealt;
-        if (health <= 0)
+        if (health <= 0f)
         {
+            // Run a check to see if the enemy drops something
             Destroy(gameObject);
         }
     }

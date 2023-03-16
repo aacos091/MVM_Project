@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
@@ -35,7 +34,7 @@ public class PistolController : MonoBehaviour
     private bool _isAiming;
 
     [Header("Pistol Damage")] 
-    public int damage;
+    public float damage;
 
     [Header("Camera Shake")] 
     public float CameraShakeIntensity;
@@ -81,16 +80,23 @@ public class PistolController : MonoBehaviour
     public Material lineMaterial;
     public Ray r2d;
 
-    private void Start()
+    private void Awake()
     {
         ammo = GetComponentInParent<AmmoManager>();
+        
+        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+    }
+
+    private void Start()
+    {
+        //ammo = GetComponentInParent<AmmoManager>();
         
         Debug.Log("Amount of bullets: " + ammo.pistolBullets);
         Debug.Log("Amount in mag: " + ammo.currentPistolMagCount);
 
         //ammo.pistolMags.Add(ammo.currentPistolMagCount);
 
-        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+        //_playerAnimator = transform.parent.GetComponentInParent<Animator>();
         
         
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
@@ -103,6 +109,7 @@ public class PistolController : MonoBehaviour
 
     private void Update()
     {
+        UIController.instance.BulletCount(ammo.pistolBullets);
         //weaponRotationAiming();
         
         //TurnGunBarrelWithButtons();
@@ -131,13 +138,14 @@ public class PistolController : MonoBehaviour
                 _isFiring = false;
             }
         }
-        else if (Input.GetMouseButtonUp(1))
+        else // if (Input.GetMouseButtonUp(1))
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
-            _isAiming = false;
+            //_isAiming = false;
             _playerAnimator.SetBool("Aiming", false);
             _playerAnimator.SetBool("AimUp", false);
             _playerAnimator.SetBool("AimDown", false);
+            StartCoroutine(DontMoveAiming(0.5f));
         }
 
 
@@ -176,11 +184,12 @@ public class PistolController : MonoBehaviour
         }
         else
         {
-            _isReloading = false;
+            StartCoroutine(DontMoveReload(1f));
+            //_isReloading = false;
             _playerAnimator.SetBool("InsertBullet", false);
         }
 
-        if (_isChecking || _isReloading)
+        if (_isChecking || _isReloading || _isAiming)
         {
             PlayerController.instance.CanMove = false;
         }
@@ -214,9 +223,26 @@ public class PistolController : MonoBehaviour
     {
         if (weaponImage != null)
         {
-            weaponImage.gameObject.SetActive(false);
+            UIController.instance.DeactivateWeapon(weaponImage);
             UIController.instance.EnablePistolMag(false);
         }
+    }
+    
+    IEnumerator DontMoveReload(float timeToNotMove)
+    {
+        //PlayerController.instance.CanMove = false;
+        yield return new WaitForSeconds(timeToNotMove);
+        //PlayerController.instance.CanMove = true;
+        _isReloading = false;
+        //if (_isAiming) _isAiming = false;
+    }
+    
+    IEnumerator DontMoveAiming(float timeToNotMove)
+    {
+        //PlayerController.instance.CanMove = false;
+        yield return new WaitForSeconds(timeToNotMove);
+        //PlayerController.instance.CanMove = true;
+        _isAiming = false;
     }
 
     void Reload()
@@ -261,10 +287,12 @@ public class PistolController : MonoBehaviour
         _isChecking = true;
         _playerAnimator.SetTrigger("Check");
         UIController.instance.CheckPistolMag(ammo.currentPistolMagCount);
+        //UIController.instance.StartCoroutine(UIController.instance.TurnOnPistolMag(ammo.currentPistolMagCount));
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         weaponAudio.PlayOneShot(pistolReload);
         UIController.instance.PutPistolMagAway(ammo.currentPistolMagCount);
+        //UIController.instance.StartCoroutine(UIController.instance.TurnOffPistolMag(ammo.currentPistolMagCount));
         UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
@@ -308,7 +336,7 @@ public class PistolController : MonoBehaviour
 
             if (hit)
             {
-                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+                hit.transform.gameObject.GetComponent<HoodComponent>().Damage(damage);
             }
 
         }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -34,7 +33,7 @@ public class UziController : MonoBehaviour
     private bool _isAiming;
     
     [Header("Uzi Damage")] 
-    public int damage;
+    public float damage;
     
     [Header("Camera Shake")] 
     public float CameraShakeIntensity;
@@ -77,17 +76,24 @@ public class UziController : MonoBehaviour
     [Header("Debug")]
     public Material lineMaterial;
     public Ray r2d;
+    
+    private void Awake()
+    {
+        ammo = GetComponentInParent<AmmoManager>();
+        
+        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+    }
 
     private void Start()
     {
-        ammo = GetComponentInParent<AmmoManager>();
+        //ammo = GetComponentInParent<AmmoManager>();
         
         Debug.Log("Amount of bullets: " + ammo.uziBullets);
         Debug.Log("Amount in mag: " + ammo.currentUziMagCount);
 
         //ammo.uziMags.Add(ammo.currentUziMagCount);
         
-        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+        //_playerAnimator = transform.parent.GetComponentInParent<Animator>();
         
         UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
         UIController.instance.UpdateStatus("Idle");
@@ -97,6 +103,7 @@ public class UziController : MonoBehaviour
 
     private void Update()
     {
+        UIController.instance.BulletCount(ammo.uziBullets);
         //weaponRotationAiming();
         
         //TurnGunBarrelWithButtons();
@@ -128,10 +135,11 @@ public class UziController : MonoBehaviour
         else if (Input.GetMouseButtonUp(1))
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
-            _isAiming = false;
+            //_isAiming = false;
             _playerAnimator.SetBool("Aiming", false);
             _playerAnimator.SetBool("AimUp", false);
             _playerAnimator.SetBool("AimDown", false);
+            StartCoroutine(DontMoveAiming(0.5f));
         }
 
 
@@ -170,11 +178,12 @@ public class UziController : MonoBehaviour
         }
         else
         {
-            _isReloading = false;
+            StartCoroutine(DontMoveReload(1f));
+            //_isReloading = false;
             _playerAnimator.SetBool("InsertBullet", false);
         }
         
-        if (_isChecking || _isReloading)
+        if (_isChecking || _isReloading || _isAiming)
         {
             PlayerController.instance.CanMove = false;
         }
@@ -209,7 +218,7 @@ public class UziController : MonoBehaviour
     {
         if (weaponImage != null)
         {
-            weaponImage.gameObject.SetActive(false);
+            UIController.instance.DeactivateWeapon(weaponImage);
             UIController.instance.EnableUziMag(false);
         }
     }
@@ -250,18 +259,37 @@ public class UziController : MonoBehaviour
         UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
+    IEnumerator DontMoveReload(float timeToNotMove)
+    {
+        //PlayerController.instance.CanMove = false;
+        yield return new WaitForSeconds(timeToNotMove);
+        //PlayerController.instance.CanMove = true;
+        _isReloading = false;
+        //_isAiming = false;
+    }
+    
+    IEnumerator DontMoveAiming(float timeToNotMove)
+    {
+        //PlayerController.instance.CanMove = false;
+        yield return new WaitForSeconds(timeToNotMove);
+        //PlayerController.instance.CanMove = true;
+        _isAiming = false;
+    }
+
     IEnumerator Check()
     {
         Debug.Log("You have: " + ammo.currentUziMagCount + " in the mag");
         _isChecking = true;
         _playerAnimator.SetTrigger("Check");
         UIController.instance.CheckUziMag(ammo.currentUziMagCount);
+        //UIController.instance.StartCoroutine(UIController.instance.TurnOnUziMag(ammo.currentUziMagCount));
         StartCoroutine(playSoundWithDelay(uziReload, 1f));
         yield return new WaitForSeconds(checkTime);
         _isChecking = false;
         //weaponAudio.PlayOneShot(uziReload);
         UIController.instance.PutUziMagAway(ammo.currentUziMagCount);
-        UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
+        //UIController.instance.StartCoroutine(UIController.instance.TurnOffUziMag(ammo.currentUziMagCount));
+        //UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
     }
 
     IEnumerator Shoot()
@@ -285,7 +313,7 @@ public class UziController : MonoBehaviour
             
             if (hit)
             {
-                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+                hit.transform.gameObject.GetComponent<HoodComponent>().Damage(damage);
             }
         }
         else if (ammo.currentUziMagCount == 0)
@@ -336,7 +364,7 @@ public class UziController : MonoBehaviour
             
             if (hit)
             {
-                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+                hit.transform.gameObject.GetComponent<HoodComponent>().Damage(damage);
             }
 
         }

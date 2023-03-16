@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - BarredEntrance
   - RealEntrance
+  - Projectile
+  - EnemyHitbox
   layers:
   - Default
   - TransparentFX
@@ -18,8 +20,8 @@ TagManager:
   - Player
   - Enemy
   - Boundary
-  - 
-  - 
+  - Projectile
+  - Hitbox
   - 
   - 
   - 

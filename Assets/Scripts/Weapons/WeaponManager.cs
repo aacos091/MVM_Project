@@ -42,12 +42,12 @@ public class WeaponManager : MonoBehaviour
     {
         switch (newWeapon)
         {
-            case Weapons.Melee:
-                melee.SetActive(true);
-                pistol.SetActive(false);
-                uzi.SetActive(false);
-                shotgun.SetActive(false);
-                break;
+            // case Weapons.Melee:
+            //     melee.SetActive(true);
+            //     pistol.SetActive(false);
+            //     uzi.SetActive(false);
+            //     shotgun.SetActive(false);
+            //     break;
             case Weapons.Pistol:
                 melee.SetActive(false);
                 pistol.SetActive(true);

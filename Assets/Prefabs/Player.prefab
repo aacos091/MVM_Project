@@ -561,7 +561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767790860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.286, y: 0.158, z: 0}
+  m_LocalPosition: {x: -1.4189999, y: 1.742, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -937,7 +937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325924890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.286, y: 0.158, z: 0}
+  m_LocalPosition: {x: -0.997, y: -0.229, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1278,7 +1278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6672806036856126340
 Transform:
   m_ObjectHideFlags: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   checkTime: 1.3
   upAimingAngle: 30
   downAimingAngle: -30
-  damage: 3
+  damage: 5
   CameraShakeIntensity: 1
   CameraShakeTimer: 0.4
   gunBarrel: {fileID: 6672806037859560328}
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   shotgunRange: 1.5
   BulletTracerPrefab: {fileID: 3345645299163018583, guid: d6b1dea46b8b9f6478e55c8aead1a96a, type: 3}
-  AimUpAngle: 40
+  AimUpAngle: 30
   AimDownAngle: 330
   ShotgunBarrel: {fileID: 6672806037859560328}
   ShotgunBarrelUp: {fileID: 767790861}
@@ -1759,7 +1759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6672806037685311499
 Transform:
   m_ObjectHideFlags: 0
@@ -1850,7 +1850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037779707051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.257, z: 0}
+  m_LocalPosition: {x: 0, y: -0.406, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2025,7 +2025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672806037859560335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.286, y: 0.158, z: 0}
+  m_LocalPosition: {x: -1.45, y: 1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2082,7 +2082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6672806038232040946
 Transform:
   m_ObjectHideFlags: 0
@@ -2172,7 +2172,7 @@ MonoBehaviour:
   changeTimeWhileAiming: 0
   upAimingAngle: 30
   downAimingAngle: -30
-  damage: 1
+  damage: 0.5
   CameraShakeIntensity: 0.5
   CameraShakeTimer: 0.1
   gunBarrel: {fileID: 6672806037783391141}
@@ -2398,7 +2398,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.81
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -2419,8 +2419,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02130431, y: 0.009870887}
-  m_Size: {x: 0.26067626, y: 0.54307795}
+  m_Offset: {x: -0.02130431, y: -0.012622595}
+  m_Size: {x: 0.26067626, y: 0.8161526}
   m_Direction: 0
 --- !u!114 &6672806038243068785
 MonoBehaviour:
@@ -2434,9 +2434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1668d0a6ef79bf479cff5085c755f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1.4
   sprintSpeed: 3
-  jumpForce: 3
+  jumpForce: 3.6
   groundPoint: {fileID: 6672806037779707028}
   whatIsGround:
     serializedVersion: 2
@@ -2444,12 +2444,16 @@ MonoBehaviour:
   LightSelectEvents: {fileID: 11400000, guid: be550621a8cac471186f40d35479ee58, type: 2}
   flashlight: {fileID: 1021303265}
   stepRate: 0.7
-  sprintStepRate: 0.5
+  sprintStepRate: 0.6
   stepCoolDown: 0
   footstepSounds:
   - {fileID: 8300000, guid: f4ce3369ee5a13d42aee7b96de88d893, type: 3}
   - {fileID: 8300000, guid: ae9abd00b209f9f4aabaa8759bd0c32b, type: 3}
+  jumpSound: {fileID: 8300000, guid: 7b58cd803f08b164fa9d0edd7c8841b2, type: 3}
+  damagedSound: {fileID: 8300000, guid: eb431724669062144b21128e52a4c652, type: 3}
+  deathSound: {fileID: 8300000, guid: 8f010e659bb65f0438b3671b6e6cfe20, type: 3}
   CanMove: 0
+  healthMan: {fileID: 0}
 --- !u!114 &6672806038243068799
 MonoBehaviour:
   m_ObjectHideFlags: 0

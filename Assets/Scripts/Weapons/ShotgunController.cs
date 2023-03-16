@@ -26,7 +26,7 @@ public class ShotgunController : MonoBehaviour
     private bool _isAiming;
     
     [Header("Shotgun Damage")] 
-    public int damage;
+    public float damage;
     
     [Header("Camera Shake")] 
     public float CameraShakeIntensity;
@@ -34,7 +34,7 @@ public class ShotgunController : MonoBehaviour
 
     private const float MinimumHeldDuration = 0.25f;
     private float _reloadPressedTime = 0;
-    private bool _reloadHeld = false;
+    private bool _reloadHeld;
 
     [Header("Other")]
     public Transform gunBarrel;
@@ -66,14 +66,21 @@ public class ShotgunController : MonoBehaviour
     public Material lineMaterial;
     public Ray r2d;
     
-    private void Start()
+    private void Awake()
     {
         ammo = GetComponentInParent<AmmoManager>();
+        
+        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+    }
+    
+    private void Start()
+    {
+        //ammo = GetComponentInParent<AmmoManager>();
         
         Debug.Log("Amount of shells: " + ammo.shotgunShells);
         Debug.Log("Amount in barrel: " + ammo.currentShellCount);
         
-        _playerAnimator = transform.parent.GetComponentInParent<Animator>();
+        //_playerAnimator = transform.parent.GetComponentInParent<Animator>();
         
         UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
         UIController.instance.UpdateStatus("Idle");
@@ -83,6 +90,7 @@ public class ShotgunController : MonoBehaviour
 
     private void Update()
     {
+        UIController.instance.BulletCount(ammo.shotgunShells);
         //weaponRotationAiming();
         
         //TurnGunBarrelWithButtons();
@@ -113,10 +121,11 @@ public class ShotgunController : MonoBehaviour
         else if (Input.GetMouseButtonUp(1))
         {
             transform.parent.localEulerAngles = new Vector3(0f, 0f, 0f);
-            _isAiming = false;
+            //_isAiming = false;
             _playerAnimator.SetBool("Aiming", false);
             _playerAnimator.SetBool("AimUp", false);
             _playerAnimator.SetBool("AimDown", false);
+            StartCoroutine(DontMoveAiming(0.5f));
         }
 
 
@@ -155,11 +164,12 @@ public class ShotgunController : MonoBehaviour
         }
         else
         {
-            _isReloading = false;
+            StartCoroutine(DontMoveReload(0.5f));
+            //_isReloading = false;
             _playerAnimator.SetBool("InsertBullet", false);
         }
         
-        if (_isChecking || _isReloading)
+        if (_isChecking || _isReloading || _isAiming)
         {
             PlayerController.instance.CanMove = false;
         }
@@ -235,8 +245,12 @@ public class ShotgunController : MonoBehaviour
             //r2d = new Ray(gunBarrel.position, gunBarrel.TransformDirection(Vector3.right));
 
             hit = Physics2D.Raycast(gunBarrel.position, transform.TransformDirection(Vector3.left), shotgunRange, targetLayer);
-            
+
+            Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle + 4));
+            Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle + 2));
             Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle));
+            Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle - 2));
+            Instantiate(BulletTracerPrefab, gunBarrel.position, Quaternion.Euler(gunBarrel.localRotation.x, _aimToTheLeft ? -180f : 0f, _weaponAngle - 4));
 
             //for (int i = 0; i <= pellets; i++)
             //{
@@ -249,7 +263,7 @@ public class ShotgunController : MonoBehaviour
 
             if (hit)
             {
-                hit.transform.gameObject.GetComponent<EnemyController>().DamageEnemy(damage);
+                hit.transform.gameObject.GetComponent<HoodComponent>().Damage(damage);
             }
 
         }
@@ -324,11 +338,25 @@ public class ShotgunController : MonoBehaviour
 
     private void OnDisable()
     {
-        if (weaponImage != null)
-        {
-            weaponImage.gameObject.SetActive(false);
-            UIController.instance.EnableShotgunBarrel(false);
-        }
+        UIController.instance.DeactivateWeapon(weaponImage);
+        UIController.instance.EnableShotgunBarrel(false);
+    }
+    
+    IEnumerator DontMoveReload(float timeToNotMove)
+    {
+        //PlayerController.instance.CanMove = false;
+        yield return new WaitForSeconds(timeToNotMove);
+        //PlayerController.instance.CanMove = true;
+        _isReloading = false;
+        //if (_isAiming) _isAiming = false;
+    }
+    
+    IEnumerator DontMoveAiming(float timeToNotMove)
+    {
+        //PlayerController.instance.CanMove = false;
+        yield return new WaitForSeconds(timeToNotMove);
+        //PlayerController.instance.CanMove = true;
+        _isAiming = false;
     }
     
     void shotgunRemoveSound()

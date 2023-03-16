@@ -22,13 +22,13 @@ public class HealthManager : MonoBehaviour
     // Maybe split this into two upgrades? Let's see how it works
 
     // Damages the player (enemy bullets, melee attacks, etc.)
-    void DamagePlayer(float damageAmount)
+    public void DamagePlayer(float damageAmount)
     {
         playerHealth -= damageAmount;
     }
 
     // Heal the player (Medkits)
-    void HealPlayer(float healAmount)
+    public void HealPlayer(float healAmount)
     {
         playerHealth += healAmount;
     }

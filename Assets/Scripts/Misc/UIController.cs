@@ -28,6 +28,9 @@ public class UIController : MonoBehaviour
     public TMP_Text magAmount;
     public TMP_Text weaponStatus;
 
+    public TMP_Text playerHealth;
+    public TMP_Text bulletCount;
+
     public Image pistolMag;
     public Image uziMag;
     public GameObject shotgunBarrel;
@@ -58,6 +61,16 @@ public class UIController : MonoBehaviour
     public void UpdateStatus(string status)
     {
         weaponStatus.text = status;
+    }
+
+    public void PlayerHealth(float health)
+    {
+        playerHealth.text = "Health: " + health;
+    }
+
+    public void BulletCount(int bullets)
+    {
+        bulletCount.text = "Bullets: " + bullets;
     }
 
     public void CheckPistolMag(int bulletsInMag)
@@ -109,6 +122,78 @@ public class UIController : MonoBehaviour
     {
         uziMag.gameObject.SetActive(onOrOff);
     }
+    
+    public IEnumerator TurnOnPistolMag(int pistolBulletsInMag)
+    {
+        for (float i = 0; i <= 1f; i += Time.deltaTime)
+        {
+            pistolMag.color = new Color(255, 255, 255, i);
+            yield return null;
+        }
+        
+        for (int z = 0; z < pistolBulletsInMag; z++)
+        {
+            //pistolBullets[z].color = new Color(255, 255, 255, i);
+            pistolBullets[z].gameObject.SetActive(true);
+        }
+        
+        yield return null;
+    }
+
+    
+
+    public IEnumerator TurnOffPistolMag(int pistolBulletsInMag)
+    {
+        for (float i = 1f; i >= 0; i -= Time.deltaTime)
+        {
+            pistolMag.color = new Color(255, 255, 255, i);
+            yield return null;
+        }
+        
+        for (int z = 0; z < pistolBulletsInMag; z++)
+        {
+            //pistolBullets[z].color = new Color(255, 255, 255, i);
+            pistolBullets[z].gameObject.SetActive(false);
+        }
+        
+        yield return null;
+    }
+
+    public IEnumerator TurnOnUziMag(int uziBulletsInMag)
+    {
+        for (float i = 0; i <= 1f; i += Time.deltaTime)
+        {
+            uziMag.color = new Color(255, 255, 255, i);
+            
+            for (int z = 0; z < uziBulletsInMag; z++)
+            {
+                uziBullets[z].color = new Color(255, 255, 255, i);
+                uziBullets[z].gameObject.SetActive(true);
+            }
+            yield return null;
+        }
+        
+        yield return null;
+    }
+
+    public IEnumerator TurnOffUziMag(int uziBulletsInMag)
+    {
+        for (float i = 1f; i >= 0; i -= Time.deltaTime)
+        {
+            uziMag.color = new Color(255, 255, 255, i);
+            
+            for (int z = 0; z < uziBulletsInMag; z++)
+            {
+                uziBullets[z].color = new Color(255, 255, 255, i);
+                uziBullets[z].gameObject.SetActive(false);
+            }
+            yield return null;
+        }
+        
+        yield return null;
+        
+        
+    }
 
     public void EnableShotgunBarrel(bool onOrOff)
     {
@@ -152,5 +237,10 @@ public class UIController : MonoBehaviour
         {
             weaponToActivate.color = new Color(1, 1, 1, i);
         }
+    }
+
+    public void DeactivateWeapon(Image weaponToDeactivate)
+    {
+        weaponToDeactivate.gameObject.SetActive(false);
     }
 }

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -5640483937496871477}
   - component: {fileID: 5051936672197037319}
   - component: {fileID: 2060936113647717364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BulletTrail
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6615604e24b64d846ad6e8dc4e3dd11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 120
+  moveSpeed: 25
   time: 5
 --- !u!50 &5051936672197037319
 Rigidbody2D:
