@@ -218,14 +218,14 @@ public class PistolController : MonoBehaviour
     }
     
     // Since this is the very first weapon the player gets, they start with this
-    private void OnEnable()
-    {
-        _activated = true;
-        _playerAnimator.ResetTrigger("Check");
-        StartCoroutine(ActivateThisWeapon(weaponImage));
-        UIController.instance.EnablePistolMag(true);
-        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
-    }
+    // private void OnEnable()
+    // {
+    //     _activated = true;
+    //     _playerAnimator.ResetTrigger("Check");
+    //     StartCoroutine(UIController.instance.ActivatePistol());
+    //     UIController.instance.EnablePistolMag(true);
+    //     UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+    // }
     
     // private void OnDisable()
     // {
@@ -242,9 +242,9 @@ public class PistolController : MonoBehaviour
         {
             _activated = true;
             _playerAnimator.ResetTrigger("Check");
-            StartCoroutine(ActivateThisWeapon(weaponImage));
+            StartCoroutine(UIController.instance.ActivatePistol());
             UIController.instance.EnablePistolMag(true);
-            UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+            //UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
         }
     }
 
@@ -254,7 +254,7 @@ public class PistolController : MonoBehaviour
         {
             if (weaponImage != null)
             {
-                UIController.instance.DeactivateWeapon(weaponImage);
+                UIController.instance.DeactivatePistol();
                 UIController.instance.EnablePistolMag(false);
             }
 
@@ -380,7 +380,7 @@ public class PistolController : MonoBehaviour
             Debug.Log("No Ammo");
         }
         
-        UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
+        //UIController.instance.UpdateTotals(ammo.pistolBullets, ammo.currentPistolMagCount);
     }
 
     void pistolRemoveSound()
@@ -530,20 +530,27 @@ public class PistolController : MonoBehaviour
 
     IEnumerator ActivateThisWeapon(Image img)
     {
-        img.gameObject.SetActive(true);
-
-        for (float i = 0; i <= 1f; i += Time.deltaTime)
+        if (img != null)
         {
-            img.color = new Color(1, 1, 1, i);
-            yield return null;
+            img.gameObject.SetActive(true);
+
+            for (float i = 0; i <= 1f; i += Time.deltaTime)
+            {
+                img.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (float i = 1f; i >= 0; i -= Time.deltaTime)
+            {
+                img.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
         }
-
-        yield return new WaitForSeconds(0.5f);
-
-        for (float i = 1f; i >= 0; i -= Time.deltaTime)
+        else
         {
-            img.color = new Color(1, 1, 1, i);
-            yield return null;
+            img = GameObject.Find("PistolImage").GetComponent<Image>();
         }
     }
 

@@ -34,7 +34,11 @@ public class UIController : MonoBehaviour
     public Image pistolMag;
     public Image uziMag;
     public GameObject shotgunBarrel;
-    
+
+    public Image pistolImage;
+    public Image uziImage;
+    public Image shotgunImage;
+
     public Image[] pistolBullets;
     public Image[] uziBullets;
     public Image[] shotgunShells;
@@ -140,6 +144,125 @@ public class UIController : MonoBehaviour
         }
         
         yield return null;
+    }
+    
+    IEnumerator ActivateThisWeapon(Image img)
+    {
+        if (img != null)
+        {
+            img.gameObject.SetActive(true);
+
+            for (float i = 0; i <= 1f; i += Time.deltaTime)
+            {
+                img.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (float i = 1f; i >= 0; i -= Time.deltaTime)
+            {
+                img.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+        }
+        else
+        {
+            img = GameObject.Find("PistolImage").GetComponent<Image>();
+        }
+    }
+    
+    public IEnumerator ActivatePistol()
+    {
+        if (pistolImage != null)
+        {
+            pistolImage.gameObject.SetActive(true);
+
+            for (float i = 0; i <= 1f; i += Time.deltaTime)
+            {
+                pistolImage.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (float i = 1f; i >= 0; i -= Time.deltaTime)
+            {
+                pistolImage.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+        }
+        else
+        {
+            //pistolImage = GameObject.Find("PistolImage").GetComponent<Image>();
+        }
+    }
+    
+    public IEnumerator ActivateUzi()
+    {
+        if (uziImage != null)
+        {
+            uziImage.gameObject.SetActive(true);
+
+            for (float i = 0; i <= 1f; i += Time.deltaTime)
+            {
+                uziImage.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (float i = 1f; i >= 0; i -= Time.deltaTime)
+            {
+                uziImage.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+        }
+        else
+        {
+            //uziImage = GameObject.Find("UziImage").GetComponent<Image>();
+        }
+    }
+    
+    public IEnumerator ActivateShotgun()
+    {
+        if (shotgunImage != null)
+        {
+            shotgunImage.gameObject.SetActive(true);
+
+            for (float i = 0; i <= 1f; i += Time.deltaTime)
+            {
+                shotgunImage.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (float i = 1f; i >= 0; i -= Time.deltaTime)
+            {
+                shotgunImage.color = new Color(1, 1, 1, i);
+                yield return null;
+            }
+        }
+        else
+        {
+            //shotgunImage = GameObject.Find("ShotgunImage").GetComponent<Image>();
+        }
+    }
+    
+    public void DeactivatePistol()
+    {
+        pistolImage.gameObject.SetActive(false);
+    }
+    
+    public void DeactivateUzi()
+    {
+        uziImage.gameObject.SetActive(false);
+    }
+    
+    public void DeactivateShotgun()
+    {
+        shotgunImage.gameObject.SetActive(false);
     }
 
     

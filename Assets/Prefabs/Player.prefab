@@ -694,6 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021303266}
   - component: {fileID: 1021303267}
+  - component: {fileID: 462855217}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -708,7 +709,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021303265}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -795,6 +796,26 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!95 &462855217
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021303265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9f19653cbc863f74fb3c62a9c3ea90fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1282045059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,8 +1967,8 @@ MonoBehaviour:
   pistolCon: {fileID: 6672806036856126343}
   uziCon: {fileID: 6672806038232040958}
   shotgunCon: {fileID: 6672806037016728814}
-  uziFound: 1
-  shotgunFound: 1
+  uziFound: 0
+  shotgunFound: 0
 --- !u!114 &6672806037809878707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2446,6 +2467,7 @@ MonoBehaviour:
     m_Bits: 8
   LightSelectEvents: {fileID: 11400000, guid: be550621a8cac471186f40d35479ee58, type: 2}
   flashlight: {fileID: 1021303265}
+  flashlightAnimator: {fileID: 462855217}
   stepRate: 0.7
   sprintStepRate: 0.6
   stepCoolDown: 0

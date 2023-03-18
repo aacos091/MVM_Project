@@ -21,16 +21,4 @@ public class AbilitiesManager : MonoBehaviour
     public bool uvLightFound;
     public bool grapplingHookFound;
     public bool runningShoesFound;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

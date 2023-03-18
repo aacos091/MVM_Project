@@ -349,7 +349,7 @@ public class ShotgunController : MonoBehaviour
         {
             _activated = true;
             _playerAnimator.ResetTrigger("Check");
-            StartCoroutine(ActivateThisWeapon(weaponImage));
+            StartCoroutine(UIController.instance.ActivateShotgun());
             UIController.instance.EnableShotgunBarrel(true);
             UIController.instance.UpdateTotalsShotgun(ammo.shotgunShells, ammo.currentShellCount);
         }
@@ -359,7 +359,7 @@ public class ShotgunController : MonoBehaviour
     {
         if (_activated)
         {
-            UIController.instance.DeactivateWeapon(weaponImage);
+            UIController.instance.DeactivateShotgun();
             UIController.instance.EnableShotgunBarrel(false);
             _activated = false;
         }

@@ -235,7 +235,7 @@ public class UziController : MonoBehaviour
         {
             _activated = true;
             _playerAnimator.ResetTrigger("Check");
-            StartCoroutine(ActivateThisWeapon(weaponImage));
+            StartCoroutine(UIController.instance.ActivateUzi());
             UIController.instance.EnableUziMag(true);
             UIController.instance.UpdateTotals(ammo.uziBullets, ammo.currentUziMagCount);
         }
@@ -247,7 +247,7 @@ public class UziController : MonoBehaviour
         {
             if (weaponImage != null)
             {
-                UIController.instance.DeactivateWeapon(weaponImage);
+                UIController.instance.DeactivateUzi();
                 UIController.instance.EnableUziMag(false);
             }
 

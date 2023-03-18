@@ -30,9 +30,8 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
     public LayerMask whatIsGround;
 
-    public LightSelectEvent LightSelectEvents;
-    
     public GameObject flashlight;
+    public Animator flashlightAnimator;
     private bool _isFlashlightOn = false;
 
     private Animator _playerAnimator;
@@ -48,6 +47,8 @@ public class PlayerController : MonoBehaviour
     public bool CanMove;
 
     public HealthManager healthMan;
+    
+    //private bool
 
     private bool _nearBarredEntrance = false;
     private bool _nearRealEntrance = false;
@@ -66,7 +67,6 @@ public class PlayerController : MonoBehaviour
         _playerAudio = GetComponent<AudioSource>();
         healthMan = GetComponent<HealthManager>();
         CanMove = true;
-        // lightToggle = GetComponent<LightSwitcher>();
     }
 
     // Update is called once per frame
@@ -97,12 +97,8 @@ public class PlayerController : MonoBehaviour
                 _isFlashlightOn = false;
             }
         }
-
-        //
-        // if (Input.GetKeyDown(KeyCode.V))
-        // {
-        //     lightToggle.SelectUVLight();
-        // }
+        
+        OperateFlashlight();
 
         if (Input.GetMouseButton(1))
         {
@@ -194,19 +190,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OperateFlashlight()
+    {
+        if (_isFlashlightOn)
+        {
+            if (Input.GetAxis("Vertical") > 0.2f)
+            {
+                flashlightAnimator.SetBool("FlashlightUp", true);
+            }
+            else if (Input.GetAxis("Vertical") < -0.2f)
+            {
+                flashlightAnimator.SetBool("FlashlightDown", true);
+            }
+            else
+            {
+                flashlightAnimator.SetBool("FlashlightUp", false);
+                flashlightAnimator.SetBool("FlashlightDown", false);
+            }
+        }
+    }
+
     void PlayFootsteps(float footstepRate)
     {
-        if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && stepCoolDown < 0f)
+        if ((Input.GetAxis("Horizontal") != 0f) && stepCoolDown < 0f)
         {
             _playerAudio.pitch = 1f + Random.Range(-0.2f, 0.2f);
             _playerAudio.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length - 1)]);
             stepCoolDown = footstepRate;
         }
-    }
-
-    public void OnLightPick()
-    {
-        LightSelectEvents.InvokeSelectNormalLight();
     }
 
     // This is the most garbage way to do it, but it'll work for now
@@ -250,8 +261,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_nearBarredEntrance) Debug.Log("The door's busted");
-            if (_nearRealEntrance) Debug.Log("This should work");
+            if (_nearBarredEntrance)
+            {
+                Debug.Log("Door's busted. Can't get in.");
+                //DialogueController.instance.dialogue.text = "The door is busted. No way I can get in there.";
+                //StartCoroutine(DialogueController.instance.DisplayStrings(new string[]{"This door is busted.", "I can't get in."}));
+            }
+
+            if (_nearRealEntrance)
+            {
+                _nearRealEntrance = false;
+                Debug.Log("Looks like the basement window can be broken."); // Fade out from this scene and than go into the maintenance area, maybe do that from the game manager (another singleton)?
+                //StartCoroutine(GameManager.instance.NewScene(2));
+            }
         }
     }
 

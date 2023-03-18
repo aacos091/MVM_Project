@@ -9,6 +9,7 @@ TagManager:
   - RealEntrance
   - Projectile
   - EnemyHitbox
+  - Pickup
   layers:
   - Default
   - TransparentFX
