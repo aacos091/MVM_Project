@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     //     UIController.instance.StartCoroutine(UIController.instance.FadeBlackOutSquare(false, 1));
     // }
     
-    public IEnumerator NewScene(int scene, Vector3 newPlayerPosition)
+    public IEnumerator NewScene(int scene)
     {
         PlayerController.instance.CanMove = false;
         StartCoroutine(UIController.instance.FadeBlackOutSquare(true, 1));
@@ -52,6 +52,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
         StartCoroutine(UIController.instance.FadeBlackOutSquare(false, 1));
         PlayerController.instance.CanMove = true;
-        PlayerController.instance.transform.position = newPlayerPosition;
+        //PlayerController.instance.transform.position = newPlayerPosition;
     }
 }
