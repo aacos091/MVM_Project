@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(StartProcess());
+        StartCoroutine(StartProcess(1, 1));
         //StartCoroutine(FadeBlackOutSquare(false, 5));
         //SceneManager.LoadScene(1);
     }
@@ -27,7 +27,12 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public IEnumerator StartProcess(int fadeSpeed = 5)
+    public void LeavePrologue()
+    {
+        StartCoroutine(StartProcess(1, 2));
+    }
+
+    public IEnumerator StartProcess(int fadeSpeed = 5, int sceneNumber = 1)
     {
         // StartCoroutine(FadeBlackOutSquare(false, 5));
         // yield return new WaitForSeconds(5);
@@ -44,7 +49,7 @@ public class MainMenuController : MonoBehaviour
             yield return null;
         }
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneNumber);
     }
 
     IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 5)

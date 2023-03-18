@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour
             if (_nearRealEntrance)
             {
                 Debug.Log("Looks like the basement window can be broken."); // Fade out from this scene and than go into the maintenance area, maybe do that from the game manager (another singleton)?
-                StartCoroutine(GameManager.instance.NewScene(2));
+                StartCoroutine(GameManager.instance.NewScene(3));
             }
         }
     }

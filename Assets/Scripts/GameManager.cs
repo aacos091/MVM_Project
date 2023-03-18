@@ -54,4 +54,9 @@ public class GameManager : MonoBehaviour
         PlayerController.instance.CanMove = true;
         //PlayerController.instance.transform.position = newPlayerPosition;
     }
+
+    public void StartScene(int sceneNum)
+    {
+        StartCoroutine(NewScene(sceneNum));
+    }
 }

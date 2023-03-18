@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - EnemyHitbox
   - Pickup
+  - Exit
   layers:
   - Default
   - TransparentFX
