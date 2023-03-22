@@ -31,7 +31,7 @@ public class WeaponManager : MonoBehaviour
     public UziController uziCon;
     public ShotgunController shotgunCon;
     
-    public bool uziFound, shotgunFound;
+    public bool uziFound, shotgunFound = false;
 
     private void Start()
     {

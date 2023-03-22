@@ -52,7 +52,9 @@ public class PlayerController : MonoBehaviour
 
     private bool _nearBarredEntrance = false;
     private bool _nearRealEntrance = false;
-    
+
+    private bool _nearShotgun = false;
+
 
     // Just to make sure that melee weapons can at least change properly
     [NotNull] private WeaponManager _weaponMan;
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 _theRb.velocity = new Vector2(_theRb.velocity.x, jumpForce);
-                _playerAudio.PlayOneShot(jumpSound);
+                _playerAudio.PlayOneShot(jumpSound, 2);
                 _playerAnimator.SetTrigger("Jumped");
             }
             
@@ -240,6 +242,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player was hit");
             PlayerDamage(col.GetComponent<HitboxAttack>()._attackPower);
         }
+
+        if (col.CompareTag("Shotgun"))
+        {
+            Debug.Log("near Shotgun");
+            _nearShotgun = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -255,6 +263,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("left the real entrance");
             _nearRealEntrance = false;
         }
+
+        if (other.CompareTag("Shotgun"))
+        {
+            Debug.Log("left shotgun");
+            _nearShotgun = false;
+        }
     }
 
     private void Interact()
@@ -263,15 +277,26 @@ public class PlayerController : MonoBehaviour
         {
             if (_nearBarredEntrance)
             {
+                _ = Time.unscaledTime;
                 Debug.Log("Door's busted. Can't get in.");
+                GameObject.FindWithTag("BarredEntrance").GetComponent<BarredEntranceInteract>().EnterBarredEntrance();
                 //DialogueController.instance.dialogue.text = "The door is busted. No way I can get in there.";
                 //StartCoroutine(DialogueController.instance.DisplayStrings(new string[]{"This door is busted.", "I can't get in."}));
             }
 
             if (_nearRealEntrance)
             {
+                _ = Time.unscaledTime;
                 Debug.Log("Looks like the basement window can be broken."); // Fade out from this scene and than go into the maintenance area, maybe do that from the game manager (another singleton)?
+                GameObject.FindWithTag("RealEntrance").GetComponent<RealEntranceInteract>().EnterRealEntrance();
                 StartCoroutine(GameManager.instance.NewScene(3));
+            }
+
+            if (_nearShotgun)
+            {
+                _ = Time.unscaledTime;
+                Debug.Log("This is Troy's Shotgun...");
+                GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
             }
         }
     }
