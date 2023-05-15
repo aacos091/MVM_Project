@@ -1014,7 +1014,7 @@ MonoBehaviour:
   lines:
   - This is Troy's Shotgun...
   textSpeed: 0.3
-  shotgunText: {fileID: 0}
+  shotgunText: {fileID: 618511306}
   BarredEntranceText: {fileID: 0}
   RealEntranceText: {fileID: 0}
   inDialogue: 0
@@ -2447,7 +2447,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6478039338079052993, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
 --- !u!1 &852019691
 GameObject:
@@ -3214,7 +3215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066978272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.222816, y: 0.55939, z: -10}
+  m_LocalPosition: {x: 1.7344571, y: 0.55937, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4140,7 +4141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1377868073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5725,9 +5726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f6b72fe62af5040ae02f80a7fcf4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textComponent: {fileID: 0}
+  textComponent: {fileID: 618511308}
   lines: []
-  textSpeed: 0
+  textSpeed: 2
   shotgunText: {fileID: 618511306}
   BarredEntranceText: {fileID: 1150383485}
   RealEntranceText: {fileID: 852019691}
