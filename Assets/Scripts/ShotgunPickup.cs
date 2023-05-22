@@ -8,13 +8,12 @@ public class ShotgunPickup : MonoBehaviour
     {
         if (WeaponManager.instance.shotgunFound == false)
         {
-            DialogueController.instance.getShotgunText();
+            // DialogueController.instance.getShotgunText();
             WeaponManager.instance.shotgunFound = true;
         }
         // Probably write something to the ui here
         else
         {
-            DialogueController.instance.NextLine1();
             Destroy(gameObject); // Probably do a little fade out animation before this
         }
         

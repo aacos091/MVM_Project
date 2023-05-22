@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
         
         TurnWithButtons();
 
+        if(!CanMove)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.F) && AbilitiesManager.instance.flashlightFound)
         {
             if (!_isFlashlightOn)
@@ -279,7 +284,8 @@ public class PlayerController : MonoBehaviour
             {
                 _ = Time.unscaledTime;
                 Debug.Log("Door's busted. Can't get in.");
-                GameObject.FindWithTag("BarredEntrance").GetComponent<BarredEntranceInteract>().EnterBarredEntrance();
+                DialogueController.instance.StartDialogue();
+                //OLD CODE: GameObject.FindWithTag("BarredEntrance").GetComponent<BarredEntranceInteract>().EnterBarredEntrance();
                 //DialogueController.instance.dialogue.text = "The door is busted. No way I can get in there.";
                 //StartCoroutine(DialogueController.instance.DisplayStrings(new string[]{"This door is busted.", "I can't get in."}));
             }
@@ -288,7 +294,8 @@ public class PlayerController : MonoBehaviour
             {
                 _ = Time.unscaledTime;
                 Debug.Log("Looks like the basement window can be broken."); // Fade out from this scene and than go into the maintenance area, maybe do that from the game manager (another singleton)?
-                GameObject.FindWithTag("RealEntrance").GetComponent<RealEntranceInteract>().EnterRealEntrance();
+                //OLD CODE: GameObject.FindWithTag("RealEntrance").GetComponent<RealEntranceInteract>().EnterRealEntrance();
+                DialogueController.instance.StartDialogue();
                 StartCoroutine(GameManager.instance.NewScene(3));
             }
 
@@ -296,7 +303,19 @@ public class PlayerController : MonoBehaviour
             {
                 _ = Time.unscaledTime;
                 Debug.Log("This is Troy's Shotgun...");
-                GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
+                // OLD CODE: GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
+                if (WeaponManager.instance.shotgunFound == false)
+                {
+                    TextBoxManager.instance.EnableTextBox();
+                    WeaponManager.instance.shotgunFound = true;
+                }
+                // Probably write something to the ui here
+                else
+                {
+                    GameObject.FindWithTag("Shotgun").SetActive(false);
+                    // GameObject.FindWithTag("Shotgun").IsDestroyed();
+                   // Destroy(gameObject); // Probably do a little fade out animation before this
+                }
             }
         }
     }
