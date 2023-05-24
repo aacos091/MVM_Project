@@ -57,7 +57,7 @@ public class DialogueBoxManager : MonoBehaviour
         
         dialogueText.text = textLines[currentLine];
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             currentLine += 1;
         }
@@ -84,5 +84,14 @@ public class DialogueBoxManager : MonoBehaviour
         isActive = false;
         textBox.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void ReloadScript(TextAsset theText)
+    {
+        if (theText != null)
+        {
+            textLines = new string[1];
+            textLines = (theText.text.Split('\n'));
+        }
     }
 }
