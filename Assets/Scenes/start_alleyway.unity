@@ -455,6 +455,7 @@ MonoBehaviour:
   player: {fileID: 983996911}
   isActive: 0
   stopGame: 1
+  typeSpeed: 0.2
 --- !u!114 &179390198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1075710455889302994, guid: c54f97b50cf69784682ea872649c2504, type: 3}
@@ -975,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &267397311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4332,7 +4333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.0187073}
+  m_AnchoredPosition: {x: 0, y: 1.0186768}
   m_SizeDelta: {x: -28.915771, y: -22.392609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428102471

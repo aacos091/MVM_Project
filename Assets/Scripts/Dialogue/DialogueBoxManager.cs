@@ -20,6 +20,11 @@ public class DialogueBoxManager : MonoBehaviour
     public bool isActive;
 
     public bool stopGame;
+
+    private bool isTyping = false;
+    private bool cancelTyping = false;
+
+    public float typeSpeed;
     
     
     // Start is called before the first frame update
@@ -55,17 +60,45 @@ public class DialogueBoxManager : MonoBehaviour
             return;
         }
         
-        dialogueText.text = textLines[currentLine];
+        // dialogueText.text = textLines[currentLine];
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            currentLine += 1;
+            if (!isTyping)
+            {
+                currentLine += 1;
+                
+                if (currentLine > endAtLine)
+                {
+                    DisableTextBox();
+                }
+                else
+                {
+                    StartCoroutine(TextScroll(textLines[currentLine]));
+                }
+            }
+            else if (isTyping && !cancelTyping)
+            {
+                cancelTyping = true;
+            }
         }
+    }
 
-        if (currentLine > endAtLine)
+    private IEnumerator TextScroll(string lineOfText)
+    {
+        int letter = 0;
+        dialogueText.text = "";
+        isTyping = true;
+        cancelTyping = false;
+        while (isTyping && !cancelTyping && (letter < lineOfText.Length - 1))
         {
-            DisableTextBox();
+            dialogueText.text += lineOfText[letter];
+            letter += 1;
+            yield return new WaitForSecondsRealtime(typeSpeed);
         }
+        dialogueText.text = lineOfText;
+        isTyping = false;
+        cancelTyping = false;
     }
 
     public void EnableTextBox()
@@ -77,6 +110,8 @@ public class DialogueBoxManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+
+        StartCoroutine(TextScroll(textLines[currentLine]));
     }
 
     public void DisableTextBox()

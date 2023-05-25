@@ -299,24 +299,24 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(GameManager.instance.NewScene(3));
             }
 
-            if (_nearShotgun)
-            {
-                _ = Time.unscaledTime;
-                Debug.Log("This is Troy's Shotgun...");
-                // OLD CODE: GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
-                if (WeaponManager.instance.shotgunFound == false)
-                {
-                    TextBoxManager.instance.EnableTextBox();
-                    WeaponManager.instance.shotgunFound = true;
-                }
-                // Probably write something to the ui here
-                else
-                {
-                    GameObject.FindWithTag("Shotgun").SetActive(false);
-                    // GameObject.FindWithTag("Shotgun").IsDestroyed();
-                   // Destroy(gameObject); // Probably do a little fade out animation before this
-                }
-            }
+            // if (_nearShotgun)
+            // {
+            //     _ = Time.unscaledTime;
+            //     Debug.Log("This is Troy's Shotgun...");
+            //     // OLD CODE: GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
+            //     if (WeaponManager.instance.shotgunFound == false)
+            //     {
+            //         TextBoxManager.instance.EnableTextBox();
+            //         WeaponManager.instance.shotgunFound = true;
+            //     }
+            //     // Probably write something to the ui here
+            //     else
+            //     {
+            //         GameObject.FindWithTag("Shotgun").SetActive(false);
+            //         // GameObject.FindWithTag("Shotgun").IsDestroyed();
+            //        // Destroy(gameObject); // Probably do a little fade out animation before this
+            //     }
+            // }
         }
     }
 
