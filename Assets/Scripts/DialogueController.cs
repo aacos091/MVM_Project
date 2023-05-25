@@ -29,7 +29,7 @@ public class DialogueController : MonoBehaviour
 
     void Start()
     {
-        textComponent.text = string.Empty;
+        textComponent.text = "";
         StartDialogue();
     }
 
