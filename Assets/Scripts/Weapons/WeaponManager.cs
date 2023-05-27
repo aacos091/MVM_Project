@@ -12,6 +12,7 @@ public class WeaponManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -31,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     public UziController uziCon;
     public ShotgunController shotgunCon;
     
-    public bool uziFound, shotgunFound = false;
+    public bool uziFound, shotgunFound;
 
     private void Start()
     {

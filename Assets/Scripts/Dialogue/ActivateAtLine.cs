@@ -9,10 +9,12 @@ public class ActivateAtLine : MonoBehaviour
     public int startLine;
     public int endLine;
 
+    //public string dialogueTag;
+
     public DialogueBoxManager DialogueBox;
 
     public bool requiredButtonPress;
-    private bool waitForPress;
+    public bool waitForPress;
 
     public bool destroyWhenActivated;
     
@@ -32,17 +34,27 @@ public class ActivateAtLine : MonoBehaviour
             DialogueBox.endAtLine = endLine;
             DialogueBox.EnableTextBox();
 
-            if (destroyWhenActivated)
-            {
-                Destroy(gameObject);
-            }
+            //if (destroyWhenActivated)
+            //{
+            //waitForPress = false;
+            //    Destroy(gameObject);
+            //}
+
+            ObjectDestroyed();
 
             waitForPress = false;
 
-
+            //if(destroyWhenActivated)
+            //{
+            //    waitForPress = false;
+            //}          
         }
+        //else if (DialogueBox.isActive == true && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    waitForPress = true;
+        //}
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.name == "Player")
@@ -52,6 +64,11 @@ public class ActivateAtLine : MonoBehaviour
                 waitForPress = true;
                 return;
             }
+
+            //DialogueBox.Actline = ;
+            //tag = FindObjectOfType(Collider2D);
+            
+            //dialogueTag = 
             
             //DialogueBox.ReloadScript(theText);
             //DialogueBox.currentLine = startLine;
@@ -71,6 +88,25 @@ public class ActivateAtLine : MonoBehaviour
         {
             waitForPress = false;
         }
+    }
+
+    public void ObjectDestroyed()
+    {
+        if(destroyWhenActivated)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
+    public void TruePress()
+    {
+        waitForPress = true;
+    }
+
+    public void FalsePress()
+    {
+        waitForPress = false;
     }
 
     //public void StartText()

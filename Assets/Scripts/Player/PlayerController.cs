@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
+
     }
     
     private Rigidbody2D _theRb;

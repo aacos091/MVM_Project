@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 63562199}
   - component: {fileID: 63562198}
-  - component: {fileID: 63562200}
   - component: {fileID: 63562201}
   m_Layer: 12
   m_Name: BarredEntrance
@@ -183,27 +182,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &63562200
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63562197}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &63562201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +199,7 @@ MonoBehaviour:
   endLine: 7
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
+  waitForPress: 0
   destroyWhenActivated: 0
 --- !u!1 &65025357
 GameObject:
@@ -446,6 +425,7 @@ MonoBehaviour:
   currentLine: 0
   endAtLine: 4
   player: {fileID: 983996911}
+  Actline: {fileID: 0}
   isActive: 0
   stopGame: 1
   typeSpeed: 0.07
@@ -2472,6 +2452,10 @@ PrefabInstance:
     - target: {fileID: 3079219462471195860, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
       propertyPath: m_Name
       value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079219462471195860, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6478039338079052993, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
@@ -5263,6 +5247,7 @@ MonoBehaviour:
   endLine: 2
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
+  waitForPress: 0
   destroyWhenActivated: 1
 --- !u!1 &1980314257
 GameObject:
@@ -5340,6 +5325,7 @@ MonoBehaviour:
   endLine: 10
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
+  waitForPress: 0
   destroyWhenActivated: 0
 --- !u!1 &1994646951
 GameObject:
