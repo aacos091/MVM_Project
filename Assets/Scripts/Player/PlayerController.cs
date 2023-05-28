@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
 
     }
@@ -305,11 +310,11 @@ public class PlayerController : MonoBehaviour
                  _ = Time.unscaledTime;
                  Debug.Log("This is Troy's Shotgun...");
                  // OLD CODE: GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
-                 if (WeaponManager.instance.shotgunFound == false)
-                 {
+            //     if (WeaponManager.instance.shotgunFound == false)
+            //     {
             //         TextBoxManager.instance.EnableTextBox();
-                     WeaponManager.instance.shotgunFound = true;
-                 }
+            //         WeaponManager.instance.shotgunFound = true;
+            //     }
             //     // Probably write something to the ui here
                  //else
                  //{

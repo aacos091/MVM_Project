@@ -14,6 +14,10 @@ public class WeaponManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public enum Weapons

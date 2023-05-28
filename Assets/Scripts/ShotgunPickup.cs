@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class ShotgunPickup : MonoBehaviour
 {
-    public void FoundShotgun()
+    private void OnDestroy()
     {
-        if (WeaponManager.instance.shotgunFound == false)
-        {
-            // DialogueController.instance.getShotgunText();
-            WeaponManager.instance.shotgunFound = true;
-        }
-        // Probably write something to the ui here
-        else
-        {
-            Destroy(gameObject); // Probably do a little fade out animation before this
-        }
-        
+        WeaponManager.instance.shotgunFound = true;
     }
+
 
 }
 

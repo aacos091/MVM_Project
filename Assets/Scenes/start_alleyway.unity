@@ -5249,6 +5249,18 @@ MonoBehaviour:
   requiredButtonPress: 1
   waitForPress: 0
   destroyWhenActivated: 1
+--- !u!114 &1916404417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916404415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c63fe37f7b9fd5429f9950658c6de96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980314257
 GameObject:
   m_ObjectHideFlags: 0
