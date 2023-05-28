@@ -133,9 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63562199}
   - component: {fileID: 63562198}
-  - component: {fileID: 63562200}
   - component: {fileID: 63562201}
-  - component: {fileID: 63562202}
   m_Layer: 12
   m_Name: BarredEntrance
   m_TagString: BarredEntrance
@@ -184,27 +182,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &63562200
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63562197}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &63562201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,21 +191,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 63562197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c88876861844247952a22ba01517b1, type: 3}
+  m_Script: {fileID: 11500000, guid: bb948fe38fc22e346a74e42b21c9c3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &63562202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63562197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b19b7507480818d489e93a1b8c9ebe5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  theText: {fileID: 4900000, guid: 8ca9ae5a94c231a448258ca413cd733f, type: 3}
+  startLine: 5
+  endLine: 7
+  DialogueBox: {fileID: 0}
+  requiredButtonPress: 1
+  waitForPress: 0
+  destroyWhenActivated: 0
 --- !u!1 &65025357
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,9 +425,10 @@ MonoBehaviour:
   currentLine: 0
   endAtLine: 4
   player: {fileID: 983996911}
+  Actline: {fileID: 0}
   isActive: 0
   stopGame: 1
-  typeSpeed: 0.2
+  typeSpeed: 0.07
 --- !u!114 &179390198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1075710455889302994, guid: c54f97b50cf69784682ea872649c2504, type: 3}
@@ -2495,6 +2468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 3079219462471195860, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6478039338079052993, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
@@ -3275,7 +3252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066978272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7344571, y: 0.55937, z: -10}
+  m_LocalPosition: {x: 2.2601738, y: 0.55939, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5281,7 +5258,20 @@ MonoBehaviour:
   endLine: 2
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
+  waitForPress: 0
   destroyWhenActivated: 1
+--- !u!114 &1916404417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916404415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c63fe37f7b9fd5429f9950658c6de96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980314257
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,9 +5340,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1980314257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1769a8572a3d88b4fae39d7ac3800055, type: 3}
+  m_Script: {fileID: 11500000, guid: bb948fe38fc22e346a74e42b21c9c3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theText: {fileID: 4900000, guid: 8ca9ae5a94c231a448258ca413cd733f, type: 3}
+  startLine: 10
+  endLine: 10
+  DialogueBox: {fileID: 0}
+  requiredButtonPress: 1
+  waitForPress: 0
+  destroyWhenActivated: 0
 --- !u!1 &1994646951
 GameObject:
   m_ObjectHideFlags: 0

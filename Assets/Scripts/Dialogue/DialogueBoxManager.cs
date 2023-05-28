@@ -16,6 +16,7 @@ public class DialogueBoxManager : MonoBehaviour
     public int endAtLine;
 
     public PlayerController player;
+    public ActivateAtLine Actline;
 
     public bool isActive;
 
@@ -31,7 +32,8 @@ public class DialogueBoxManager : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        
+        Actline = FindObjectOfType<ActivateAtLine>();
+       
         if (textFile != null)
         {
             textLines = (textFile.text.Split('\n'));
@@ -62,7 +64,7 @@ public class DialogueBoxManager : MonoBehaviour
         
         // dialogueText.text = textLines[currentLine];
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (!isTyping)
             {
@@ -71,6 +73,8 @@ public class DialogueBoxManager : MonoBehaviour
                 if (currentLine > endAtLine)
                 {
                     DisableTextBox();
+                    //Activate.FalsePress();
+                    //Actline.ObjectDestroyed();
                 }
                 else
                 {
@@ -112,13 +116,24 @@ public class DialogueBoxManager : MonoBehaviour
         }
 
         StartCoroutine(TextScroll(textLines[currentLine]));
+        //Actline.FalsePress();
     }
 
     public void DisableTextBox()
     {
-        isActive = false;
-        textBox.SetActive(false);
-        Time.timeScale = 1;
+        if(isActive)
+        {
+            
+            isActive = false;
+            textBox.SetActive(false);
+            Time.timeScale = 1;
+            //Activate.ObjectDestroyed();
+
+            //else if (Activate.destroyWhenActivated == false)
+            //{
+            //    Activate.TruePress();
+            //}
+        }
     }
 
     public void ReloadScript(TextAsset theText)
