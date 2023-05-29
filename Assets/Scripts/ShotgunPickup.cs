@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class ShotgunPickup : MonoBehaviour
 {
-    private void OnDestroy()
+    public void FoundShotgun()
     {
-        WeaponManager.instance.shotgunFound = true;
+        if (WeaponManager.instance.shotgunFound == false)
+        {
+            // DialogueController.instance.getShotgunText();
+            WeaponManager.instance.shotgunFound = true;
+        }
+        // Probably write something to the ui here
+        else
+        {
+            Destroy(gameObject); // Probably do a little fade out animation before this
+        }
+        
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of d07430a (Player Character now persists)
 }
 
