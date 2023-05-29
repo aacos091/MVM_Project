@@ -2400,6 +2400,7 @@ MonoBehaviour:
   m_Damping: 1.59
   m_MaxWindowSize: -1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!114 &839497978
@@ -2414,6 +2415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc60a13b412da6e498108b6e08221aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of d07430a (Player Character now persists)
 =======
 >>>>>>> parent of d07430a (Player Character now persists)
 --- !u!1001 &845905665
@@ -2472,6 +2475,7 @@ PrefabInstance:
       value: Shotgun
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 3079219462471195860, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2480,6 +2484,11 @@ PrefabInstance:
     - {fileID: 6478039338079052993, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
 >>>>>>> Stashed changes
+=======
+    m_RemovedComponents:
+    - {fileID: 6478039338079052993, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}
+>>>>>>> parent of d07430a (Player Character now persists)
 =======
     m_RemovedComponents:
     - {fileID: 6478039338079052993, guid: 4f608278ebd8d3743a20cc09d9e30735, type: 3}

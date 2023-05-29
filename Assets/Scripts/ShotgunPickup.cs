@@ -20,7 +20,10 @@ public class ShotgunPickup : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of d07430a (Player Character now persists)
 =======
 >>>>>>> parent of d07430a (Player Character now persists)
 }
