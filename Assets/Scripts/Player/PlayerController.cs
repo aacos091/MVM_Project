@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
+    // This is to ensure the player persists between levels, so the inventory and abilites remain
     public static PlayerController instance;
 
     private void Awake()
@@ -52,8 +53,6 @@ public class PlayerController : MonoBehaviour
     public bool CanMove;
 
     public HealthManager healthMan;
-    
-    //private bool
 
     private bool _nearBarredEntrance = false;
     private bool _nearRealEntrance = false;
@@ -86,30 +85,12 @@ public class PlayerController : MonoBehaviour
         _playerAnimator.SetBool("IsOnGround", onGround);
 
         stepCoolDown -= Time.deltaTime;
-
-        //TurnWithMouse();
         
-        TurnWithButtons();
-
         if(!CanMove)
         {
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && AbilitiesManager.instance.flashlightFound)
-        {
-            if (!_isFlashlightOn)
-            {
-                flashlight.SetActive(true);
-                _isFlashlightOn = true;
-            }
-            else
-            {
-                flashlight.SetActive(false);
-                _isFlashlightOn = false;
-            }
-        }
-        
         OperateFlashlight();
 
         if (Input.GetMouseButton(1))
@@ -121,38 +102,8 @@ public class PlayerController : MonoBehaviour
             _weaponReady = false;
         }
         
-        if (onGround && !_weaponReady && CanMove)
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                _theRb.velocity = new Vector2(_theRb.velocity.x, jumpForce);
-                _playerAudio.PlayOneShot(jumpSound, 2);
-                _playerAnimator.SetTrigger("Jumped");
-            }
-            
-            if (Input.GetAxis("Horizontal") != 0f)
-            {
-                _playerAnimator.SetBool("IsMoving", true);
-            }
-            else
-            {
-                _playerAnimator.SetBool("IsMoving", false);
-            }
-            
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, _theRb.velocity.y);
-                _playerAnimator.SetBool("IsSprinting", true);
-                PlayFootsteps(sprintStepRate);
-            }
-            else
-            {
-                _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, _theRb.velocity.y);
-                _playerAnimator.SetBool("IsSprinting", false);
-                PlayFootsteps(stepRate);
-            }
-        }
-        
+        PlayerMovement();
+
         Interact();
 
         // Change weapons
@@ -202,8 +153,63 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Moving the player, along with the appropriate animations and sounds
+    void PlayerMovement()
+    {
+        //TurnWithMouse();
+        
+        TurnWithButtons();
+        
+        if (onGround && !_weaponReady && CanMove)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                _theRb.velocity = new Vector2(_theRb.velocity.x, jumpForce);
+                _playerAudio.PlayOneShot(jumpSound, 2);
+                _playerAnimator.SetTrigger("Jumped");
+            }
+            
+            if (Input.GetAxis("Horizontal") != 0f)
+            {
+                _playerAnimator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                _playerAnimator.SetBool("IsMoving", false);
+            }
+            
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * sprintSpeed, _theRb.velocity.y);
+                _playerAnimator.SetBool("IsSprinting", true);
+                PlayFootstepSounds(sprintStepRate);
+            }
+            else
+            {
+                _theRb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, _theRb.velocity.y);
+                _playerAnimator.SetBool("IsSprinting", false);
+                PlayFootstepSounds(stepRate);
+            }
+        }
+    }
+
+    // Operate the flashlight, if the player found one
     void OperateFlashlight()
     {
+        if (Input.GetKeyDown(KeyCode.F) && AbilitiesManager.instance.flashlightFound)
+        {
+            if (!_isFlashlightOn)
+            {
+                flashlight.SetActive(true);
+                _isFlashlightOn = true;
+            }
+            else
+            {
+                flashlight.SetActive(false);
+                _isFlashlightOn = false;
+            }
+        }
+        
         if (_isFlashlightOn)
         {
             if (Input.GetAxis("Vertical") > 0.2f)
@@ -222,7 +228,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PlayFootsteps(float footstepRate)
+    void PlayFootstepSounds(float footstepRate)
     {
         if ((Input.GetAxis("Horizontal") != 0f) && stepCoolDown < 0f)
         {
