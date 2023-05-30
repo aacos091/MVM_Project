@@ -193,14 +193,17 @@ public class PlayerController : MonoBehaviour
     // Use this if you want to aim in pre-defined directions
     void TurnWithButtons()
     {
-        if (Input.GetAxis("Horizontal") < -0.2f)
+        if(CanMove)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (Input.GetAxis("Horizontal") > 0.2f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+            if (Input.GetAxis("Horizontal") < -0.2f)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (Input.GetAxis("Horizontal") > 0.2f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+        }   
     }
 
     void OperateFlashlight()

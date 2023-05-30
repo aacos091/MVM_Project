@@ -17,10 +17,13 @@ public class DialogueBoxManager : MonoBehaviour
 
     public PlayerController player;
     public ActivateAtLine Actline;
+    public CutsceneManager cutscene;
+    //private Animator _playerAnimator;
 
     public bool isActive;
 
     public bool stopGame;
+    public bool stopPlayerMovement;
 
     private bool isTyping = false;
     private bool cancelTyping = false;
@@ -33,7 +36,9 @@ public class DialogueBoxManager : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         Actline = FindObjectOfType<ActivateAtLine>();
-       
+        cutscene = FindObjectOfType<CutsceneManager>();
+        //_playerAnimator = GetComponent<Animator>();
+
         if (textFile != null)
         {
             textLines = (textFile.text.Split('\n'));
@@ -76,7 +81,7 @@ public class DialogueBoxManager : MonoBehaviour
                     //Activate.FalsePress();
                     //Actline.ObjectDestroyed();
                 }
-                else
+                else //if (cutscene.inCutscene == false)
                 {
                     StartCoroutine(TextScroll(textLines[currentLine]));
                 }
@@ -110,10 +115,16 @@ public class DialogueBoxManager : MonoBehaviour
         isActive = true;
         textBox.SetActive(true);
 
-        if (stopGame)
+
+        if (stopPlayerMovement)
         {
-            Time.timeScale = 0;
+            player.CanMove = false;
         }
+
+        //if (stopGame)
+        //{
+        //    Time.timeScale = 0;
+        //}
 
         StartCoroutine(TextScroll(textLines[currentLine]));
         //Actline.FalsePress();
@@ -126,7 +137,15 @@ public class DialogueBoxManager : MonoBehaviour
             
             isActive = false;
             textBox.SetActive(false);
-            Time.timeScale = 1;
+                  
+            //player.CanMove = true;  //Probably need to lock this behind if statement to know if a cutscene is happening
+
+            if (cutscene.inCutscene == false)
+            {
+                player.CanMove = true;
+            }
+            
+            //Time.timeScale = 1;
             //Activate.ObjectDestroyed();
 
             //else if (Activate.destroyWhenActivated == false)
@@ -135,6 +154,18 @@ public class DialogueBoxManager : MonoBehaviour
             //}
         }
     }
+
+    //public void ScriptEnabled()
+    //{
+    //    if (enabled == true)
+    //    {
+    //        enabled = false;
+    //    }
+    //    else
+    //    {
+    //        enabled = true;
+    //    }
+    //}
 
     public void ReloadScript(TextAsset theText)
     {
