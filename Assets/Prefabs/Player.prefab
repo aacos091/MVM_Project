@@ -701,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1021303266
 Transform:
   m_ObjectHideFlags: 0
@@ -2461,11 +2461,11 @@ MonoBehaviour:
   moveSpeed: 1.4
   sprintSpeed: 3
   jumpForce: 3.6
+  canUseWeapons: 1
   groundPoint: {fileID: 6672806037779707028}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  LightSelectEvents: {fileID: 11400000, guid: be550621a8cac471186f40d35479ee58, type: 2}
   flashlight: {fileID: 1021303265}
   flashlightAnimator: {fileID: 462855217}
   stepRate: 0.7
@@ -2475,10 +2475,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4ce3369ee5a13d42aee7b96de88d893, type: 3}
   - {fileID: 8300000, guid: ae9abd00b209f9f4aabaa8759bd0c32b, type: 3}
   jumpSound: {fileID: 8300000, guid: 7b58cd803f08b164fa9d0edd7c8841b2, type: 3}
-  damagedSound: {fileID: 8300000, guid: eb431724669062144b21128e52a4c652, type: 3}
-  deathSound: {fileID: 8300000, guid: 8f010e659bb65f0438b3671b6e6cfe20, type: 3}
   CanMove: 0
-  healthMan: {fileID: 0}
 --- !u!114 &6672806038243068799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,6 +2489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
+  damagedSound: {fileID: 8300000, guid: eb431724669062144b21128e52a4c652, type: 3}
+  deathSound: {fileID: 8300000, guid: 8f010e659bb65f0438b3671b6e6cfe20, type: 3}
 --- !u!114 &6672806038243068798
 MonoBehaviour:
   m_ObjectHideFlags: 0

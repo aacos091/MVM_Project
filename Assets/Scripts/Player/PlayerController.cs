@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
 
     private bool _weaponReady;
+    public bool canUseWeapons = true;
 
     public Transform groundPoint;
     private bool onGround;
@@ -48,11 +49,9 @@ public class PlayerController : MonoBehaviour
     public float stepCoolDown;
     public AudioClip[] footstepSounds;
 
-    public AudioClip jumpSound, damagedSound, deathSound;
+    public AudioClip jumpSound;
 
     public bool CanMove;
-
-    public HealthManager healthMan;
 
     private bool _nearBarredEntrance = false;
     private bool _nearRealEntrance = false;
@@ -71,15 +70,12 @@ public class PlayerController : MonoBehaviour
         _weaponMan = GetComponentInChildren<WeaponManager>();
         _playerAnimator = GetComponent<Animator>();
         _playerAudio = GetComponent<AudioSource>();
-        healthMan = GetComponent<HealthManager>();
         CanMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UIController.instance.PlayerHealth(healthMan.playerHealth);
-        
         onGround = Physics2D.OverlapCircle(groundPoint.position, .1f, whatIsGround);
         
         _playerAnimator.SetBool("IsOnGround", onGround);
@@ -93,36 +89,11 @@ public class PlayerController : MonoBehaviour
 
         OperateFlashlight();
 
-        if (Input.GetMouseButton(1))
-        {
-            _weaponReady = true;
-        }
-        else
-        {
-            _weaponReady = false;
-        }
-        
         PlayerMovement();
+        
+        PlayerWeapons();
 
         Interact();
-
-        // Change weapons
-        // if (Input.GetKeyDown(KeyCode.Alpha1))
-        // {
-        //     _weaponMan.ChangeWeapon(WeaponManager.Weapons.Melee);
-        // }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Pistol);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Uzi);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Shotgun);
-        }
     }
 
     // Use this if you're planning to aim with the mouse and/or thumbstick
@@ -253,12 +224,6 @@ public class PlayerController : MonoBehaviour
             _nearRealEntrance = true;
         }
 
-        if (col.CompareTag("EnemyHitbox"))
-        {
-            Debug.Log("Player was hit");
-            PlayerDamage(col.GetComponent<HitboxAttack>()._attackPower);
-        }
-
         if (col.CompareTag("Shotgun"))
         {
             Debug.Log("near Shotgun");
@@ -293,9 +258,9 @@ public class PlayerController : MonoBehaviour
         {
             if (_nearBarredEntrance)
             {
-                _ = Time.unscaledTime;
-                Debug.Log("Door's busted. Can't get in.");
-                DialogueController.instance.StartDialogue();
+                //_ = Time.unscaledTime;
+                //Debug.Log("Door's busted. Can't get in.");
+                //DialogueController.instance.StartDialogue();
                 //OLD CODE: GameObject.FindWithTag("BarredEntrance").GetComponent<BarredEntranceInteract>().EnterBarredEntrance();
                 //DialogueController.instance.dialogue.text = "The door is busted. No way I can get in there.";
                 //StartCoroutine(DialogueController.instance.DisplayStrings(new string[]{"This door is busted.", "I can't get in."}));
@@ -306,7 +271,7 @@ public class PlayerController : MonoBehaviour
                 _ = Time.unscaledTime;
                 Debug.Log("Looks like the basement window can be broken."); // Fade out from this scene and than go into the maintenance area, maybe do that from the game manager (another singleton)?
                 //OLD CODE: GameObject.FindWithTag("RealEntrance").GetComponent<RealEntranceInteract>().EnterRealEntrance();
-                DialogueController.instance.StartDialogue();
+                //DialogueController.instance.StartDialogue();
                 StartCoroutine(GameManager.instance.NewScene(3));
             }
 
@@ -331,21 +296,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void PlayerDamage(float amountOfDamage)
+    void PlayerWeapons()
     {
-        healthMan.playerHealth -= amountOfDamage;
-        
-        _playerAudio.PlayOneShot(damagedSound, 10);
-
-        if (healthMan.playerHealth <= 0)
+        if (Input.GetMouseButton(1) && canUseWeapons)
         {
-            PlayerDeath();
+            _weaponReady = true;
+        }
+        else
+        {
+            _weaponReady = false;
+        }
+        
+        // Change weapons
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     _weaponMan.ChangeWeapon(WeaponManager.Weapons.Melee);
+        // }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Pistol);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Uzi);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _weaponMan.ChangeWeapon(WeaponManager.Weapons.Shotgun);
         }
     }
-
-    void PlayerDeath()
-    {
-        _playerAudio.PlayOneShot(deathSound);
-    }
-    
 }
