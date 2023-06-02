@@ -448,7 +448,7 @@ MonoBehaviour:
   player: {fileID: 983996911}
   isActive: 0
   stopGame: 1
-  typeSpeed: 0.2
+  typeSpeed: 0.1
 --- !u!114 &179390198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1075710455889302994, guid: c54f97b50cf69784682ea872649c2504, type: 3}
