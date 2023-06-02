@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunPickup : MonoBehaviour
+public class ShotgunPickup : MonoBehaviour, IInteractable
 {
-    private void OnDestroy()
+    public void Interact()
     {
+
         WeaponManager.instance.shotgunFound = true;
+        
+        
     }
 }
 

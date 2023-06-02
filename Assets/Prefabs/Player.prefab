@@ -2330,6 +2330,7 @@ GameObject:
   - component: {fileID: 6672806038243068785}
   - component: {fileID: 6672806038243068799}
   - component: {fileID: 6672806038243068798}
+  - component: {fileID: 4984641922066847188}
   - component: {fileID: 2120087963}
   - component: {fileID: 2120087970}
   m_Layer: 7
@@ -2508,6 +2509,18 @@ MonoBehaviour:
   uvLightFound: 0
   grapplingHookFound: 0
   runningShoesFound: 0
+--- !u!114 &4984641922066847188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672806038243068784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d64776f877f6f4ab32408264a5cb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2120087963
 Animator:
   serializedVersion: 5

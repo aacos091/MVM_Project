@@ -92,8 +92,6 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         
         PlayerWeapons();
-
-        Interact();
     }
 
     // Use this if you're planning to aim with the mouse and/or thumbstick
@@ -206,93 +204,6 @@ public class PlayerController : MonoBehaviour
             _playerAudio.pitch = 1f + Random.Range(-0.2f, 0.2f);
             _playerAudio.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length - 1)]);
             stepCoolDown = footstepRate;
-        }
-    }
-
-    // This is the most garbage way to do it, but it'll work for now
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("BarredEntrance"))
-        {
-            Debug.Log("near entrance");
-            _nearBarredEntrance = true;
-        }
-
-        if (col.CompareTag("RealEntrance"))
-        {
-            Debug.Log("near the real entrance");
-            _nearRealEntrance = true;
-        }
-
-        if (col.CompareTag("Shotgun"))
-        {
-            Debug.Log("near Shotgun");
-            _nearShotgun = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("BarredEntrance"))
-        {
-            Debug.Log("left entrance");
-            _nearBarredEntrance = false;
-        }
-
-        if (other.CompareTag("RealEntrance"))
-        {
-            Debug.Log("left the real entrance");
-            _nearRealEntrance = false;
-        }
-
-        if (other.CompareTag("Shotgun"))
-        {
-            Debug.Log("left shotgun");
-            _nearShotgun = false;
-        }
-    }
-
-    private void Interact()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (_nearBarredEntrance)
-            {
-                //_ = Time.unscaledTime;
-                //Debug.Log("Door's busted. Can't get in.");
-                //DialogueController.instance.StartDialogue();
-                //OLD CODE: GameObject.FindWithTag("BarredEntrance").GetComponent<BarredEntranceInteract>().EnterBarredEntrance();
-                //DialogueController.instance.dialogue.text = "The door is busted. No way I can get in there.";
-                //StartCoroutine(DialogueController.instance.DisplayStrings(new string[]{"This door is busted.", "I can't get in."}));
-            }
-
-            if (_nearRealEntrance)
-            {
-                _ = Time.unscaledTime;
-                Debug.Log("Looks like the basement window can be broken."); // Fade out from this scene and than go into the maintenance area, maybe do that from the game manager (another singleton)?
-                //OLD CODE: GameObject.FindWithTag("RealEntrance").GetComponent<RealEntranceInteract>().EnterRealEntrance();
-                //DialogueController.instance.StartDialogue();
-                StartCoroutine(GameManager.instance.NewScene(3));
-            }
-
-            // if (_nearShotgun)
-            // {
-            //     _ = Time.unscaledTime;
-            //     Debug.Log("This is Troy's Shotgun...");
-            //     // OLD CODE: GameObject.FindWithTag("Shotgun").GetComponent<ShotgunPickup>().FoundShotgun();
-            //     if (WeaponManager.instance.shotgunFound == false)
-            //     {
-            //         TextBoxManager.instance.EnableTextBox();
-            //         WeaponManager.instance.shotgunFound = true;
-            //     }
-            //     // Probably write something to the ui here
-            //     else
-            //     {
-            //         GameObject.FindWithTag("Shotgun").SetActive(false);
-            //         // GameObject.FindWithTag("Shotgun").IsDestroyed();
-            //        // Destroy(gameObject); // Probably do a little fade out animation before this
-            //     }
-            // }
         }
     }
 

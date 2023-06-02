@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theText: {fileID: 4900000, guid: 8ca9ae5a94c231a448258ca413cd733f, type: 3}
   startLine: 5
-  endLine: 8
+  endLine: 7
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
   destroyWhenActivated: 0
