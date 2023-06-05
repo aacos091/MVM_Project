@@ -8,7 +8,7 @@ public class ShotgunPickup : MonoBehaviour, IInteractable
     public void Interact()
     {
 
-        WeaponManager.instance.shotgunFound = true;
+        WeaponManager.instance.WeaponFound(WeaponManager.Weapons.Shotgun);
         
         
     }

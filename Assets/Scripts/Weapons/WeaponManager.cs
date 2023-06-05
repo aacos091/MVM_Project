@@ -36,7 +36,7 @@ public class WeaponManager : MonoBehaviour
     public UziController uziCon;
     public ShotgunController shotgunCon;
     
-    public bool uziFound, shotgunFound = false;
+    private bool meleeFound, pistolFound, uziFound, shotgunFound = false;
 
     private void Start()
     {
@@ -110,6 +110,29 @@ public class WeaponManager : MonoBehaviour
             default:
                 Debug.Log("Invalid Selection");
                 break;
+        }
+    }
+
+    public void WeaponFound(Weapons foundWeapon)
+    {
+        switch (foundWeapon)
+        {
+            case Weapons.Melee:
+                meleeFound = true;
+                break;
+            case Weapons.Pistol:
+                pistolFound = true;
+                break;
+            case Weapons.Shotgun:
+                shotgunFound = true;
+                break;
+            case Weapons.Uzi:
+                uziFound = true;
+                break;
+            default:
+                Console.WriteLine("Invalid Selection");
+                break;
+                
         }
     }
 }
