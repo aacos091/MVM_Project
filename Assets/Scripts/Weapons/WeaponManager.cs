@@ -115,6 +115,11 @@ public class WeaponManager : MonoBehaviour
 
     public void WeaponFound(Weapons foundWeapon)
     {
+        //Console.WriteLine(Weapons.Melee.ToString("melee"));
+        //Console.WriteLine(Weapons.Pistol.ToString("pistol"));
+        //Console.WriteLine(Weapons.Shotgun.ToString("shotgun"));
+        //Console.WriteLine(Weapons.Uzi.ToString("uzi"));
+
         switch (foundWeapon)
         {
             case Weapons.Melee:
