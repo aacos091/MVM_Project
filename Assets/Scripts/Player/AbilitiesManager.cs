@@ -21,4 +21,13 @@ public class AbilitiesManager : MonoBehaviour
     public bool uvLightFound;
     public bool grapplingHookFound;
     public bool runningShoesFound;
+
+    public enum Abilities
+    {
+        Armor;
+        Flashlight;
+        UVLight;
+        GrapplingHook;
+        RunningShoes;
+    }
 }

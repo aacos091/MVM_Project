@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 63562198}
   - component: {fileID: 63562200}
   - component: {fileID: 63562201}
+  - component: {fileID: 63562202}
   m_Layer: 12
   m_Name: BarredEntrance
   m_TagString: BarredEntrance
@@ -222,6 +223,22 @@ MonoBehaviour:
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
   destroyWhenActivated: 0
+--- !u!114 &63562202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63562197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1013609229a5f24d912ab69836791a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumber: 0
+  isLocked: 1
+  openSound: {fileID: 0}
+  lockedSound: {fileID: 0}
 --- !u!1 &65025357
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +465,8 @@ MonoBehaviour:
   player: {fileID: 983996911}
   isActive: 0
   stopGame: 1
-  typeSpeed: 0.1
+  stopPlayerMovement: 0
+  typeSpeed: 0.07
 --- !u!114 &179390198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1075710455889302994, guid: c54f97b50cf69784682ea872649c2504, type: 3}
@@ -2893,7 +2911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066978272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7344571, y: 0.55937, z: -10}
+  m_LocalPosition: {x: 2.2601738, y: 0.55939, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4724,6 +4742,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1980314259}
   - component: {fileID: 1980314258}
+  - component: {fileID: 1980314261}
+  - component: {fileID: 1980314260}
   m_Layer: 12
   m_Name: RealEntrance
   m_TagString: RealEntrance
@@ -4772,6 +4792,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980314260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980314257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb948fe38fc22e346a74e42b21c9c3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theText: {fileID: 4900000, guid: 8ca9ae5a94c231a448258ca413cd733f, type: 3}
+  startLine: 10
+  endLine: 10
+  DialogueBox: {fileID: 0}
+  requiredButtonPress: 1
+  destroyWhenActivated: 0
+--- !u!114 &1980314261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980314257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1013609229a5f24d912ab69836791a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumber: 3
+  isLocked: 0
+  openSound: {fileID: 0}
+  lockedSound: {fileID: 0}
 --- !u!1 &1994646951
 GameObject:
   m_ObjectHideFlags: 0

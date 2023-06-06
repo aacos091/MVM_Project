@@ -20,6 +20,7 @@ public class DialogueBoxManager : MonoBehaviour
     public bool isActive;
 
     public bool stopGame;
+    public bool stopPlayerMovement;
 
     private bool isTyping = false;
     private bool cancelTyping = false;
@@ -62,7 +63,7 @@ public class DialogueBoxManager : MonoBehaviour
         
         // dialogueText.text = textLines[currentLine];
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (!isTyping)
             {
@@ -110,6 +111,11 @@ public class DialogueBoxManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+
+        //if (stopPlayerMovement)
+        //{
+        //    player.CanMove = false;
+        //}
 
         StartCoroutine(TextScroll(textLines[currentLine]));
     }

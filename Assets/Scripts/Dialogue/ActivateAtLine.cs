@@ -36,6 +36,8 @@ public class ActivateAtLine : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+            waitForPress = false;
         }
     }
     
@@ -48,16 +50,6 @@ public class ActivateAtLine : MonoBehaviour
                 waitForPress = true;
                 return;
             }
-            
-            DialogueBox.ReloadScript(theText);
-            DialogueBox.currentLine = startLine;
-            DialogueBox.endAtLine = endLine;
-            DialogueBox.EnableTextBox();
-
-            if(destroyWhenActivated)
-            {
-                Destroy(gameObject);
-            }
         }
     }
     
@@ -69,12 +61,12 @@ public class ActivateAtLine : MonoBehaviour
         }
     }
 
-    public void StartText()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            waitForPress = true;
-            return;
-        }
-    }
+    //public void StartText()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        waitForPress = true;
+    //        return;
+    //    }
+    //}
 }
