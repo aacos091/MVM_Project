@@ -412,61 +412,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6672806038243068796, guid: c5bcfe269be387a43818924d4215356b, type: 3}
   m_PrefabInstance: {fileID: 6672806038211896308}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &145416193
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 145416195}
-  - component: {fileID: 145416196}
-  m_Layer: 0
-  m_Name: TextBoxManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &145416195
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145416193}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1075710456062399269}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &145416196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145416193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d522e609768ab64d84cb9be4deedd21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 267397310}
-  dialogueText: {fileID: 1428102471}
-  textFile: {fileID: 4900000, guid: 8ca9ae5a94c231a448258ca413cd733f, type: 3}
-  textLines: []
-  currentLine: 0
-  endAtLine: 4
-  player: {fileID: 983996911}
-  isActive: 0
-  stopGame: 1
-  stopPlayerMovement: 0
-  typeSpeed: 0.07
 --- !u!114 &179390198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1075710455889302994, guid: c54f97b50cf69784682ea872649c2504, type: 3}
@@ -5320,8 +5265,8 @@ GameObject:
   - component: {fileID: 3079219462176236496}
   - component: {fileID: 3079219462176236503}
   - component: {fileID: 3079219462176236502}
-  - component: {fileID: 3079219462176236504}
   - component: {fileID: 1916404416}
+  - component: {fileID: 3079219462176236504}
   m_Layer: 0
   m_Name: ShotgunPickup
   m_TagString: Shotgun
@@ -5416,9 +5361,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 3079219462176236501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c63fe37f7b9fd5429f9950658c6de96, type: 3}
+  m_Script: {fileID: 11500000, guid: 84a18d665bd21224880b1cc96b8670e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3844216414900681041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1075710456062399269}
+    m_Modifications:
+    - target: {fileID: 3844216414756641104, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_Name
+      value: TextBoxManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641106, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844216414756641109, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 983996911}
+    - target: {fileID: 3844216414756641109, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 267397310}
+    - target: {fileID: 3844216414756641109, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1428102471}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 334b5d1655f64fb40a08d833102a9ec4, type: 3}
 --- !u!1001 &6672806038211896308
 PrefabInstance:
   m_ObjectHideFlags: 0
