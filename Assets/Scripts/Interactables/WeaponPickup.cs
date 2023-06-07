@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour, IInteractable
 {
-    public string weapPickup;
+    public WeaponManager.Weapons weaponToPickup;
 
     public void Interact()
     {
-        WeaponManager.instance.WeaponFound(WeaponManager.Weapons.Shotgun);
+        WeaponManager.instance.WeaponFound(weaponToPickup);
     }
 
 

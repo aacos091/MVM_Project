@@ -115,10 +115,6 @@ public class WeaponManager : MonoBehaviour
 
     public void WeaponFound(Weapons foundWeapon)
     {
-        //Console.WriteLine(Weapons.Melee.ToString("melee"));
-        //Console.WriteLine(Weapons.Pistol.ToString("pistol"));
-        //Console.WriteLine(Weapons.Shotgun.ToString("shotgun"));
-        //Console.WriteLine(Weapons.Uzi.ToString("uzi"));
 
         switch (foundWeapon)
         {
@@ -128,11 +124,11 @@ public class WeaponManager : MonoBehaviour
             case Weapons.Pistol:
                 pistolFound = true;
                 break;
-            case Weapons.Shotgun:
-                shotgunFound = true;
-                break;
             case Weapons.Uzi:
                 uziFound = true;
+                break;
+            case Weapons.Shotgun:
+                shotgunFound = true;
                 break;
             default:
                 Console.WriteLine("Invalid Selection");
