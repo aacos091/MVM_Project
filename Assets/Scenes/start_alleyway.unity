@@ -4671,9 +4671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb948fe38fc22e346a74e42b21c9c3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theText: {fileID: 4900000, guid: 8ca9ae5a94c231a448258ca413cd733f, type: 3}
-  startLine: 1
-  endLine: 2
+  theText: {fileID: 4900000, guid: a2875f0c84d320f49bd9bfe5ae7ca3a0, type: 3}
+  startLine: 17
+  endLine: 21
   DialogueBox: {fileID: 0}
   requiredButtonPress: 1
   destroyWhenActivated: 1
